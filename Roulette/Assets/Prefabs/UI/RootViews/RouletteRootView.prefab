@@ -253,6 +253,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 367b8672f83805e4c88a504e4d769cc1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  chipData:
+    nominal: 100
+    sprite: {fileID: 21300000, guid: 277e6e01db0ad7a48ab31558cb3c03dc, type: 3}
+    parent: {fileID: 4142517827522017184}
 --- !u!1 &674503029964382851
 GameObject:
   m_ObjectHideFlags: 0
@@ -745,6 +749,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 367b8672f83805e4c88a504e4d769cc1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  chipData:
+    nominal: 10
+    sprite: {fileID: 21300000, guid: 18cb198765e4d134c9bc7e82ab6e10cf, type: 3}
+    parent: {fileID: 804205953704775493}
 --- !u!1 &2125440816296479728
 GameObject:
   m_ObjectHideFlags: 0
@@ -1012,6 +1020,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 367b8672f83805e4c88a504e4d769cc1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  chipData:
+    nominal: 5000
+    sprite: {fileID: 21300000, guid: 957dc6eae9eca224889c843b47bd1f4d, type: 3}
+    parent: {fileID: 3072256303731527234}
 --- !u!1 &2794703121002719114
 GameObject:
   m_ObjectHideFlags: 0
@@ -1291,6 +1303,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 367b8672f83805e4c88a504e4d769cc1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  chipData:
+    nominal: 50
+    sprite: {fileID: 21300000, guid: 334d7bdd3e1646245a8cc2d188e96ff4, type: 3}
+    parent: {fileID: 6654301890727282469}
 --- !u!1 &3140778557830440310
 GameObject:
   m_ObjectHideFlags: 0
@@ -1483,6 +1499,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 367b8672f83805e4c88a504e4d769cc1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  chipData:
+    nominal: 1
+    sprite: {fileID: 21300000, guid: 4640db2b0b8b4f94aa28d7db51eda50b, type: 3}
+    parent: {fileID: 5353267778205135271}
 --- !u!1 &3412203897600885087
 GameObject:
   m_ObjectHideFlags: 0
@@ -1854,6 +1874,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 367b8672f83805e4c88a504e4d769cc1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  chipData:
+    nominal: 5
+    sprite: {fileID: 21300000, guid: b53dd27784d9e52409cfbde05700e76c, type: 3}
+    parent: {fileID: 7473923807020536788}
 --- !u!1 &3838115896222253451
 GameObject:
   m_ObjectHideFlags: 0
@@ -1955,6 +1979,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 367b8672f83805e4c88a504e4d769cc1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  chipData:
+    nominal: 500
+    sprite: {fileID: 21300000, guid: 8f49b4a84f75fe44ebc27e68b67ea344, type: 3}
+    parent: {fileID: 7416698835224232548}
 --- !u!1 &3892283597367516381
 GameObject:
   m_ObjectHideFlags: 0
@@ -2215,6 +2243,7 @@ GameObject:
   - component: {fileID: 5783263791296733111}
   - component: {fileID: 2512506554803012950}
   - component: {fileID: 569984309530502151}
+  - component: {fileID: 9155816203111192183}
   m_Layer: 5
   m_Name: RouletteRootView
   m_TagString: Untagged
@@ -2405,6 +2434,24 @@ MonoBehaviour:
   - {fileID: 177762553131035836}
   - {fileID: 3472830395346480226}
   currentPseudoChip: {fileID: 0}
+--- !u!114 &9155816203111192183
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4478252255688133290}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b506d0db34f0ccd40b21c4c7e6e206b3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  canvas: {fileID: 1902830128831777622}
+  parentSpawn: {fileID: 3489779010368661377}
+  chipPrefab: {fileID: -7364844814733624687, guid: 80884a9c27f415343ab542a5141415ff, type: 3}
+  chips: []
+  recallAllBets: {fileID: 4164208924456723908}
+  retractLastBet: {fileID: 6118517531378975313}
 --- !u!1 &4622033836632611513
 GameObject:
   m_ObjectHideFlags: 0
@@ -3803,6 +3850,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 367b8672f83805e4c88a504e4d769cc1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  chipData:
+    nominal: 25
+    sprite: {fileID: 21300000, guid: f8b190d750bad2f45890aa6cbc96516f, type: 3}
+    parent: {fileID: 2795078613608514494}
 --- !u!1 &7855938711881981320
 GameObject:
   m_ObjectHideFlags: 0
@@ -4236,3 +4287,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 367b8672f83805e4c88a504e4d769cc1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  chipData:
+    nominal: 1000
+    sprite: {fileID: 21300000, guid: 991da22c8df247148bc75bcf63d45ac9, type: 3}
+    parent: {fileID: 7488304088966370831}

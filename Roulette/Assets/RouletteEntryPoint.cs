@@ -49,35 +49,23 @@ public class RouletteEntryPoint : MonoBehaviour
         sceneRoot.Initialize();
 
 
-        ActivateTransitionsSceneEvents();
         ActivateEvents();
 
         sceneRoot.Activate();
     }
 
-    private void ActivateTransitionsSceneEvents()
-    {
-
-    }
-
-    private void DeactivateTransitionsSceneEvents()
-    {
-
-    }
-
     private void ActivateEvents()
     {
-
+        pseudoChipPresenter.OnSpawnChip += chipPresenter.SpawnChip;
     }
 
     private void DeactivateEvents()
     {
-
+        pseudoChipPresenter.OnSpawnChip -= chipPresenter.SpawnChip;
     }
 
     private void Dispose()
     {
-        DeactivateTransitionsSceneEvents();
         DeactivateEvents();
         sceneRoot?.Deactivate();
 

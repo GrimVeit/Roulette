@@ -5,11 +5,14 @@ using UnityEngine.EventSystems;
 
 public class PseudoChip : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler
 {
-    public event Action<PseudoChip> OnGrabbing;
+    public ChipData ChipData => chipData;
 
+    public event Action<PseudoChip> OnGrabbing;
     public event Action OnStartMove;
-    public event Action<PointerEventData> OnEndMove;
+    public event Action<Vector2> OnEndMove;
     public event Action<Vector2> OnMove;
+
+    [SerializeField] private ChipData chipData;
 
     private RectTransform rectTransform;
     private CanvasGroup canvasGroup;
@@ -29,9 +32,11 @@ public class PseudoChip : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDr
 
     #region Methods
 
-    public void Teleport(Vector3 vector)
+    public void Teleport()
     {
-        rectTransform.localPosition = vector;
+        canvasGroup.blocksRaycasts = true;
+
+        rectTransform.localPosition = Vector2.zero;
     }
 
     public void StartMove()
@@ -45,6 +50,8 @@ public class PseudoChip : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDr
     public void EndMove()
     {
         canvasGroup.blocksRaycasts = true;
+
+        rectTransform.DOLocalMove(Vector2.zero, 0.1f);
     }
 
 
@@ -70,7 +77,7 @@ public class PseudoChip : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDr
 
     public void OnEndDrag(PointerEventData eventData)
     {
-        OnEndMove?.Invoke(eventData);
+        OnEndMove?.Invoke(transform.localPosition);
     }
 
     #endregion

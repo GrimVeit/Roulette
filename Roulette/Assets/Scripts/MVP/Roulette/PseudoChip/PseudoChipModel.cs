@@ -1,12 +1,10 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
 public class PseudoChipModel
 {
-    public event Action<PointerEventData> OnSpawnChip;
+    public event Action<ChipData, Vector2> OnSpawnChip;
 
     public event Action OnStartMove;
     public event Action<Vector2> OnMove;
@@ -34,13 +32,15 @@ public class PseudoChipModel
         OnMove?.Invoke(vector);
     }
 
-    public void EndMove(PointerEventData pointerEventData)
+    public void EndMove(Vector2 vector, ChipData chipData)
     {
         if (!isActive) return;
 
-        OnSpawnChip?.Invoke(pointerEventData);
+        OnSpawnChip?.Invoke(chipData, vector);
 
-        OnEndMove?.Invoke();
+        //OnEndMove?.Invoke();
+
+        Teleport();
     }
 
     public void Teleport()

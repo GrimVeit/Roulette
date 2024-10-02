@@ -36,6 +36,7 @@ public class PseudoChipPresenter
         pseudoChipModel.OnStartMove += pseudoChipView.StartMove;
         pseudoChipModel.OnMove += pseudoChipView.Move;
         pseudoChipModel.OnEndMove += pseudoChipView.EndMove;
+        pseudoChipModel.OnTeleporting += pseudoChipView.Teleport;
     }
 
     private void DeactivateEvents()
@@ -47,11 +48,12 @@ public class PseudoChipPresenter
         pseudoChipModel.OnStartMove -= pseudoChipView.StartMove;
         pseudoChipModel.OnMove -= pseudoChipView.Move;
         pseudoChipModel.OnEndMove -= pseudoChipView.EndMove;
+        pseudoChipModel.OnTeleporting -= pseudoChipView.Teleport;
     }
 
     #region Input
 
-    public event Action<PointerEventData> OnSpawnChip
+    public event Action<ChipData, Vector2> OnSpawnChip
     {
         add { pseudoChipModel.OnSpawnChip += value; }
         remove { pseudoChipModel.OnSpawnChip -= value; }

@@ -15,7 +15,7 @@ public class PseudoChipView : View
     {
         for (int i = 0; i < pseudoChips.Count; i++)
         {
-            pseudoChips[i].OnGrabbing += SetCurrentChip;
+            pseudoChips[i].OnGrabbing += SetCurrentChip; 
         }
     }
 
@@ -42,6 +42,11 @@ public class PseudoChipView : View
         currentPseudoChip.OnEndMove += OnEndMove;
 
         currentPseudoChip.Initialize();
+    }
+
+    public void Teleport()
+    {
+        currentPseudoChip.Teleport();
     }
 
     public void StartMove()
@@ -71,16 +76,16 @@ public class PseudoChipView : View
         OnStartMove_Action?.Invoke();
     }
 
-    private void OnEndMove(PointerEventData pointerEventData)
+    private void OnEndMove(Vector2 vector)
     {
-        OnEndMove_Action?.Invoke(pointerEventData);
+        OnEndMove_Action?.Invoke(vector, currentPseudoChip.ChipData);
     }
 
     public event Action<Vector2> OnMove_Action;
 
     public event Action OnStartMove_Action;
 
-    public event Action<PointerEventData> OnEndMove_Action;
+    public event Action<Vector2, ChipData> OnEndMove_Action;
 
     #endregion
 }
