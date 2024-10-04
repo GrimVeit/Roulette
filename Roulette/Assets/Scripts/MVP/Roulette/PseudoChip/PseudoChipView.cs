@@ -76,16 +76,16 @@ public class PseudoChipView : View
         OnStartMove_Action?.Invoke();
     }
 
-    private void OnEndMove(Vector2 vector)
+    private void OnEndMove(Transform transform)
     {
-        OnEndMove_Action?.Invoke(vector, currentPseudoChip.ChipData);
+        OnEndMove_Action?.Invoke(transform, currentPseudoChip.ChipData);
     }
 
     public event Action<Vector2> OnMove_Action;
 
     public event Action OnStartMove_Action;
 
-    public event Action<Vector2, ChipData> OnEndMove_Action;
+    public event Action<Transform, ChipData> OnEndMove_Action;
 
     #endregion
 }

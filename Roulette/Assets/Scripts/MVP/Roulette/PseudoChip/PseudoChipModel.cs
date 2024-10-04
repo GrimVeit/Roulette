@@ -32,11 +32,23 @@ public class PseudoChipModel
         OnMove?.Invoke(vector);
     }
 
-    public void EndMove(Vector2 vector, ChipData chipData)
+    public void EndMove(Transform transform, ChipData chipData)
     {
         if (!isActive) return;
 
-        OnSpawnChip?.Invoke(chipData, vector);
+        Collider2D collider = Physics2D.OverlapPoint(transform.position);
+
+        if(collider != null)
+        {
+            Debug.Log(collider.gameObject.name);
+
+            if(collider.gameObject.TryGetComponent(out ICell cell))
+            {
+                cell.ChooseBet(chipData.Nominal);
+            }
+        }
+
+        OnSpawnChip?.Invoke(chipData, transform.localPosition);
 
         //OnEndMove?.Invoke();
 

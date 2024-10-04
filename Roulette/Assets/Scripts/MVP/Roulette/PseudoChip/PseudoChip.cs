@@ -9,7 +9,7 @@ public class PseudoChip : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDr
 
     public event Action<PseudoChip> OnGrabbing;
     public event Action OnStartMove;
-    public event Action<Vector2> OnEndMove;
+    public event Action<Transform> OnEndMove;
     public event Action<Vector2> OnMove;
 
     [SerializeField] private ChipData chipData;
@@ -77,7 +77,7 @@ public class PseudoChip : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDr
 
     public void OnEndDrag(PointerEventData eventData)
     {
-        OnEndMove?.Invoke(transform.localPosition);
+        OnEndMove?.Invoke(transform);
     }
 
     #endregion

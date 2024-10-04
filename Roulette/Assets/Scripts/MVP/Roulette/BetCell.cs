@@ -10,7 +10,14 @@ public class BetCell : MonoBehaviour, ICell
 
     public void ChooseBet(int bet)
     {
-        OnChooseCell?.Invoke(this);
+        //OnChooseCell?.Invoke(this);
+
+        Debug.Log("Выбрана ставка с такими данными");
+
+        for (int i = 0; i < this.bet.Numbers.Count; i++)
+        {
+            Debug.Log(this.bet.Numbers[i]);
+        }
     }
 
     public void ResetBet()
