@@ -1,9 +1,16 @@
+using System.Collections.Generic;
 using UnityEngine;
 
-public class Bet : MonoBehaviour
+[System.Serializable]
+public class Bet
 {
     [SerializeField] private BetType type;
-    //[SerializeField] private 
+    [SerializeField] private List<int> numbers = new List<int>();
+    [SerializeField] private int multiplyPayout;
+
+    public BetType Type => type;
+    public List<int> Numbers => numbers;
+    public int MultiplyPayout => multiplyPayout;
 }
 
 public enum BetType
@@ -13,7 +20,12 @@ public enum BetType
     Odd,
     Red,
     Black,
-    First12,
-    Second12,
-    Third12
+    FirstColumn,
+    SecondColumn,
+    ThirdColumn,
+    FirstRow,
+    SecondRow,
+    ThirdRow,
+    FirstHalf,
+    SecondHalf
 }

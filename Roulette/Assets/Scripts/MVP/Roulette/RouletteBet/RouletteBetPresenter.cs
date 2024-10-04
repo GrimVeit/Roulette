@@ -2,17 +2,38 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class RouletteBetPresenter : MonoBehaviour
+public class RouletteBetPresenter
 {
-    // Start is called before the first frame update
-    void Start()
+    private RouletteBetModel rouletteBetModel;
+    private RouletteBetView rouletteBetView;
+
+    public RouletteBetPresenter(RouletteBetModel rouletteBetModel, RouletteBetView rouletteBetView)
     {
-        
+        this.rouletteBetModel = rouletteBetModel;
+        this.rouletteBetView = rouletteBetView;
     }
 
-    // Update is called once per frame
-    void Update()
+    public void Initialize()
     {
-        
+        ActivateEvents();
+
+        rouletteBetView.Initialize();
+    }
+
+    public void Dispose()
+    {
+        DeactivateEvents();
+
+        rouletteBetView.Dispose();
+    }
+
+    private void ActivateEvents()
+    {
+
+    }
+
+    private void DeactivateEvents()
+    {
+
     }
 }
