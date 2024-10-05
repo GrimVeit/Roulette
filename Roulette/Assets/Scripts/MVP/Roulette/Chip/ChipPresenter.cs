@@ -30,29 +30,29 @@ public class ChipPresenter
 
     private void ActivateEvents()
     {
-        chipView.OnRecallAllBets += chipModel.RecallAllBets;
-        chipView.OnRetractLastBet += chipModel.RetractLastBet;
+        chipView.OnRecallAllChips += chipModel.RecallAllChips;
+        chipView.OnRetractLastChip += chipModel.RetractLastChip;
 
         chipModel.OnSpawn += chipView.SpawnChip;
-        chipModel.OnRecallAllBets += chipView.RecallAllBets;
-        chipModel.OnRetractLastBet += chipView.RetractLastBet;
+        chipModel.OnRecallAllChips += chipView.RecallAllChips;
+        chipModel.OnRetractLastChip += chipView.RetractLastChip;
     }
 
     private void DeactivateEvents()
     {
-        chipView.OnRecallAllBets -= chipModel.RecallAllBets;
-        chipView.OnRetractLastBet -= chipModel.RetractLastBet;
+        chipView.OnRecallAllChips -= chipModel.RecallAllChips;
+        chipView.OnRetractLastChip -= chipModel.RetractLastChip;
 
         chipModel.OnSpawn -= chipView.SpawnChip;
-        chipModel.OnRecallAllBets -= chipView.RecallAllBets;
-        chipModel.OnRetractLastBet -= chipView.RetractLastBet;
+        chipModel.OnRecallAllChips -= chipView.RecallAllChips;
+        chipModel.OnRetractLastChip -= chipView.RetractLastChip;
     }
 
     #region Input
 
-    public void SpawnChip(ChipData chipData, Vector2 vector) 
+    public void SpawnChip(ChipData chipData, ICell cell, Vector2 vector) 
     {
-        chipModel.SpawnChip(chipData, vector);
+        chipModel.SpawnChip(chipData, cell, vector);
     }
 
     #endregion

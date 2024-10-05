@@ -29,10 +29,13 @@ public class PseudoChipPresenter
 
     private void ActivateEvents()
     {
+        pseudoChipView.OnGrabPseudoChip_Action += pseudoChipModel.GrabPseudoChip;
         pseudoChipView.OnStartMove_Action += pseudoChipModel.StartMove;
         pseudoChipView.OnMove_Action += pseudoChipModel.Move;
         pseudoChipView.OnEndMove_Action += pseudoChipModel.EndMove;
 
+        pseudoChipModel.OnGrabPseudoChip += pseudoChipView.GrabPseudoChip;
+        pseudoChipModel.OnUngrabCurrentPseudoChip += pseudoChipView.UngrabCurrentPseudoChip;
         pseudoChipModel.OnStartMove += pseudoChipView.StartMove;
         pseudoChipModel.OnMove += pseudoChipView.Move;
         pseudoChipModel.OnEndMove += pseudoChipView.EndMove;
@@ -41,10 +44,13 @@ public class PseudoChipPresenter
 
     private void DeactivateEvents()
     {
+        pseudoChipView.OnGrabPseudoChip_Action -= pseudoChipModel.GrabPseudoChip;
         pseudoChipView.OnStartMove_Action -= pseudoChipModel.StartMove;
         pseudoChipView.OnMove_Action -= pseudoChipModel.Move;
         pseudoChipView.OnEndMove_Action -= pseudoChipModel.EndMove;
 
+        pseudoChipModel.OnGrabPseudoChip -= pseudoChipView.GrabPseudoChip;
+        pseudoChipModel.OnUngrabCurrentPseudoChip -= pseudoChipView.UngrabCurrentPseudoChip;
         pseudoChipModel.OnStartMove -= pseudoChipView.StartMove;
         pseudoChipModel.OnMove -= pseudoChipView.Move;
         pseudoChipModel.OnEndMove -= pseudoChipView.EndMove;
@@ -53,7 +59,7 @@ public class PseudoChipPresenter
 
     #region Input
 
-    public event Action<ChipData, Vector2> OnSpawnChip
+    public event Action<ChipData, ICell, Vector2> OnSpawnChip
     {
         add { pseudoChipModel.OnSpawnChip += value; }
         remove { pseudoChipModel.OnSpawnChip -= value; }

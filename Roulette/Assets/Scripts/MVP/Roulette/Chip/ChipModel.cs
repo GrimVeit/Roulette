@@ -1,28 +1,28 @@
-
-
 using System;
+using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.EventSystems;
 
 public class ChipModel
 {
-    public event Action OnRecallAllBets;
-    public event Action OnRetractLastBet;
+    public event Action<List<Chip>> OnRecallAllChips;
+    public event Action<Chip> OnRetractLastChip;
 
-    public event Action<ChipData, Vector2> OnSpawn;
+    public event Action<ChipData, ICell, Vector2> OnSpawn;
 
-    public void SpawnChip(ChipData chipData, Vector2 vector)
+    public void SpawnChip(ChipData chipData, ICell cell, Vector2 vector)
     {
-        OnSpawn?.Invoke(chipData, vector);
+        OnSpawn?.Invoke(chipData, cell, vector);
     }
 
-    public void RecallAllBets()
+    public void RecallAllChips(List<Chip> chips)
     {
-        OnRecallAllBets?.Invoke();
+        OnRecallAllChips?.Invoke(chips);
     }
 
-    public void RetractLastBet()
+    public void RetractLastChip(Chip chip)
     {
-        OnRetractLastBet?.Invoke();
+        if (chip == null) return;
+
+        OnRetractLastChip?.Invoke(chip);
     }
 }

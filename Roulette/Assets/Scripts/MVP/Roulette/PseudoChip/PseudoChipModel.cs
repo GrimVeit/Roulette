@@ -1,10 +1,11 @@
 using System;
 using UnityEngine;
-using UnityEngine.EventSystems;
 
 public class PseudoChipModel
 {
-    public event Action<ChipData, Vector2> OnSpawnChip;
+    public event Action OnUngrabCurrentPseudoChip;
+    public event Action<PseudoChip> OnGrabPseudoChip;
+    public event Action<ChipData, ICell, Vector2> OnSpawnChip;
 
     public event Action OnStartMove;
     public event Action<Vector2> OnMove;
@@ -13,9 +14,23 @@ public class PseudoChipModel
 
     private bool isActive = true;
 
-    public PseudoChipModel()
-    {
+    private IMoneyProvider moneyProvider;
 
+    public PseudoChipModel(IMoneyProvider moneyProvider)
+    {
+        this.moneyProvider = moneyProvider;
+    }
+
+    public void GrabPseudoChip(PseudoChip pseudoChip)
+    {
+        OnUngrabCurrentPseudoChip?.Invoke();
+
+        if (moneyProvider.CanAfford(pseudoChip.ChipData.Nominal))
+        {
+            Debug.Log(moneyProvider.GetMoney() + "//" + pseudoChip.ChipData.Nominal);
+            OnGrabPseudoChip?.Invoke(pseudoChip);
+            return;
+        }
     }
 
     public void StartMove()
@@ -44,15 +59,13 @@ public class PseudoChipModel
 
             if(collider.gameObject.TryGetComponent(out ICell cell))
             {
-                cell.ChooseBet(chipData.Nominal);
+                OnSpawnChip?.Invoke(chipData, cell, transform.localPosition);
+                Teleport();
+                return;
             }
         }
 
-        OnSpawnChip?.Invoke(chipData, transform.localPosition);
-
-        //OnEndMove?.Invoke();
-
-        Teleport();
+        OnEndMove?.Invoke();
     }
 
     public void Teleport()

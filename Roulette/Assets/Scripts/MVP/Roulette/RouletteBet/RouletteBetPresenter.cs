@@ -29,11 +29,19 @@ public class RouletteBetPresenter
 
     private void ActivateEvents()
     {
+        rouletteBetView.OnChooseCell_Action += rouletteBetModel.ChooseCell;
+        rouletteBetView.OnResetCell_Action += rouletteBetModel.ResetCell;
 
+        rouletteBetModel.OnChooseCell += rouletteBetView.ChooseCell;
+        rouletteBetModel.OnResetCell += rouletteBetView.ResetCell;
     }
 
     private void DeactivateEvents()
     {
+        rouletteBetView.OnChooseCell_Action -= rouletteBetModel.ChooseCell;
+        rouletteBetView.OnResetCell_Action -= rouletteBetModel.ResetCell;
 
+        rouletteBetModel.OnChooseCell -= rouletteBetView.ChooseCell;
+        rouletteBetModel.OnResetCell -= rouletteBetView.ResetCell;
     }
 }

@@ -15,7 +15,8 @@ public class PseudoChipView : View
     {
         for (int i = 0; i < pseudoChips.Count; i++)
         {
-            pseudoChips[i].OnGrabbing += SetCurrentChip; 
+            pseudoChips[i].OnGrabbing += OnGrabPseudoChip;
+            pseudoChips[i].Initialize();
         }
     }
 
@@ -23,25 +24,32 @@ public class PseudoChipView : View
     {
         for (int i = 0; i < pseudoChips.Count; i++)
         {
-            pseudoChips[i].OnGrabbing -= SetCurrentChip;
+            pseudoChips[i].OnGrabbing -= OnGrabPseudoChip;
+            pseudoChips[i].Dispose();
         }
     }
 
-    private void SetCurrentChip(PseudoChip chip)
+    public void GrabPseudoChip(PseudoChip chip)
+    {
+        UngrabCurrentPseudoChip();
+
+        currentPseudoChip = chip;
+
+        currentPseudoChip.OnStartMove += OnStartMove;
+        currentPseudoChip.OnMove += OnMove;
+        currentPseudoChip.OnEndMove += OnEndMove;
+    }
+
+    public void UngrabCurrentPseudoChip()
     {
         if (currentPseudoChip != null)
         {
             currentPseudoChip.OnStartMove -= OnStartMove;
             currentPseudoChip.OnMove -= OnMove;
             currentPseudoChip.OnEndMove -= OnEndMove;
+
+            Teleport();
         }
-        currentPseudoChip = chip;
-
-        currentPseudoChip.OnStartMove += OnStartMove;
-        currentPseudoChip.OnMove += OnMove;
-        currentPseudoChip.OnEndMove += OnEndMove;
-
-        currentPseudoChip.Initialize();
     }
 
     public void Teleport()
@@ -66,6 +74,11 @@ public class PseudoChipView : View
 
     #region Input
 
+    public void OnGrabPseudoChip(PseudoChip pseudoChip)
+    {
+        OnGrabPseudoChip_Action?.Invoke(pseudoChip);
+    }
+
     private void OnMove(Vector2 vector)
     {
         OnMove_Action?.Invoke(vector / canvas.scaleFactor);
@@ -80,6 +93,7 @@ public class PseudoChipView : View
     {
         OnEndMove_Action?.Invoke(transform, currentPseudoChip.ChipData);
     }
+    public event Action<PseudoChip> OnGrabPseudoChip_Action;
 
     public event Action<Vector2> OnMove_Action;
 

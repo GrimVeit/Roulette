@@ -5,40 +5,40 @@ using UnityEngine.UI;
 
 public class ChipView : View
 {
-    public event Action OnRecallAllBets;
-    public event Action OnRetractLastBet;
+    public event Action<List<Chip>> OnRecallAllChips;
+    public event Action<Chip> OnRetractLastChip;
 
     [SerializeField] private Canvas canvas;
     [SerializeField] private Transform parentSpawn;
     [SerializeField] private Chip chipPrefab;
     [SerializeField] private List<Chip> chips = new List<Chip>();
 
-    [SerializeField] private Button recallAllBets;
-    [SerializeField] private Button retractLastBet;
+    [SerializeField] private Button recallAllChips;
+    [SerializeField] private Button retractLastChip;
 
     public void Initialize()
     {
-        recallAllBets.onClick.AddListener(HandlerClickToRecallAllBets);
-        retractLastBet.onClick.AddListener(HandlerClickToRetractLastBet);
+        recallAllChips.onClick.AddListener(HandlerClickToRecallAllChips);
+        retractLastChip.onClick.AddListener(HandlerClickToRetractLastChip);
     }
 
     public void Dispose()
     {
-        recallAllBets.onClick.RemoveListener(HandlerClickToRecallAllBets);
-        retractLastBet.onClick.RemoveListener(HandlerClickToRetractLastBet);
+        recallAllChips.onClick.RemoveListener(HandlerClickToRecallAllChips);
+        retractLastChip.onClick.RemoveListener(HandlerClickToRetractLastChip);
     }
 
-    public void SpawnChip(ChipData chipData, Vector2 vector)
+    public void SpawnChip(ChipData chipData, ICell cell, Vector2 vector)
     {
         Chip chip = Instantiate(chipPrefab, chipData.Parent);
         chip.transform.SetLocalPositionAndRotation(vector, chipPrefab.transform.rotation);
         chip.OnRetracted += RetractChip;
-        chip.Initialize(chipData);
+        chip.Initialize(chipData, cell);
 
         chips.Add(chip);
     }
 
-    public void RecallAllBets()
+    public void RecallAllChips(List<Chip> chips)
     {
         for (int i = 0; i < chips.Count; i++)
         {
@@ -46,10 +46,9 @@ public class ChipView : View
         }
     }
 
-    public void RetractLastBet()
+    public void RetractLastChip(Chip chip)
     {
-        if(chips.Count != 0)
-        chips[chips.Count - 1].Retract();
+        chip.Retract();
     }
 
     private void RetractChip(Chip chip)
@@ -61,14 +60,15 @@ public class ChipView : View
 
     #region Input
 
-    private void HandlerClickToRecallAllBets()
+    private void HandlerClickToRecallAllChips()
     {
-        OnRecallAllBets?.Invoke();
+        OnRecallAllChips?.Invoke(chips);
     }
 
-    private void HandlerClickToRetractLastBet()
+    private void HandlerClickToRetractLastChip()
     {
-        OnRetractLastBet?.Invoke();
+        if (chips.Count == 0) return;
+        OnRetractLastChip?.Invoke(chips[chips.Count - 1]);
     }
 
     #endregion

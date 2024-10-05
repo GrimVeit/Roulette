@@ -18,6 +18,7 @@ public class RouletteEntryPoint : MonoBehaviour
 
     private RouletteBallPresenter rouletteBallPresenter;
     private RoulettePresenter roulettePresenter;
+    private RouletteBetPresenter rouletteBetPresenter;
 
     public void Run(UIRootView uIRootView)
     {
@@ -41,7 +42,7 @@ public class RouletteEntryPoint : MonoBehaviour
         bankPresenter = new BankPresenter(new BankModel(), viewContainer.GetView<BankView>());
         bankPresenter.Initialize();
 
-        pseudoChipPresenter = new PseudoChipPresenter(new PseudoChipModel(), viewContainer.GetView<PseudoChipView>());
+        pseudoChipPresenter = new PseudoChipPresenter(new PseudoChipModel(bankPresenter), viewContainer.GetView<PseudoChipView>());
         pseudoChipPresenter.Initialize();
 
         chipPresenter = new ChipPresenter(new ChipModel(), viewContainer.GetView<ChipView>());
@@ -52,6 +53,9 @@ public class RouletteEntryPoint : MonoBehaviour
 
         roulettePresenter = new RoulettePresenter(new RouletteModel(), viewContainer.GetView<RouletteView>());
         roulettePresenter.Initialize();
+
+        rouletteBetPresenter = new RouletteBetPresenter(new RouletteBetModel(bankPresenter), viewContainer.GetView<RouletteBetView>());
+        rouletteBetPresenter.Initialize();
 
         sceneRoot.SetSoundProvider(soundPresenter);
         sceneRoot.SetParticleEffectProvider(particleEffectPresenter);
@@ -89,6 +93,7 @@ public class RouletteEntryPoint : MonoBehaviour
         chipPresenter?.Dispose();
         rouletteBallPresenter?.Dispose();
         roulettePresenter?.Dispose();
+        rouletteBetPresenter?.Dispose();
     }
 
     private void OnDestroy()

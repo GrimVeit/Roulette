@@ -5,29 +5,22 @@ public class BetCell : MonoBehaviour, ICell
 {
     [SerializeField] private Bet bet;
 
-    public event Action<BetCell> OnChooseCell;
-    public event Action<BetCell> OnResetCell;
+    public event Action<BetCell, ChipData> OnChooseCell;
+    public event Action<BetCell, ChipData> OnResetCell;
 
-    public void ChooseBet(int bet)
+    public void ChooseBet(ChipData chipData)
     {
-        //OnChooseCell?.Invoke(this);
-
-        Debug.Log("Выбрана ставка с такими данными");
-
-        for (int i = 0; i < this.bet.Numbers.Count; i++)
-        {
-            Debug.Log(this.bet.Numbers[i]);
-        }
+        OnChooseCell?.Invoke(this, chipData);
     }
 
-    public void ResetBet()
+    public void ResetBet(ChipData chipData)
     {
-        OnResetCell?.Invoke(this);
+        OnResetCell?.Invoke(this, chipData);
     }
 }
 
 public interface ICell
 {
-    void ChooseBet(int bet);
-    void ResetBet();
+    void ChooseBet(ChipData chipData);
+    void ResetBet(ChipData chipData);
 }
