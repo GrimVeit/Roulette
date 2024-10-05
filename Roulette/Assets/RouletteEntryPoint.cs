@@ -57,13 +57,12 @@ public class RouletteEntryPoint : MonoBehaviour
         rouletteBetPresenter = new RouletteBetPresenter(new RouletteBetModel(bankPresenter), viewContainer.GetView<RouletteBetView>());
         rouletteBetPresenter.Initialize();
 
+        ActivateTransferEvents();
+        ActivateEvents();
+
         sceneRoot.SetSoundProvider(soundPresenter);
         sceneRoot.SetParticleEffectProvider(particleEffectPresenter);
         sceneRoot.Initialize();
-
-
-        ActivateEvents();
-
         sceneRoot.Activate();
     }
 
@@ -73,15 +72,28 @@ public class RouletteEntryPoint : MonoBehaviour
         rouletteBallPresenter.OnBallStopped += roulettePresenter.RollBallToSlot;
     }
 
+    private void ActivateTransferEvents()
+    {
+        sceneRoot.OnClickToBackButton += HandleGoToMainMenu;
+        sceneRoot.OnClickToSpinButton += sceneRoot.OpenSpinPanel;
+    }
+
     private void DeactivateEvents()
     {
         pseudoChipPresenter.OnSpawnChip -= chipPresenter.SpawnChip;
         rouletteBallPresenter.OnBallStopped -= roulettePresenter.RollBallToSlot;
     }
 
+    private void DeactivateTransferEvents()
+    {
+        sceneRoot.OnClickToBackButton -= HandleGoToMainMenu;
+        sceneRoot.OnClickToSpinButton -= sceneRoot.OpenSpinPanel;
+    }
+
     private void Dispose()
     {
         DeactivateEvents();
+        DeactivateTransferEvents();
         sceneRoot?.Deactivate();
 
         sceneRoot?.Dispose();

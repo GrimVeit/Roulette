@@ -158,6 +158,7 @@ GameObject:
   - component: {fileID: 8410562845505654225}
   - component: {fileID: 5997331053120617864}
   - component: {fileID: 8876820228929211973}
+  - component: {fileID: 8657421178502178193}
   m_Layer: 5
   m_Name: 17_BLACK
   m_TagString: Untagged
@@ -198,7 +199,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e9534819650666f4e9f43b847fa7254b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rouletteNumber: {fileID: 0}
+  rouletteNumber: {fileID: 8657421178502178193}
   slotTransform: {fileID: 8410562845505654225}
   startTransform: {fileID: 6255109698747453531}
   endTransform: {fileID: 1619711315340012615}
@@ -219,6 +220,23 @@ MonoBehaviour:
   size: 5
   color: {r: 0, g: 0.03434968, b: 1, a: 1}
   drawType: 0
+--- !u!114 &8657421178502178193
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 77608369444117261}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 870bc8fa6d684a2479fab005466bf1ae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  number: 17
+  parity: 1
+  color: 1
+  row: 1
+  column: 1
 --- !u!1 &114840665307614360
 GameObject:
   m_ObjectHideFlags: 0
@@ -230,6 +248,7 @@ GameObject:
   - component: {fileID: 5726339855383877006}
   - component: {fileID: 8146750798134565573}
   - component: {fileID: 853968219938041410}
+  - component: {fileID: 2429263450726379102}
   m_Layer: 5
   m_Name: 30_RED
   m_TagString: Untagged
@@ -270,7 +289,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e9534819650666f4e9f43b847fa7254b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rouletteNumber: {fileID: 0}
+  rouletteNumber: {fileID: 2429263450726379102}
   slotTransform: {fileID: 5726339855383877006}
   startTransform: {fileID: 141855875393602664}
   endTransform: {fileID: 8837716942156890157}
@@ -291,6 +310,23 @@ MonoBehaviour:
   size: 5
   color: {r: 0, g: 0.03434968, b: 1, a: 1}
   drawType: 0
+--- !u!114 &2429263450726379102
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 114840665307614360}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 870bc8fa6d684a2479fab005466bf1ae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  number: 30
+  parity: 0
+  color: 0
+  row: 2
+  column: 2
 --- !u!1 &163112927823208746
 GameObject:
   m_ObjectHideFlags: 0
@@ -934,6 +970,7 @@ GameObject:
   - component: {fileID: 8663172341337289881}
   - component: {fileID: 5486464458757325159}
   - component: {fileID: 7470448255014517835}
+  - component: {fileID: 710014394608436028}
   m_Layer: 5
   m_Name: 8_BLACK
   m_TagString: Untagged
@@ -974,7 +1011,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e9534819650666f4e9f43b847fa7254b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rouletteNumber: {fileID: 0}
+  rouletteNumber: {fileID: 710014394608436028}
   slotTransform: {fileID: 8663172341337289881}
   startTransform: {fileID: 6163327684441900737}
   endTransform: {fileID: 3341875747122923957}
@@ -995,6 +1032,23 @@ MonoBehaviour:
   size: 5
   color: {r: 0, g: 0.03434968, b: 1, a: 1}
   drawType: 0
+--- !u!114 &710014394608436028
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 361162207632503169}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 870bc8fa6d684a2479fab005466bf1ae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  number: 8
+  parity: 0
+  color: 0
+  row: 1
+  column: 0
 --- !u!1 &399350157317290974
 GameObject:
   m_ObjectHideFlags: 0
@@ -1181,6 +1235,7 @@ GameObject:
   - component: {fileID: 174930827462306971}
   - component: {fileID: 2024664079906546137}
   - component: {fileID: 108990501433659863}
+  - component: {fileID: 3533561513496121729}
   m_Layer: 5
   m_Name: 34_RED
   m_TagString: Untagged
@@ -1221,7 +1276,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e9534819650666f4e9f43b847fa7254b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rouletteNumber: {fileID: 0}
+  rouletteNumber: {fileID: 3533561513496121729}
   slotTransform: {fileID: 174930827462306971}
   startTransform: {fileID: 2915871350939384763}
   endTransform: {fileID: 714111203130261976}
@@ -1242,6 +1297,23 @@ MonoBehaviour:
   size: 5
   color: {r: 0, g: 0.03434968, b: 1, a: 1}
   drawType: 0
+--- !u!114 &3533561513496121729
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 524555418332778650}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 870bc8fa6d684a2479fab005466bf1ae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  number: 34
+  parity: 0
+  color: 0
+  row: 0
+  column: 2
 --- !u!1 &662588248578572821
 GameObject:
   m_ObjectHideFlags: 0
@@ -1253,6 +1325,7 @@ GameObject:
   - component: {fileID: 1565918050146182906}
   - component: {fileID: 37963164839799331}
   - component: {fileID: 6140334047315724066}
+  - component: {fileID: 3777079296633721210}
   m_Layer: 5
   m_Name: 13_BLACK
   m_TagString: Untagged
@@ -1293,7 +1366,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e9534819650666f4e9f43b847fa7254b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rouletteNumber: {fileID: 0}
+  rouletteNumber: {fileID: 3777079296633721210}
   slotTransform: {fileID: 1565918050146182906}
   startTransform: {fileID: 2930663573799503966}
   endTransform: {fileID: 7724723833002428253}
@@ -1314,6 +1387,23 @@ MonoBehaviour:
   size: 5
   color: {r: 0, g: 0.03434968, b: 1, a: 1}
   drawType: 0
+--- !u!114 &3777079296633721210
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 662588248578572821}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 870bc8fa6d684a2479fab005466bf1ae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  number: 13
+  parity: 1
+  color: 1
+  row: 0
+  column: 1
 --- !u!1 &674503029964382851
 GameObject:
   m_ObjectHideFlags: 0
@@ -2059,6 +2149,7 @@ GameObject:
   - component: {fileID: 7664004380493732571}
   - component: {fileID: 747692107562652937}
   - component: {fileID: 2517446765060971002}
+  - component: {fileID: 3399242942969356807}
   m_Layer: 5
   m_Name: 5_RED
   m_TagString: Untagged
@@ -2099,7 +2190,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e9534819650666f4e9f43b847fa7254b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rouletteNumber: {fileID: 0}
+  rouletteNumber: {fileID: 3399242942969356807}
   slotTransform: {fileID: 7664004380493732571}
   startTransform: {fileID: 4941823437297403610}
   endTransform: {fileID: 4226733995511230378}
@@ -2120,6 +2211,23 @@ MonoBehaviour:
   size: 5
   color: {r: 0, g: 0.03434968, b: 1, a: 1}
   drawType: 0
+--- !u!114 &3399242942969356807
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1238330561726225013}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 870bc8fa6d684a2479fab005466bf1ae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  number: 5
+  parity: 1
+  color: 0
+  row: 1
+  column: 0
 --- !u!1 &1342336547287479156
 GameObject:
   m_ObjectHideFlags: 0
@@ -2201,6 +2309,7 @@ GameObject:
   - component: {fileID: 6235578460740725743}
   - component: {fileID: 7461235241880562351}
   - component: {fileID: 5634105018622729939}
+  - component: {fileID: 2756289607908925149}
   m_Layer: 5
   m_Name: 12_RED
   m_TagString: Untagged
@@ -2241,7 +2350,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e9534819650666f4e9f43b847fa7254b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rouletteNumber: {fileID: 0}
+  rouletteNumber: {fileID: 2756289607908925149}
   slotTransform: {fileID: 6235578460740725743}
   startTransform: {fileID: 1467051216252629328}
   endTransform: {fileID: 7545997866740558820}
@@ -2262,6 +2371,23 @@ MonoBehaviour:
   size: 5
   color: {r: 0, g: 0.03434968, b: 1, a: 1}
   drawType: 0
+--- !u!114 &2756289607908925149
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1507671057309427957}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 870bc8fa6d684a2479fab005466bf1ae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  number: 12
+  parity: 0
+  color: 0
+  row: 2
+  column: 0
 --- !u!1 &1642129379862095450
 GameObject:
   m_ObjectHideFlags: 0
@@ -3401,6 +3527,7 @@ GameObject:
   - component: {fileID: 3657511647884845679}
   - component: {fileID: 7656072504211465643}
   - component: {fileID: 2770615328449558925}
+  - component: {fileID: 7924517915675919770}
   m_Layer: 5
   m_Name: 7_RED
   m_TagString: Untagged
@@ -3441,7 +3568,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e9534819650666f4e9f43b847fa7254b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rouletteNumber: {fileID: 0}
+  rouletteNumber: {fileID: 7924517915675919770}
   slotTransform: {fileID: 3657511647884845679}
   startTransform: {fileID: 6154565357337264932}
   endTransform: {fileID: 5646709171954126234}
@@ -3462,6 +3589,23 @@ MonoBehaviour:
   size: 5
   color: {r: 0, g: 0.03434968, b: 1, a: 1}
   drawType: 0
+--- !u!114 &7924517915675919770
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2164630298130582729}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 870bc8fa6d684a2479fab005466bf1ae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  number: 7
+  parity: 1
+  color: 0
+  row: 0
+  column: 0
 --- !u!1 &2190473556638747477
 GameObject:
   m_ObjectHideFlags: 0
@@ -3819,6 +3963,7 @@ GameObject:
   - component: {fileID: 5185445296194996405}
   - component: {fileID: 3146313187655307059}
   - component: {fileID: 7703650925529958843}
+  - component: {fileID: 5741976632432716128}
   m_Layer: 5
   m_Name: 15_BLACK
   m_TagString: Untagged
@@ -3859,7 +4004,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e9534819650666f4e9f43b847fa7254b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rouletteNumber: {fileID: 0}
+  rouletteNumber: {fileID: 5741976632432716128}
   slotTransform: {fileID: 5185445296194996405}
   startTransform: {fileID: 4433961683974246899}
   endTransform: {fileID: 8374010470562196469}
@@ -3880,6 +4025,23 @@ MonoBehaviour:
   size: 5
   color: {r: 0, g: 0.03434968, b: 1, a: 1}
   drawType: 0
+--- !u!114 &5741976632432716128
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2328161027326611213}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 870bc8fa6d684a2479fab005466bf1ae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  number: 15
+  parity: 1
+  color: 1
+  row: 2
+  column: 1
 --- !u!1 &2376580701458432888
 GameObject:
   m_ObjectHideFlags: 0
@@ -4167,6 +4329,7 @@ GameObject:
   - component: {fileID: 2537684669164782943}
   - component: {fileID: 7645331101545948789}
   - component: {fileID: 5700351174623984880}
+  - component: {fileID: 4280530553751381140}
   m_Layer: 5
   m_Name: 16_RED
   m_TagString: Untagged
@@ -4207,7 +4370,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e9534819650666f4e9f43b847fa7254b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rouletteNumber: {fileID: 0}
+  rouletteNumber: {fileID: 4280530553751381140}
   slotTransform: {fileID: 2537684669164782943}
   startTransform: {fileID: 5601118778154571873}
   endTransform: {fileID: 4084604769448132523}
@@ -4228,6 +4391,23 @@ MonoBehaviour:
   size: 5
   color: {r: 0, g: 0.03434968, b: 1, a: 1}
   drawType: 0
+--- !u!114 &4280530553751381140
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2523145424874680598}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 870bc8fa6d684a2479fab005466bf1ae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  number: 16
+  parity: 0
+  color: 0
+  row: 0
+  column: 1
 --- !u!1 &2558112503980686204
 GameObject:
   m_ObjectHideFlags: 0
@@ -4829,6 +5009,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1527265962336544119}
   - component: {fileID: 7676427611535686225}
+  - component: {fileID: 6705212721493089500}
+  - component: {fileID: 627649441787041701}
   m_Layer: 5
   m_Name: MainPanel
   m_TagString: Untagged
@@ -4866,6 +5048,37 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2794703121002719114}
   m_CullTransparentMesh: 1
+--- !u!225 &6705212721493089500
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2794703121002719114}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
+--- !u!114 &627649441787041701
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2794703121002719114}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 97f21e9f193038a42a04e331deae8ff0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  panel: {fileID: 2794703121002719114}
+  from: {x: -300, y: 0, z: 0}
+  to: {x: 0, y: 0, z: 0}
+  time: 0.2
+  canvasGroup: {fileID: 6705212721493089500}
+  buttonBack: {fileID: 1899534566442229683}
+  buttonSpin: {fileID: 3820938188816800549}
 --- !u!1 &2812516216896570058
 GameObject:
   m_ObjectHideFlags: 0
@@ -5017,6 +5230,7 @@ GameObject:
   - component: {fileID: 1986137697511330363}
   - component: {fileID: 3854310110668105465}
   - component: {fileID: 8248021389212283583}
+  - component: {fileID: 8864418077981600198}
   m_Layer: 5
   m_Name: 26_BLACK
   m_TagString: Untagged
@@ -5057,7 +5271,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e9534819650666f4e9f43b847fa7254b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rouletteNumber: {fileID: 0}
+  rouletteNumber: {fileID: 8864418077981600198}
   slotTransform: {fileID: 1986137697511330363}
   startTransform: {fileID: 1534333105047127112}
   endTransform: {fileID: 6004492381691707513}
@@ -5078,6 +5292,23 @@ MonoBehaviour:
   size: 5
   color: {r: 0, g: 0.03434968, b: 1, a: 1}
   drawType: 0
+--- !u!114 &8864418077981600198
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2845620504179049242}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 870bc8fa6d684a2479fab005466bf1ae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  number: 26
+  parity: 0
+  color: 1
+  row: 1
+  column: 2
 --- !u!1 &2872583282908913729
 GameObject:
   m_ObjectHideFlags: 0
@@ -5736,6 +5967,7 @@ GameObject:
   - component: {fileID: 1480590502011236771}
   - component: {fileID: 7413730466408624998}
   - component: {fileID: 3050969037080755116}
+  - component: {fileID: 8926678879111172222}
   m_Layer: 5
   m_Name: 3_RED
   m_TagString: Untagged
@@ -5776,7 +6008,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e9534819650666f4e9f43b847fa7254b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rouletteNumber: {fileID: 0}
+  rouletteNumber: {fileID: 8926678879111172222}
   slotTransform: {fileID: 1480590502011236771}
   startTransform: {fileID: 2391070339955061468}
   endTransform: {fileID: 6530437692076484036}
@@ -5797,6 +6029,23 @@ MonoBehaviour:
   size: 5
   color: {r: 0, g: 0.03434968, b: 1, a: 1}
   drawType: 0
+--- !u!114 &8926678879111172222
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3061264578108503825}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 870bc8fa6d684a2479fab005466bf1ae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  number: 3
+  parity: 1
+  color: 0
+  row: 2
+  column: 0
 --- !u!1 &3132698878795005393
 GameObject:
   m_ObjectHideFlags: 0
@@ -7934,6 +8183,7 @@ GameObject:
   - component: {fileID: 5343972333564207153}
   - component: {fileID: 9198779256229539240}
   - component: {fileID: 590107194815107010}
+  - component: {fileID: 5786609519530265511}
   m_Layer: 5
   m_Name: 23_RED
   m_TagString: Untagged
@@ -7974,7 +8224,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e9534819650666f4e9f43b847fa7254b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rouletteNumber: {fileID: 0}
+  rouletteNumber: {fileID: 5786609519530265511}
   slotTransform: {fileID: 5343972333564207153}
   startTransform: {fileID: 1755875381436442317}
   endTransform: {fileID: 2765899348457825804}
@@ -7995,6 +8245,23 @@ MonoBehaviour:
   size: 5
   color: {r: 0, g: 0.03434968, b: 1, a: 1}
   drawType: 0
+--- !u!114 &5786609519530265511
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3921446582726361138}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 870bc8fa6d684a2479fab005466bf1ae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  number: 23
+  parity: 1
+  color: 0
+  row: 1
+  column: 1
 --- !u!1 &3963063379813043404
 GameObject:
   m_ObjectHideFlags: 0
@@ -8006,6 +8273,7 @@ GameObject:
   - component: {fileID: 4498291057767598987}
   - component: {fileID: 1815160065543842416}
   - component: {fileID: 3608059531491222365}
+  - component: {fileID: 651112468733856455}
   m_Layer: 5
   m_Name: 24_BLACK
   m_TagString: Untagged
@@ -8046,7 +8314,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e9534819650666f4e9f43b847fa7254b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rouletteNumber: {fileID: 0}
+  rouletteNumber: {fileID: 651112468733856455}
   slotTransform: {fileID: 4498291057767598987}
   startTransform: {fileID: 8039857648113384587}
   endTransform: {fileID: 1024219176751633602}
@@ -8067,6 +8335,23 @@ MonoBehaviour:
   size: 5
   color: {r: 0, g: 0.03434968, b: 1, a: 1}
   drawType: 0
+--- !u!114 &651112468733856455
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3963063379813043404}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 870bc8fa6d684a2479fab005466bf1ae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  number: 24
+  parity: 0
+  color: 1
+  row: 2
+  column: 1
 --- !u!1 &4044055968304385347
 GameObject:
   m_ObjectHideFlags: 0
@@ -8492,6 +8777,7 @@ GameObject:
   - component: {fileID: 665402788895123501}
   - component: {fileID: 6817076608025826990}
   - component: {fileID: 3030435350232511753}
+  - component: {fileID: 8808474439815879982}
   m_Layer: 5
   m_Name: 29_BLACK
   m_TagString: Untagged
@@ -8532,7 +8818,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e9534819650666f4e9f43b847fa7254b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rouletteNumber: {fileID: 0}
+  rouletteNumber: {fileID: 8808474439815879982}
   slotTransform: {fileID: 665402788895123501}
   startTransform: {fileID: 1130865425965389215}
   endTransform: {fileID: 3377859224985114898}
@@ -8553,6 +8839,23 @@ MonoBehaviour:
   size: 5
   color: {r: 0, g: 0.03434968, b: 1, a: 1}
   drawType: 0
+--- !u!114 &8808474439815879982
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4240283172521046729}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 870bc8fa6d684a2479fab005466bf1ae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  number: 29
+  parity: 1
+  color: 1
+  row: 1
+  column: 2
 --- !u!1 &4249438294619531761
 GameObject:
   m_ObjectHideFlags: 0
@@ -8931,6 +9234,7 @@ GameObject:
   - component: {fileID: 3935898487905262545}
   - component: {fileID: 7699786157232417930}
   - component: {fileID: 3668485772967921728}
+  - component: {fileID: 8916677451210093712}
   m_Layer: 5
   m_Name: 31_BLACK
   m_TagString: Untagged
@@ -8971,7 +9275,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e9534819650666f4e9f43b847fa7254b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rouletteNumber: {fileID: 0}
+  rouletteNumber: {fileID: 8916677451210093712}
   slotTransform: {fileID: 3935898487905262545}
   startTransform: {fileID: 233814168559449424}
   endTransform: {fileID: 7235889640895566999}
@@ -8992,6 +9296,23 @@ MonoBehaviour:
   size: 5
   color: {r: 0, g: 0.03434968, b: 1, a: 1}
   drawType: 0
+--- !u!114 &8916677451210093712
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4396531143592306743}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 870bc8fa6d684a2479fab005466bf1ae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  number: 31
+  parity: 1
+  color: 1
+  row: 0
+  column: 2
 --- !u!1 &4421659032625559002
 GameObject:
   m_ObjectHideFlags: 0
@@ -9145,9 +9466,9 @@ GameObject:
   - component: {fileID: 5783263791296733111}
   - component: {fileID: 2512506554803012950}
   - component: {fileID: 569984309530502151}
-  - component: {fileID: 9155816203111192183}
   - component: {fileID: 7341443639878304901}
   - component: {fileID: 2653717752864153200}
+  - component: {fileID: 9155816203111192183}
   - component: {fileID: 6046637137761990877}
   m_Layer: 5
   m_Name: RouletteRootView
@@ -9251,6 +9572,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 065b9aa7b599beb468e1c166bd80afa7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  mainPanel: {fileID: 627649441787041701}
+  spinPanel: {fileID: 1243890862405875988}
 --- !u!114 &864754801364181258
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9340,24 +9663,6 @@ MonoBehaviour:
   - {fileID: 177762553131035836}
   - {fileID: 3472830395346480226}
   currentPseudoChip: {fileID: 0}
---- !u!114 &9155816203111192183
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4478252255688133290}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b506d0db34f0ccd40b21c4c7e6e206b3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  canvas: {fileID: 1902830128831777622}
-  parentSpawn: {fileID: 3489779010368661377}
-  chipPrefab: {fileID: -7364844814733624687, guid: 80884a9c27f415343ab542a5141415ff, type: 3}
-  chips: []
-  recallAllChips: {fileID: 4164208924456723908}
-  retractLastChip: {fileID: 6118517531378975313}
 --- !u!114 &7341443639878304901
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9378,7 +9683,7 @@ MonoBehaviour:
   duration: 15
   startSpeed: 5
   endSpeed: 2
-  spinButton: {fileID: 5747370112271464246}
+  spinButton: {fileID: 3820938188816800549}
 --- !u!114 &2653717752864153200
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9391,7 +9696,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 23e983b0f0e74224a9731211eb9e1e22, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spinButton: {fileID: 5747370112271464246}
+  spinButton: {fileID: 3820938188816800549}
   spinVector: {x: 0, y: 0, z: -20}
   spinTransform: {fileID: 2347591427472729755}
   centerPoint: {fileID: 64919687047749046}
@@ -9438,6 +9743,24 @@ MonoBehaviour:
   - {fileID: 9000662101181548508}
   - {fileID: 7656072504211465643}
   - {fileID: 6817076608025826990}
+--- !u!114 &9155816203111192183
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4478252255688133290}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b506d0db34f0ccd40b21c4c7e6e206b3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  canvas: {fileID: 1902830128831777622}
+  parentSpawn: {fileID: 3489779010368661377}
+  chipPrefab: {fileID: -7364844814733624687, guid: 80884a9c27f415343ab542a5141415ff, type: 3}
+  chips: []
+  recallAllChips: {fileID: 4164208924456723908}
+  retractLastChip: {fileID: 6118517531378975313}
 --- !u!114 &6046637137761990877
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9810,6 +10133,8 @@ GameObject:
   - component: {fileID: 3050033519444780163}
   - component: {fileID: 8729028304702036973}
   - component: {fileID: 2113396316621409173}
+  - component: {fileID: 8816367604519811103}
+  - component: {fileID: 1243890862405875988}
   m_Layer: 5
   m_Name: SpinPanel
   m_TagString: Untagged
@@ -9834,12 +10159,11 @@ RectTransform:
   - {fileID: 4403943344092728411}
   - {fileID: 2386200063396907290}
   - {fileID: 5881898968864625794}
-  - {fileID: 6067928516511630669}
   m_Father: {fileID: 1714904964702997937}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: -300, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &8729028304702036973
@@ -9880,6 +10204,35 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!225 &8816367604519811103
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4641197958702541365}
+  m_Enabled: 1
+  m_Alpha: 0
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
+--- !u!114 &1243890862405875988
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4641197958702541365}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 917c2a554ade2f14a8cf2457a237cade, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  panel: {fileID: 4641197958702541365}
+  from: {x: -300, y: 0, z: 0}
+  to: {x: 0, y: 0, z: 0}
+  time: 0.2
+  canvasGroup: {fileID: 8816367604519811103}
 --- !u!1 &4752064586287083618
 GameObject:
   m_ObjectHideFlags: 0
@@ -9891,6 +10244,7 @@ GameObject:
   - component: {fileID: 7261880538221236009}
   - component: {fileID: 942892516801571743}
   - component: {fileID: 5351025620499538325}
+  - component: {fileID: 695135314134950435}
   m_Layer: 5
   m_Name: 27_RED
   m_TagString: Untagged
@@ -9931,7 +10285,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e9534819650666f4e9f43b847fa7254b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rouletteNumber: {fileID: 0}
+  rouletteNumber: {fileID: 695135314134950435}
   slotTransform: {fileID: 7261880538221236009}
   startTransform: {fileID: 2568224093878606044}
   endTransform: {fileID: 6785302707790561160}
@@ -9952,6 +10306,23 @@ MonoBehaviour:
   size: 5
   color: {r: 0, g: 0.03434968, b: 1, a: 1}
   drawType: 0
+--- !u!114 &695135314134950435
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4752064586287083618}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 870bc8fa6d684a2479fab005466bf1ae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  number: 27
+  parity: 1
+  color: 0
+  row: 2
+  column: 2
 --- !u!1 &4793151256671767854
 GameObject:
   m_ObjectHideFlags: 0
@@ -9963,6 +10334,7 @@ GameObject:
   - component: {fileID: 4383725538260871897}
   - component: {fileID: 5419562354899605834}
   - component: {fileID: 7349263779036165180}
+  - component: {fileID: 5133986655998866269}
   m_Layer: 5
   m_Name: 4_BLACK
   m_TagString: Untagged
@@ -10003,7 +10375,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e9534819650666f4e9f43b847fa7254b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rouletteNumber: {fileID: 0}
+  rouletteNumber: {fileID: 5133986655998866269}
   slotTransform: {fileID: 4383725538260871897}
   startTransform: {fileID: 6968019981041094911}
   endTransform: {fileID: 385384056862861809}
@@ -10024,6 +10396,23 @@ MonoBehaviour:
   size: 5
   color: {r: 0, g: 0.03434968, b: 1, a: 1}
   drawType: 0
+--- !u!114 &5133986655998866269
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4793151256671767854}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 870bc8fa6d684a2479fab005466bf1ae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  number: 4
+  parity: 0
+  color: 1
+  row: 0
+  column: 0
 --- !u!1 &4835429074039540028
 GameObject:
   m_ObjectHideFlags: 0
@@ -10035,6 +10424,7 @@ GameObject:
   - component: {fileID: 5611288448726087186}
   - component: {fileID: 3041089470253896273}
   - component: {fileID: 8334500984951116477}
+  - component: {fileID: 914342998731608469}
   m_Layer: 5
   m_Name: 11_BLACK
   m_TagString: Untagged
@@ -10075,7 +10465,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e9534819650666f4e9f43b847fa7254b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rouletteNumber: {fileID: 0}
+  rouletteNumber: {fileID: 914342998731608469}
   slotTransform: {fileID: 5611288448726087186}
   startTransform: {fileID: 6992230051665912009}
   endTransform: {fileID: 3198815704893953150}
@@ -10096,6 +10486,23 @@ MonoBehaviour:
   size: 5
   color: {r: 0, g: 0.03434968, b: 1, a: 1}
   drawType: 0
+--- !u!114 &914342998731608469
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4835429074039540028}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 870bc8fa6d684a2479fab005466bf1ae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  number: 11
+  parity: 1
+  color: 1
+  row: 1
+  column: 0
 --- !u!1 &4940106859167943689
 GameObject:
   m_ObjectHideFlags: 0
@@ -10812,6 +11219,7 @@ GameObject:
   - component: {fileID: 5446773678658541292}
   - component: {fileID: 8685146398467951700}
   - component: {fileID: 5982956224662848198}
+  - component: {fileID: 3466065640195279015}
   m_Layer: 5
   m_Name: 19_RED
   m_TagString: Untagged
@@ -10852,7 +11260,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e9534819650666f4e9f43b847fa7254b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rouletteNumber: {fileID: 0}
+  rouletteNumber: {fileID: 3466065640195279015}
   slotTransform: {fileID: 5446773678658541292}
   startTransform: {fileID: 3159697965113789633}
   endTransform: {fileID: 5679410618262010759}
@@ -10873,6 +11281,23 @@ MonoBehaviour:
   size: 5
   color: {r: 0, g: 0.03434968, b: 1, a: 1}
   drawType: 0
+--- !u!114 &3466065640195279015
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5186425626165474832}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 870bc8fa6d684a2479fab005466bf1ae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  number: 19
+  parity: 1
+  color: 0
+  row: 0
+  column: 1
 --- !u!1 &5286151829142616163
 GameObject:
   m_ObjectHideFlags: 0
@@ -10884,6 +11309,7 @@ GameObject:
   - component: {fileID: 9064053720505470529}
   - component: {fileID: 8342353863937642520}
   - component: {fileID: 576809068130975949}
+  - component: {fileID: 3653533687045588205}
   m_Layer: 5
   m_Name: 22_BLACK
   m_TagString: Untagged
@@ -10924,7 +11350,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e9534819650666f4e9f43b847fa7254b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rouletteNumber: {fileID: 0}
+  rouletteNumber: {fileID: 3653533687045588205}
   slotTransform: {fileID: 9064053720505470529}
   startTransform: {fileID: 2046052101998481250}
   endTransform: {fileID: 980568205755036305}
@@ -10945,6 +11371,23 @@ MonoBehaviour:
   size: 5
   color: {r: 0, g: 0.03434968, b: 1, a: 1}
   drawType: 0
+--- !u!114 &3653533687045588205
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5286151829142616163}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 870bc8fa6d684a2479fab005466bf1ae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  number: 22
+  parity: 0
+  color: 1
+  row: 0
+  column: 1
 --- !u!1 &5298473108982980195
 GameObject:
   m_ObjectHideFlags: 0
@@ -11442,6 +11885,7 @@ GameObject:
   - component: {fileID: 8102192909587272026}
   - component: {fileID: 5077165028335308060}
   - component: {fileID: 998931676468494961}
+  - component: {fileID: 8698334875295805549}
   m_Layer: 5
   m_Name: 36_RED
   m_TagString: Untagged
@@ -11482,7 +11926,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e9534819650666f4e9f43b847fa7254b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rouletteNumber: {fileID: 0}
+  rouletteNumber: {fileID: 8698334875295805549}
   slotTransform: {fileID: 8102192909587272026}
   startTransform: {fileID: 8851956247077944238}
   endTransform: {fileID: 6934076690617515035}
@@ -11503,6 +11947,23 @@ MonoBehaviour:
   size: 5
   color: {r: 0, g: 0.03434968, b: 1, a: 1}
   drawType: 0
+--- !u!114 &8698334875295805549
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5423774352461479214}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 870bc8fa6d684a2479fab005466bf1ae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  number: 36
+  parity: 0
+  color: 0
+  row: 2
+  column: 2
 --- !u!1 &5426890586584597064
 GameObject:
   m_ObjectHideFlags: 0
@@ -11584,6 +12045,7 @@ GameObject:
   - component: {fileID: 2160329617546489101}
   - component: {fileID: 1008239615454801454}
   - component: {fileID: 2258271836430113950}
+  - component: {fileID: 6097012739078531066}
   m_Layer: 5
   m_Name: 18_RED
   m_TagString: Untagged
@@ -11624,7 +12086,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e9534819650666f4e9f43b847fa7254b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rouletteNumber: {fileID: 0}
+  rouletteNumber: {fileID: 6097012739078531066}
   slotTransform: {fileID: 2160329617546489101}
   startTransform: {fileID: 279417884294607527}
   endTransform: {fileID: 8910040212025368312}
@@ -11645,6 +12107,23 @@ MonoBehaviour:
   size: 5
   color: {r: 0, g: 0.03434968, b: 1, a: 1}
   drawType: 0
+--- !u!114 &6097012739078531066
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5475909888435858387}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 870bc8fa6d684a2479fab005466bf1ae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  number: 18
+  parity: 0
+  color: 0
+  row: 2
+  column: 1
 --- !u!1 &5620277525136412846
 GameObject:
   m_ObjectHideFlags: 0
@@ -11866,6 +12345,7 @@ GameObject:
   - component: {fileID: 3096754906523248570}
   - component: {fileID: 839299530174475248}
   - component: {fileID: 3548497625126388640}
+  - component: {fileID: 4467772336818846816}
   m_Layer: 5
   m_Name: 20_BLACK
   m_TagString: Untagged
@@ -11906,7 +12386,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e9534819650666f4e9f43b847fa7254b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rouletteNumber: {fileID: 0}
+  rouletteNumber: {fileID: 4467772336818846816}
   slotTransform: {fileID: 3096754906523248570}
   startTransform: {fileID: 2641505811885305980}
   endTransform: {fileID: 6499591160400638509}
@@ -11927,6 +12407,23 @@ MonoBehaviour:
   size: 5
   color: {r: 0, g: 0.03434968, b: 1, a: 1}
   drawType: 0
+--- !u!114 &4467772336818846816
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5812066434427619796}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 870bc8fa6d684a2479fab005466bf1ae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  number: 20
+  parity: 0
+  color: 1
+  row: 1
+  column: 1
 --- !u!1 &5821544172141580584
 GameObject:
   m_ObjectHideFlags: 0
@@ -12008,6 +12505,7 @@ GameObject:
   - component: {fileID: 6085629489789124712}
   - component: {fileID: 6366851249091884369}
   - component: {fileID: 2892000535549800646}
+  - component: {fileID: 2489893213270435959}
   m_Layer: 5
   m_Name: 0_GREEN
   m_TagString: Untagged
@@ -12048,7 +12546,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e9534819650666f4e9f43b847fa7254b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rouletteNumber: {fileID: 0}
+  rouletteNumber: {fileID: 2489893213270435959}
   slotTransform: {fileID: 6085629489789124712}
   startTransform: {fileID: 4498086400756619252}
   endTransform: {fileID: 1080556651083915726}
@@ -12069,6 +12567,23 @@ MonoBehaviour:
   size: 5
   color: {r: 0, g: 0.03434968, b: 1, a: 1}
   drawType: 0
+--- !u!114 &2489893213270435959
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5896793957452715028}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 870bc8fa6d684a2479fab005466bf1ae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  number: 0
+  parity: 0
+  color: 2
+  row: 3
+  column: 3
 --- !u!1 &5924766249030626785
 GameObject:
   m_ObjectHideFlags: 0
@@ -12985,6 +13500,7 @@ GameObject:
   - component: {fileID: 2295140160622941537}
   - component: {fileID: 4756605839455118192}
   - component: {fileID: 7314421326709639293}
+  - component: {fileID: 545760684146902292}
   m_Layer: 5
   m_Name: 21_RED
   m_TagString: Untagged
@@ -13025,7 +13541,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e9534819650666f4e9f43b847fa7254b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rouletteNumber: {fileID: 0}
+  rouletteNumber: {fileID: 545760684146902292}
   slotTransform: {fileID: 2295140160622941537}
   startTransform: {fileID: 5437354631793288713}
   endTransform: {fileID: 7557662562463018666}
@@ -13046,6 +13562,23 @@ MonoBehaviour:
   size: 5
   color: {r: 0, g: 0.03434968, b: 1, a: 1}
   drawType: 0
+--- !u!114 &545760684146902292
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6244632276420225263}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 870bc8fa6d684a2479fab005466bf1ae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  number: 21
+  parity: 1
+  color: 0
+  row: 2
+  column: 1
 --- !u!1 &6264302526376705507
 GameObject:
   m_ObjectHideFlags: 0
@@ -13551,6 +14084,7 @@ GameObject:
   - component: {fileID: 8841494018420373532}
   - component: {fileID: 2151333855053563917}
   - component: {fileID: 5706433454183951388}
+  - component: {fileID: 1729969128143472564}
   m_Layer: 5
   m_Name: 10_BLACK
   m_TagString: Untagged
@@ -13591,7 +14125,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e9534819650666f4e9f43b847fa7254b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rouletteNumber: {fileID: 0}
+  rouletteNumber: {fileID: 1729969128143472564}
   slotTransform: {fileID: 8841494018420373532}
   startTransform: {fileID: 6798820216437141484}
   endTransform: {fileID: 2025867774080556666}
@@ -13612,6 +14146,23 @@ MonoBehaviour:
   size: 5
   color: {r: 0, g: 0.03434968, b: 1, a: 1}
   drawType: 0
+--- !u!114 &1729969128143472564
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6426071495448475029}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 870bc8fa6d684a2479fab005466bf1ae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  number: 10
+  parity: 0
+  color: 1
+  row: 0
+  column: 0
 --- !u!1 &6476662965838189098
 GameObject:
   m_ObjectHideFlags: 0
@@ -14627,6 +15178,7 @@ GameObject:
   - component: {fileID: 4774618130633769519}
   - component: {fileID: 9000662101181548508}
   - component: {fileID: 64802217595437775}
+  - component: {fileID: 8876208991884784382}
   m_Layer: 5
   m_Name: 28_BLACK
   m_TagString: Untagged
@@ -14667,7 +15219,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e9534819650666f4e9f43b847fa7254b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rouletteNumber: {fileID: 0}
+  rouletteNumber: {fileID: 8876208991884784382}
   slotTransform: {fileID: 4774618130633769519}
   startTransform: {fileID: 3259612634977496697}
   endTransform: {fileID: 4575910904746861729}
@@ -14688,6 +15240,23 @@ MonoBehaviour:
   size: 5
   color: {r: 0, g: 0.03434968, b: 1, a: 1}
   drawType: 0
+--- !u!114 &8876208991884784382
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7021814529423376718}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 870bc8fa6d684a2479fab005466bf1ae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  number: 28
+  parity: 0
+  color: 1
+  row: 0
+  column: 2
 --- !u!1 &7039416334499813339
 GameObject:
   m_ObjectHideFlags: 0
@@ -14769,6 +15338,7 @@ GameObject:
   - component: {fileID: 6617926050372054444}
   - component: {fileID: 1345428551533833916}
   - component: {fileID: 4837526236703263294}
+  - component: {fileID: 590103000042610327}
   m_Layer: 5
   m_Name: 33_BLACK
   m_TagString: Untagged
@@ -14809,7 +15379,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e9534819650666f4e9f43b847fa7254b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rouletteNumber: {fileID: 0}
+  rouletteNumber: {fileID: 590103000042610327}
   slotTransform: {fileID: 6617926050372054444}
   startTransform: {fileID: 7446762032358708530}
   endTransform: {fileID: 2668976845968534607}
@@ -14830,6 +15400,23 @@ MonoBehaviour:
   size: 5
   color: {r: 0, g: 0.03434968, b: 1, a: 1}
   drawType: 0
+--- !u!114 &590103000042610327
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7142984586234731216}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 870bc8fa6d684a2479fab005466bf1ae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  number: 33
+  parity: 1
+  color: 1
+  row: 2
+  column: 2
 --- !u!1 &7195743326172854200
 GameObject:
   m_ObjectHideFlags: 0
@@ -14841,6 +15428,7 @@ GameObject:
   - component: {fileID: 1239366944369336105}
   - component: {fileID: 7021470751899909011}
   - component: {fileID: 440914625564668409}
+  - component: {fileID: 4888428808000768892}
   m_Layer: 5
   m_Name: 35_BLACK
   m_TagString: Untagged
@@ -14881,7 +15469,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e9534819650666f4e9f43b847fa7254b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rouletteNumber: {fileID: 0}
+  rouletteNumber: {fileID: 4888428808000768892}
   slotTransform: {fileID: 1239366944369336105}
   startTransform: {fileID: 5698542558049102817}
   endTransform: {fileID: 6574395055457080318}
@@ -14902,6 +15490,23 @@ MonoBehaviour:
   size: 5
   color: {r: 0, g: 0.03434968, b: 1, a: 1}
   drawType: 0
+--- !u!114 &4888428808000768892
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7195743326172854200}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 870bc8fa6d684a2479fab005466bf1ae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  number: 35
+  parity: 1
+  color: 1
+  row: 1
+  column: 2
 --- !u!1 &7213611616138670890
 GameObject:
   m_ObjectHideFlags: 0
@@ -15171,6 +15776,7 @@ GameObject:
   - component: {fileID: 7168996959051572964}
   - component: {fileID: 3696740527682976095}
   - component: {fileID: 8324421849836796355}
+  - component: {fileID: 6042194601150482134}
   m_Layer: 5
   m_Name: 32_RED
   m_TagString: Untagged
@@ -15211,7 +15817,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e9534819650666f4e9f43b847fa7254b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rouletteNumber: {fileID: 0}
+  rouletteNumber: {fileID: 6042194601150482134}
   slotTransform: {fileID: 7168996959051572964}
   startTransform: {fileID: 1259682700227588848}
   endTransform: {fileID: 9121079495505819399}
@@ -15232,6 +15838,23 @@ MonoBehaviour:
   size: 5
   color: {r: 0, g: 0.03434968, b: 1, a: 1}
   drawType: 0
+--- !u!114 &6042194601150482134
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7426458496423447056}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 870bc8fa6d684a2479fab005466bf1ae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  number: 32
+  parity: 0
+  color: 0
+  row: 1
+  column: 2
 --- !u!1 &7469476474701819965
 GameObject:
   m_ObjectHideFlags: 0
@@ -15910,6 +16533,7 @@ GameObject:
   - component: {fileID: 2688724229431125029}
   - component: {fileID: 8760900858435465778}
   - component: {fileID: 8980563484049344021}
+  - component: {fileID: 2575583350838305542}
   m_Layer: 5
   m_Name: 25_RED
   m_TagString: Untagged
@@ -15950,7 +16574,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e9534819650666f4e9f43b847fa7254b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rouletteNumber: {fileID: 0}
+  rouletteNumber: {fileID: 2575583350838305542}
   slotTransform: {fileID: 2688724229431125029}
   startTransform: {fileID: 118833889661172548}
   endTransform: {fileID: 7952333335670039957}
@@ -15971,6 +16595,23 @@ MonoBehaviour:
   size: 5
   color: {r: 0, g: 0.03434968, b: 1, a: 1}
   drawType: 0
+--- !u!114 &2575583350838305542
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7862378041605242543}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 870bc8fa6d684a2479fab005466bf1ae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  number: 25
+  parity: 1
+  color: 0
+  row: 0
+  column: 2
 --- !u!1 &7931106718586984454
 GameObject:
   m_ObjectHideFlags: 0
@@ -15982,6 +16623,7 @@ GameObject:
   - component: {fileID: 7823664789686463958}
   - component: {fileID: 6853093386859819181}
   - component: {fileID: 4454229734117048486}
+  - component: {fileID: 1043959411387747368}
   m_Layer: 5
   m_Name: 1_RED
   m_TagString: Untagged
@@ -16022,7 +16664,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e9534819650666f4e9f43b847fa7254b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rouletteNumber: {fileID: 0}
+  rouletteNumber: {fileID: 1043959411387747368}
   slotTransform: {fileID: 7823664789686463958}
   startTransform: {fileID: 5893529090741157204}
   endTransform: {fileID: 3689919168588908751}
@@ -16043,6 +16685,23 @@ MonoBehaviour:
   size: 5
   color: {r: 0, g: 0.03434968, b: 1, a: 1}
   drawType: 0
+--- !u!114 &1043959411387747368
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7931106718586984454}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 870bc8fa6d684a2479fab005466bf1ae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  number: 1
+  parity: 1
+  color: 0
+  row: 0
+  column: 0
 --- !u!1 &7939034456644463357
 GameObject:
   m_ObjectHideFlags: 0
@@ -16054,6 +16713,7 @@ GameObject:
   - component: {fileID: 789186717027932274}
   - component: {fileID: 5705497386027418238}
   - component: {fileID: 6195749838699167971}
+  - component: {fileID: 9138558164804202138}
   m_Layer: 5
   m_Name: 6_BLACK
   m_TagString: Untagged
@@ -16094,7 +16754,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e9534819650666f4e9f43b847fa7254b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rouletteNumber: {fileID: 0}
+  rouletteNumber: {fileID: 9138558164804202138}
   slotTransform: {fileID: 789186717027932274}
   startTransform: {fileID: 1836574253470058329}
   endTransform: {fileID: 6456036617728627502}
@@ -16115,6 +16775,23 @@ MonoBehaviour:
   size: 5
   color: {r: 0, g: 0.03434968, b: 1, a: 1}
   drawType: 0
+--- !u!114 &9138558164804202138
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7939034456644463357}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 870bc8fa6d684a2479fab005466bf1ae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  number: 6
+  parity: 0
+  color: 1
+  row: 2
+  column: 0
 --- !u!1 &8263696634937803821
 GameObject:
   m_ObjectHideFlags: 0
@@ -16196,6 +16873,7 @@ GameObject:
   - component: {fileID: 4432135632630292434}
   - component: {fileID: 4351125279160213928}
   - component: {fileID: 8097873322236167216}
+  - component: {fileID: 382039841564618276}
   m_Layer: 5
   m_Name: 14_RED
   m_TagString: Untagged
@@ -16236,7 +16914,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e9534819650666f4e9f43b847fa7254b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rouletteNumber: {fileID: 0}
+  rouletteNumber: {fileID: 382039841564618276}
   slotTransform: {fileID: 4432135632630292434}
   startTransform: {fileID: 6227641818291013509}
   endTransform: {fileID: 1208821890727151149}
@@ -16257,6 +16935,23 @@ MonoBehaviour:
   size: 5
   color: {r: 0, g: 0.03434968, b: 1, a: 1}
   drawType: 0
+--- !u!114 &382039841564618276
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8294085745310632382}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 870bc8fa6d684a2479fab005466bf1ae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  number: 14
+  parity: 0
+  color: 0
+  row: 1
+  column: 1
 --- !u!1 &8305958087277511212
 GameObject:
   m_ObjectHideFlags: 0
@@ -16268,6 +16963,7 @@ GameObject:
   - component: {fileID: 6095321064592051335}
   - component: {fileID: 7522016120265771532}
   - component: {fileID: 4084949591758543015}
+  - component: {fileID: 1036644771273516765}
   m_Layer: 5
   m_Name: 2_BLACK
   m_TagString: Untagged
@@ -16308,7 +17004,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e9534819650666f4e9f43b847fa7254b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rouletteNumber: {fileID: 0}
+  rouletteNumber: {fileID: 1036644771273516765}
   slotTransform: {fileID: 6095321064592051335}
   startTransform: {fileID: 931764583043468265}
   endTransform: {fileID: 7696542197708072890}
@@ -16329,6 +17025,23 @@ MonoBehaviour:
   size: 5
   color: {r: 0, g: 0.03434968, b: 1, a: 1}
   drawType: 0
+--- !u!114 &1036644771273516765
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8305958087277511212}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 870bc8fa6d684a2479fab005466bf1ae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  number: 2
+  parity: 0
+  color: 1
+  row: 1
+  column: 0
 --- !u!1 &8379882612562689238
 GameObject:
   m_ObjectHideFlags: 0
@@ -16537,126 +17250,6 @@ MonoBehaviour:
   size: 5
   color: {r: 0.12256491, g: 1, b: 0, a: 1}
   drawType: 0
---- !u!1 &8429138124852697978
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 6067928516511630669}
-  - component: {fileID: 251093780051365032}
-  - component: {fileID: 1580340132213332199}
-  - component: {fileID: 5747370112271464246}
-  m_Layer: 5
-  m_Name: Spin
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &6067928516511630669
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8429138124852697978}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 3050033519444780163}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 716.2, y: 2.8}
-  m_SizeDelta: {x: 346, y: 101}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!222 &251093780051365032
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8429138124852697978}
-  m_CullTransparentMesh: 1
---- !u!114 &1580340132213332199
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8429138124852697978}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
-  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
-  m_Maskable: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 910cfa6e49777da4abad390ac3ec6ba3, type: 3}
-  m_Type: 0
-  m_PreserveAspect: 0
-  m_FillCenter: 1
-  m_FillMethod: 4
-  m_FillAmount: 1
-  m_FillClockwise: 1
-  m_FillOrigin: 0
-  m_UseSpriteMesh: 0
-  m_PixelsPerUnitMultiplier: 1
---- !u!114 &5747370112271464246
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8429138124852697978}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Navigation:
-    m_Mode: 3
-    m_WrapAround: 0
-    m_SelectOnUp: {fileID: 0}
-    m_SelectOnDown: {fileID: 0}
-    m_SelectOnLeft: {fileID: 0}
-    m_SelectOnRight: {fileID: 0}
-  m_Transition: 1
-  m_Colors:
-    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
-    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
-    m_ColorMultiplier: 1
-    m_FadeDuration: 0.1
-  m_SpriteState:
-    m_HighlightedSprite: {fileID: 0}
-    m_PressedSprite: {fileID: 0}
-    m_SelectedSprite: {fileID: 0}
-    m_DisabledSprite: {fileID: 0}
-  m_AnimationTriggers:
-    m_NormalTrigger: Normal
-    m_HighlightedTrigger: Highlighted
-    m_PressedTrigger: Pressed
-    m_SelectedTrigger: Selected
-    m_DisabledTrigger: Disabled
-  m_Interactable: 1
-  m_TargetGraphic: {fileID: 1580340132213332199}
-  m_OnClick:
-    m_PersistentCalls:
-      m_Calls: []
 --- !u!1 &8497107998345148699
 GameObject:
   m_ObjectHideFlags: 0
@@ -17383,6 +17976,7 @@ GameObject:
   - component: {fileID: 3965744076295988709}
   - component: {fileID: 4503087301508892979}
   - component: {fileID: 3011865835889922196}
+  - component: {fileID: 1899534566442229683}
   m_Layer: 5
   m_Name: Back
   m_TagString: Untagged
@@ -17447,6 +18041,50 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &1899534566442229683
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8841588797163388243}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Navigation:
+    m_Mode: 3
+    m_WrapAround: 0
+    m_SelectOnUp: {fileID: 0}
+    m_SelectOnDown: {fileID: 0}
+    m_SelectOnLeft: {fileID: 0}
+    m_SelectOnRight: {fileID: 0}
+  m_Transition: 1
+  m_Colors:
+    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
+    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
+    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_ColorMultiplier: 1
+    m_FadeDuration: 0.1
+  m_SpriteState:
+    m_HighlightedSprite: {fileID: 0}
+    m_PressedSprite: {fileID: 0}
+    m_SelectedSprite: {fileID: 0}
+    m_DisabledSprite: {fileID: 0}
+  m_AnimationTriggers:
+    m_NormalTrigger: Normal
+    m_HighlightedTrigger: Highlighted
+    m_PressedTrigger: Pressed
+    m_SelectedTrigger: Selected
+    m_DisabledTrigger: Disabled
+  m_Interactable: 1
+  m_TargetGraphic: {fileID: 3011865835889922196}
+  m_OnClick:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &8862047109241742998
 GameObject:
   m_ObjectHideFlags: 0
@@ -17876,6 +18514,7 @@ GameObject:
   - component: {fileID: 2157493107539862029}
   - component: {fileID: 3875937112120669695}
   - component: {fileID: 682972169237772473}
+  - component: {fileID: 4967242228885667437}
   m_Layer: 5
   m_Name: 9_RED
   m_TagString: Untagged
@@ -17916,7 +18555,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e9534819650666f4e9f43b847fa7254b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rouletteNumber: {fileID: 0}
+  rouletteNumber: {fileID: 4967242228885667437}
   slotTransform: {fileID: 2157493107539862029}
   startTransform: {fileID: 5456649228764979374}
   endTransform: {fileID: 5608708367198254360}
@@ -17937,6 +18576,23 @@ MonoBehaviour:
   size: 5
   color: {r: 0, g: 0.03434968, b: 1, a: 1}
   drawType: 0
+--- !u!114 &4967242228885667437
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9021867792542460897}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 870bc8fa6d684a2479fab005466bf1ae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  number: 9
+  parity: 1
+  color: 0
+  row: 2
+  column: 0
 --- !u!1 &9059608380182702096
 GameObject:
   m_ObjectHideFlags: 0

@@ -1,9 +1,10 @@
-using System.Collections;
-using System.Collections.Generic;
+using System;
 using UnityEngine;
 
 public class UIRouletteRoot : MonoBehaviour
 {
+    [SerializeField] private MainPanel_RouletteScene mainPanel;
+    [SerializeField] private SpinPanel_RouletteScene spinPanel;
 
     private ISoundProvider soundProvider;
     //private IParticleEffectProvider particleEffectProvider;
@@ -12,7 +13,10 @@ public class UIRouletteRoot : MonoBehaviour
 
     public void Initialize()
     {
+        mainPanel.SetSoundProvider(soundProvider);
 
+        mainPanel.Initialize();
+        spinPanel.Initialize();
     }
 
     public void Activate()
@@ -22,7 +26,8 @@ public class UIRouletteRoot : MonoBehaviour
 
     public void Deactivate()
     {
-
+        mainPanel.Dispose();
+        spinPanel.Dispose();
     }
 
     public void SetSoundProvider(ISoundProvider soundProvider)
@@ -39,6 +44,23 @@ public class UIRouletteRoot : MonoBehaviour
     {
 
     }
+
+    public void OpenMainPanel()
+    {
+        OpenPanel(mainPanel);
+    }
+
+    public void OpenSpinPanel()
+    {
+        OpenOtherPanel(spinPanel);
+    }
+
+    public void CloseSpinPanel()
+    {
+        CloseOtherPanel(spinPanel);
+    }
+
+
 
 
     private void OpenPanel(Panel panel)
@@ -62,8 +84,19 @@ public class UIRouletteRoot : MonoBehaviour
         panel.DeactivatePanel();
     }
 
-    public void OpenMainPanel()
+    #region Input
+
+    public event Action OnClickToBackButton
     {
-        //OpenPanel(mainPanel);
+        add { mainPanel.OnClickToBackButton += value; }
+        remove { mainPanel.OnClickToBackButton -= value; }
     }
+
+    public event Action OnClickToSpinButton
+    {
+        add { mainPanel.OnClickToSpinButton += value; }
+        remove { mainPanel.OnClickToSpinButton -= value; }
+    }
+
+    #endregion
 }
