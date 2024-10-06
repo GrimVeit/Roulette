@@ -8,6 +8,7 @@ public class Chip : MonoBehaviour
     public ChipData ChipData => chipData;
     public event Action<Chip> OnRetracted;
     public event Action<Chip> OnNoneRetracted;
+    public event Action<Chip> OnFalled;
 
     [SerializeField] private Image image;
     private ICell cell;
@@ -30,11 +31,16 @@ public class Chip : MonoBehaviour
 
         isRetract = true;
         cell?.ResetBet(this);
-        transform.DOLocalMove(Vector2.zero, 0.3f).OnComplete(() => OnRetracted?.Invoke(this));
+        transform.DOLocalMove(Vector2.zero, 0.7f).OnComplete(() => OnRetracted?.Invoke(this));
     }
 
     public void NoneRetract()
     {
-        transform.DOLocalMove(Vector2.zero, 0.3f).OnComplete(() => OnRetracted?.Invoke(this));
+        transform.DOLocalMove(Vector2.zero, 0.7f).OnComplete(() => OnRetracted?.Invoke(this));
+    }
+
+    public void Fall(Vector2 vector)
+    {
+        transform.DOMove(vector, 0.7f).OnComplete(() => OnFalled?.Invoke(this));
     }
 }

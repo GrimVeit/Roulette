@@ -4,15 +4,18 @@ public class RouletteResultModel
 {
     public event Action OnStartShowResult;
     public event Action OnFinishShowResult;
-    public event Action OnStartHideResult;
+    public event Action<RouletteSlotValue> OnStartHideResult;
     public event Action OnFinishHideResult;
 
     public event Action<RouletteSlotValue> OnShowResult;
     public event Action OnHideResult;
 
+    private RouletteSlotValue rouletteSlotValue;
+
     public void ShowResult(RouletteSlotValue rouletteSlotValue)
     {
-        OnShowResult?.Invoke(rouletteSlotValue);
+        this.rouletteSlotValue = rouletteSlotValue;
+        OnShowResult?.Invoke(this.rouletteSlotValue);
     }
 
     public void HideResult()
@@ -32,7 +35,7 @@ public class RouletteResultModel
 
     public void StartHideResult()
     {
-        OnStartHideResult?.Invoke();
+        OnStartHideResult?.Invoke(rouletteSlotValue);
     }
 
     public void FinishHideResult()

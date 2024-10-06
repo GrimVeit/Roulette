@@ -34,7 +34,7 @@ public class ChipPresenter
         chipModel.OnRecallAllChips += chipView.RecallAllChips;
         chipModel.OnRetractLastChip += chipView.RetractLastChip;
         chipModel.OnNoneRetractChip += chipView.NoneRetractChip;
-        chipModel.OnDeleteChip += chipView.DestroyChip;
+        chipModel.OnFallChip += chipView.FallChip;
     }
 
     private void DeactivateEvents()
@@ -47,7 +47,7 @@ public class ChipPresenter
         chipModel.OnRetractLastChip -= chipView.RetractLastChip;
 
         chipModel.OnNoneRetractChip -= chipView.NoneRetractChip;
-        chipModel.OnDeleteChip -= chipView.DestroyChip;
+        chipModel.OnFallChip -= chipView.FallChip;
     }
 
     #region Input

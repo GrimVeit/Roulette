@@ -7,7 +7,7 @@ public class ChipModel
     public event Action<List<Chip>> OnRecallAllChips;
     public event Action<Chip> OnNoneRetractChip;
     public event Action<Chip> OnRetractLastChip;
-    public event Action<Chip> OnDeleteChip;
+    public event Action<Chip> OnFallChip;
 
     public event Action<ChipData, ICell, Vector2> OnSpawn;
 
@@ -35,6 +35,6 @@ public class ChipModel
 
     public void FallChip(Chip chip)
     {
-        OnDeleteChip?.Invoke(chip);
+        OnFallChip?.Invoke(chip);
     }
 }

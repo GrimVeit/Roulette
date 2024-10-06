@@ -20,6 +20,7 @@ public class RouletteEntryPoint : MonoBehaviour
     private RoulettePresenter roulettePresenter;
     private RouletteBetPresenter rouletteBetPresenter;
     private RouletteResultPresenter rouletteResultPresenter;
+    private RouletteHistoryPresenter rouletteHistoryPresenter;
 
     public void Run(UIRootView uIRootView)
     {
@@ -61,6 +62,9 @@ public class RouletteEntryPoint : MonoBehaviour
         rouletteResultPresenter = new RouletteResultPresenter(new RouletteResultModel(), viewContainer.GetView<RouletteResultView>());
         rouletteResultPresenter.Initialize();
 
+        rouletteHistoryPresenter = new RouletteHistoryPresenter(new RouletteHistoryModel(soundPresenter), viewContainer.GetView<RouletteHistoryView>());
+        rouletteHistoryPresenter.Initialize();
+
         ActivateTransferEvents();
         ActivateEvents();
 
@@ -82,6 +86,7 @@ public class RouletteEntryPoint : MonoBehaviour
 
         rouletteResultPresenter.OnStartShowResult += rouletteBetPresenter.SearchWin;
         rouletteResultPresenter.OnFinishShowResult += rouletteBetPresenter.ShowResult;
+        rouletteResultPresenter.OnStartHideResult += rouletteHistoryPresenter.AddRouletteNumber;
 
         rouletteBetPresenter.OnStartHideResult += rouletteResultPresenter.HideResult;
         rouletteBetPresenter.OnFinishHideResult += sceneRoot.CloseSpinPanel;
@@ -103,6 +108,7 @@ public class RouletteEntryPoint : MonoBehaviour
 
         rouletteResultPresenter.OnFinishShowResult -= rouletteBetPresenter.SearchWin;
         rouletteResultPresenter.OnFinishShowResult -= rouletteBetPresenter.ShowResult;
+        rouletteResultPresenter.OnStartHideResult -= rouletteHistoryPresenter.AddRouletteNumber;
 
         rouletteBetPresenter.OnStartHideResult -= rouletteResultPresenter.HideResult;
         rouletteBetPresenter.OnFinishHideResult -= sceneRoot.CloseSpinPanel;
@@ -135,6 +141,7 @@ public class RouletteEntryPoint : MonoBehaviour
         roulettePresenter?.Dispose();
         rouletteBetPresenter?.Dispose();
         rouletteResultPresenter?.Dispose();
+        rouletteHistoryPresenter?.Dispose();
     }
 
     private void OnDestroy()

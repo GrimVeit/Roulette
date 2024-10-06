@@ -37,13 +37,13 @@ public class MainPanel_RouletteScene : MovePanel
 
     private void HandlerClickToBackButton()
     {
-        soundProvider.PlayOneShot("ClickOpen");
+        //soundProvider.PlayOneShot("ClickOpen");
         OnClickToBackButton?.Invoke();
     }
 
     private void HandlerClickToSpinButton()
     {
-        soundProvider.PlayOneShot("ClickOpen");
+        //soundProvider.PlayOneShot("ClickOpen");
         OnClickToSpinButton?.Invoke();
     }
 

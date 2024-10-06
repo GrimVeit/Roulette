@@ -12,6 +12,7 @@ public class ChipView : View
     [SerializeField] private Transform parentSpawn;
     [SerializeField] private Chip chipPrefab;
     [SerializeField] private List<Chip> chips = new List<Chip>();
+    [SerializeField] private Transform transformDeleteChip;
 
     [SerializeField] private Button recallAllChips;
     [SerializeField] private Button retractLastChip;
@@ -33,6 +34,8 @@ public class ChipView : View
         Chip chip = Instantiate(chipPrefab, chipData.Parent);
         chip.transform.SetLocalPositionAndRotation(vector, chipPrefab.transform.rotation);
         chip.OnRetracted += OnRetractChip;
+        chip.OnNoneRetracted += OnNoneRetracted;
+        chip.OnFalled += OnFall;
         chip.Initialize(chipData, cell);
 
         chips.Add(chip);
@@ -56,14 +59,20 @@ public class ChipView : View
         chip.NoneRetract();
     }
 
-    public void DestroyChip(Chip chip)
+    public void FallChip(Chip chip)
     {
-        chip.OnRetracted -= OnRetractChip;
-        chips.Remove(chip);
-        Destroy(chip.gameObject);
+        chip.Fall(transformDeleteChip.position);
     }
 
     #region Input
+
+    private void OnFall(Chip chip)
+    {
+        chip.OnRetracted -= OnRetractChip;
+        chip.OnNoneRetracted -= OnNoneRetracted;
+        chips.Remove(chip);
+        Destroy(chip.gameObject);
+    }
 
     private void OnRetractChip(Chip chip)
     {

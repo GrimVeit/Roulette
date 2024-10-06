@@ -74,7 +74,7 @@ public class RouletteResultPresenter
         remove { rouletteResultModel.OnFinishShowResult -= value; }
     }
 
-    public event Action OnStartHideResult
+    public event Action<RouletteSlotValue> OnStartHideResult
     {
         add { rouletteResultModel.OnStartHideResult += value; }
         remove { rouletteResultModel.OnStartHideResult -= value; }
