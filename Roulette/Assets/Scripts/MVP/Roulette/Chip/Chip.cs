@@ -5,11 +5,15 @@ using UnityEngine.UI;
 
 public class Chip : MonoBehaviour
 {
+    public ChipData ChipData => chipData;
     public event Action<Chip> OnRetracted;
+    public event Action<Chip> OnNoneRetracted;
 
     [SerializeField] private Image image;
     private ICell cell;
     private ChipData chipData;
+
+    private bool isRetract = false;
 
     public void Initialize(ChipData chipData, ICell cell)
     {
@@ -17,12 +21,20 @@ public class Chip : MonoBehaviour
         this.cell = cell;
 
         image.sprite = this.chipData.Sprite;
-        this.cell.ChooseBet(chipData);
+        this.cell?.ChooseBet(this);
     }
 
     public void Retract()
     {
-        cell.ResetBet(chipData);
+        if (isRetract) return;
+
+        isRetract = true;
+        cell?.ResetBet(this);
+        transform.DOLocalMove(Vector2.zero, 0.3f).OnComplete(() => OnRetracted?.Invoke(this));
+    }
+
+    public void NoneRetract()
+    {
         transform.DOLocalMove(Vector2.zero, 0.3f).OnComplete(() => OnRetracted?.Invoke(this));
     }
 }

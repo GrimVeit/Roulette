@@ -8,12 +8,14 @@ public class RouletteNumber : MonoBehaviour
     [SerializeField] private ColorNumber color;
     [SerializeField] private RowNumber row;
     [SerializeField] private ColumnNumber column;
+    [SerializeField] private Sprite sprite;
 
     public int Number => number;
     public ParityNumber Parity => parity;
     public ColorNumber Color => color;
     public RowNumber Row => row;
     public ColumnNumber Column => column;
+    public Sprite Sprite => sprite;
 
 }
 

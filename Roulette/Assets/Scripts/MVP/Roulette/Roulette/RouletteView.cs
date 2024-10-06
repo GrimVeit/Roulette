@@ -38,7 +38,11 @@ public class RouletteView : View
         RouletteSlotValue rouletteSlotValue = GetClosestSlot(vector);
         ball.SetParent(rouletteSlotValue.transform);
         ball.SetLocalPositionAndRotation(rouletteSlotValue.StartTransform.localPosition, Quaternion.identity);
-        ball.DOLocalMove(rouletteSlotValue.EndTransform.localPosition, 0.5f).OnComplete(() => Debug.Log("ּÿק ג סכמעו"));
+        ball.DOLocalMove(rouletteSlotValue.EndTransform.localPosition, 0.5f).OnComplete(() => 
+        {
+            OnGetRouletteNumber?.Invoke(rouletteSlotValue);
+            Debug.Log("ּÿק ג סכמעו");
+        });
     }
 
     private RouletteSlotValue GetClosestSlot(Vector3 vector)
@@ -79,6 +83,7 @@ public class RouletteView : View
 
     #region Input
 
+    public event Action<RouletteSlotValue> OnGetRouletteNumber;
     public event Action OnStartSpin;
 
     private void HandlerClickToSpinButton()

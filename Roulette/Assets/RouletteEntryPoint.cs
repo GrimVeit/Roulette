@@ -19,6 +19,7 @@ public class RouletteEntryPoint : MonoBehaviour
     private RouletteBallPresenter rouletteBallPresenter;
     private RoulettePresenter roulettePresenter;
     private RouletteBetPresenter rouletteBetPresenter;
+    private RouletteResultPresenter rouletteResultPresenter;
 
     public void Run(UIRootView uIRootView)
     {
@@ -57,6 +58,9 @@ public class RouletteEntryPoint : MonoBehaviour
         rouletteBetPresenter = new RouletteBetPresenter(new RouletteBetModel(bankPresenter), viewContainer.GetView<RouletteBetView>());
         rouletteBetPresenter.Initialize();
 
+        rouletteResultPresenter = new RouletteResultPresenter(new RouletteResultModel(), viewContainer.GetView<RouletteResultView>());
+        rouletteResultPresenter.Initialize();
+
         ActivateTransferEvents();
         ActivateEvents();
 
@@ -68,8 +72,20 @@ public class RouletteEntryPoint : MonoBehaviour
 
     private void ActivateEvents()
     {
+        rouletteBetPresenter.OnNoneRetractedChip += chipPresenter.NoneRetractChip;
+        rouletteBetPresenter.OnDestroyedChip += chipPresenter.FallChip;
+
         pseudoChipPresenter.OnSpawnChip += chipPresenter.SpawnChip;
         rouletteBallPresenter.OnBallStopped += roulettePresenter.RollBallToSlot;
+        roulettePresenter.OnGetRouletteSlotValue += rouletteBetPresenter.GetRouletteSlotValue;
+        roulettePresenter.OnGetRouletteSlotValue += rouletteResultPresenter.ShowResult;
+
+        rouletteResultPresenter.OnStartShowResult += rouletteBetPresenter.SearchWin;
+        rouletteResultPresenter.OnFinishShowResult += rouletteBetPresenter.ShowResult;
+
+        rouletteBetPresenter.OnStartHideResult += rouletteResultPresenter.HideResult;
+        rouletteBetPresenter.OnFinishHideResult += sceneRoot.CloseSpinPanel;
+        rouletteBetPresenter.OnFinishHideResult += rouletteBetPresenter.ReturnChips;
     }
 
     private void ActivateTransferEvents()
@@ -82,6 +98,18 @@ public class RouletteEntryPoint : MonoBehaviour
     {
         pseudoChipPresenter.OnSpawnChip -= chipPresenter.SpawnChip;
         rouletteBallPresenter.OnBallStopped -= roulettePresenter.RollBallToSlot;
+        roulettePresenter.OnGetRouletteSlotValue -= rouletteResultPresenter.ShowResult;
+        roulettePresenter.OnGetRouletteSlotValue -= rouletteBetPresenter.GetRouletteSlotValue;
+
+        rouletteResultPresenter.OnFinishShowResult -= rouletteBetPresenter.SearchWin;
+        rouletteResultPresenter.OnFinishShowResult -= rouletteBetPresenter.ShowResult;
+
+        rouletteBetPresenter.OnStartHideResult -= rouletteResultPresenter.HideResult;
+        rouletteBetPresenter.OnFinishHideResult -= sceneRoot.CloseSpinPanel;
+
+        rouletteBetPresenter.OnFinishHideResult -= rouletteBetPresenter.ReturnChips;
+        rouletteBetPresenter.OnNoneRetractedChip -= chipPresenter.NoneRetractChip;
+        rouletteBetPresenter.OnDestroyedChip -= chipPresenter.FallChip;
     }
 
     private void DeactivateTransferEvents()
@@ -106,6 +134,7 @@ public class RouletteEntryPoint : MonoBehaviour
         rouletteBallPresenter?.Dispose();
         roulettePresenter?.Dispose();
         rouletteBetPresenter?.Dispose();
+        rouletteResultPresenter?.Dispose();
     }
 
     private void OnDestroy()

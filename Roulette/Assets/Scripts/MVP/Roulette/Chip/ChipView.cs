@@ -32,7 +32,7 @@ public class ChipView : View
     {
         Chip chip = Instantiate(chipPrefab, chipData.Parent);
         chip.transform.SetLocalPositionAndRotation(vector, chipPrefab.transform.rotation);
-        chip.OnRetracted += RetractChip;
+        chip.OnRetracted += OnRetractChip;
         chip.Initialize(chipData, cell);
 
         chips.Add(chip);
@@ -51,14 +51,35 @@ public class ChipView : View
         chip.Retract();
     }
 
-    private void RetractChip(Chip chip)
+    public void NoneRetractChip(Chip chip)
     {
-        chip.OnRetracted -= RetractChip;
+        chip.NoneRetract();
+    }
+
+    public void DestroyChip(Chip chip)
+    {
+        chip.OnRetracted -= OnRetractChip;
         chips.Remove(chip);
         Destroy(chip.gameObject);
     }
 
     #region Input
+
+    private void OnRetractChip(Chip chip)
+    {
+        chip.OnRetracted -= OnRetractChip;
+        chip.OnNoneRetracted -= OnNoneRetracted;
+        chips.Remove(chip);
+        Destroy(chip.gameObject);
+    }
+
+    private void OnNoneRetracted(Chip chip)
+    {
+        chip.OnRetracted -= OnRetractChip;
+        chip.OnNoneRetracted -= OnNoneRetracted;
+        chips.Remove(chip);
+        Destroy(chip.gameObject);
+    }
 
     private void HandlerClickToRecallAllChips()
     {

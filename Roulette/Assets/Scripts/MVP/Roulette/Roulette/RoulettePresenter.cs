@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class RoulettePresenter
@@ -28,6 +29,7 @@ public class RoulettePresenter
     private void ActivateEvents()
     {
         rouletteView.OnStartSpin += rouletteModel.StartSpin;
+        rouletteView.OnGetRouletteNumber += rouletteModel.GetRouletteNumber;
 
         rouletteModel.OnStartSpin += rouletteView.StartSpin;
         rouletteModel.OnRollBallToSlot += rouletteView.RollBallToSlot;
@@ -36,6 +38,7 @@ public class RoulettePresenter
     private void DeactivateEvents()
     {
         rouletteView.OnStartSpin -= rouletteModel.StartSpin;
+        rouletteView.OnGetRouletteNumber -= rouletteModel.GetRouletteNumber;
 
         rouletteModel.OnStartSpin -= rouletteView.StartSpin;
         rouletteModel.OnRollBallToSlot -= rouletteView.RollBallToSlot;
@@ -46,6 +49,12 @@ public class RoulettePresenter
     public void RollBallToSlot(Vector3 vector)
     {
         rouletteModel.RollBallToSlot(vector);
+    }
+
+    public event Action<RouletteSlotValue> OnGetRouletteSlotValue
+    {
+        add { rouletteModel.OnGetRouletteSlotValue += value; }
+        remove { rouletteModel.OnGetRouletteSlotValue -= value; }
     }
 
     #endregion

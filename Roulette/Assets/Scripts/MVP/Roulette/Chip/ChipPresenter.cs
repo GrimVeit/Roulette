@@ -1,7 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.EventSystems;
 
 public class ChipPresenter
 {
@@ -36,6 +33,8 @@ public class ChipPresenter
         chipModel.OnSpawn += chipView.SpawnChip;
         chipModel.OnRecallAllChips += chipView.RecallAllChips;
         chipModel.OnRetractLastChip += chipView.RetractLastChip;
+        chipModel.OnNoneRetractChip += chipView.NoneRetractChip;
+        chipModel.OnDeleteChip += chipView.DestroyChip;
     }
 
     private void DeactivateEvents()
@@ -46,6 +45,9 @@ public class ChipPresenter
         chipModel.OnSpawn -= chipView.SpawnChip;
         chipModel.OnRecallAllChips -= chipView.RecallAllChips;
         chipModel.OnRetractLastChip -= chipView.RetractLastChip;
+
+        chipModel.OnNoneRetractChip -= chipView.NoneRetractChip;
+        chipModel.OnDeleteChip -= chipView.DestroyChip;
     }
 
     #region Input
@@ -53,6 +55,16 @@ public class ChipPresenter
     public void SpawnChip(ChipData chipData, ICell cell, Vector2 vector) 
     {
         chipModel.SpawnChip(chipData, cell, vector);
+    }
+
+    public void NoneRetractChip(Chip chip)
+    {
+        chipModel.NoneRetractChip(chip);
+    }
+
+    public void FallChip(Chip chip)
+    {
+        chipModel.FallChip(chip);
     }
 
     #endregion
