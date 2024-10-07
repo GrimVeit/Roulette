@@ -12,8 +12,10 @@ public class RouletteBallView : View
     [SerializeField] private Transform transformParent;
     [SerializeField] private Transform centerPoint;
     [SerializeField] private Transform ball;
-    [SerializeField] private float startRadius;
-    [SerializeField] private float endRadius;
+    [SerializeField] private Transform transformStart;
+    [SerializeField] private Transform transformEnd;
+    private float startRadius;
+    private float endRadius;
     [SerializeField] private float duration;
     [SerializeField] private float startSpeed;
     [SerializeField] private float endSpeed = 0;
@@ -27,6 +29,9 @@ public class RouletteBallView : View
     public void Initialize()
     {
         spinButton.onClick.AddListener(HandlerClickSpinButton);
+
+        startRadius = Vector3.Distance(transformStart.position, centerPoint.position);
+        endRadius = Vector3.Distance(transformEnd.position, centerPoint.position);
     }
 
     public void Dispose()

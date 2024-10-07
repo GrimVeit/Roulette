@@ -50,10 +50,10 @@ public class RouletteEntryPoint : MonoBehaviour
         chipPresenter = new ChipPresenter(new ChipModel(), viewContainer.GetView<ChipView>());
         chipPresenter.Initialize();
 
-        rouletteBallPresenter = new RouletteBallPresenter(new RouletteBallModel(), viewContainer.GetView<RouletteBallView>());
+        rouletteBallPresenter = new RouletteBallPresenter(new RouletteBallModel(soundPresenter), viewContainer.GetView<RouletteBallView>());
         rouletteBallPresenter.Initialize();
 
-        roulettePresenter = new RoulettePresenter(new RouletteModel(), viewContainer.GetView<RouletteView>());
+        roulettePresenter = new RoulettePresenter(new RouletteModel(soundPresenter), viewContainer.GetView<RouletteView>());
         roulettePresenter.Initialize();
 
         rouletteBetPresenter = new RouletteBetPresenter(new RouletteBetModel(bankPresenter), viewContainer.GetView<RouletteBetView>());

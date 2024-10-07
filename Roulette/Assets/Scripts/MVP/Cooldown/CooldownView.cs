@@ -11,6 +11,7 @@ public class CooldownView : View, IIdentify
     public event Action OnClickCooldownButton;
 
     [SerializeField] private Button cooldownButton;
+    [SerializeField] private GameObject cooldownObject;
     [SerializeField] private TextMeshProUGUI textCountdown;
 
     private Vector3 normalScaleCooldownButton;
@@ -37,7 +38,7 @@ public class CooldownView : View, IIdentify
 
     public void OnActivateButton()
     {
-        textCountdown.gameObject.SetActive(false);
+        cooldownObject.SetActive(false);
 
         scaleTween = cooldownButton.transform.DOScale(new Vector3(1.1f, 1.1f, 1.1f), 0.6f)
             .SetLoops(-1, LoopType.Yoyo)
@@ -46,7 +47,7 @@ public class CooldownView : View, IIdentify
 
     public void OnDeactivateButton()
     {
-        textCountdown.gameObject.SetActive(true);
+        cooldownObject.SetActive(true);
 
         if (scaleTween != null)
             scaleTween.Kill();
