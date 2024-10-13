@@ -15,15 +15,19 @@ public class PseudoChipModel
     private bool isActive = true;
 
     private IMoneyProvider moneyProvider;
+    private ISoundProvider soundProvider;
 
-    public PseudoChipModel(IMoneyProvider moneyProvider)
+    public PseudoChipModel(IMoneyProvider moneyProvider, ISoundProvider soundProvider)
     {
         this.moneyProvider = moneyProvider;
+        this.soundProvider = soundProvider;
     }
 
     public void GrabPseudoChip(PseudoChip pseudoChip)
     {
         OnUngrabCurrentPseudoChip?.Invoke();
+
+        soundProvider.PlayOneShot("ChipGrab");
 
         if (moneyProvider.CanAfford(pseudoChip.ChipData.Nominal))
         {
@@ -65,6 +69,7 @@ public class PseudoChipModel
             }
         }
 
+        soundProvider.PlayOneShot("ChipWhoosh");
         OnEndMove?.Invoke();
     }
 

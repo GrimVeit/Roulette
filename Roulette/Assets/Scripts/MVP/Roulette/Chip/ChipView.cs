@@ -8,8 +8,8 @@ public class ChipView : View
     public event Action<List<Chip>> OnRecallAllChips;
     public event Action<Chip> OnRetractLastChip;
 
-    [SerializeField] private Canvas canvas;
-    [SerializeField] private Transform parentSpawn;
+    //[SerializeField] private Canvas canvas;
+    //[SerializeField] private Transform parentSpawn;
     [SerializeField] private Chip chipPrefab;
     [SerializeField] private List<Chip> chips = new List<Chip>();
     [SerializeField] private Transform transformDeleteChip;

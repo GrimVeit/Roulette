@@ -37,7 +37,7 @@ public class MainMenuEntryPoint : MonoBehaviour
         particleEffectPresenter.Initialize();
 
         cooldownDailyRewardPresenter = new CooldownPresenter
-            (new CooldownModel(PlayerPrefsKeys.NEXT_DAILY_REWARD_TIME, TimeSpan.FromSeconds(15), soundPresenter),
+            (new CooldownModel(PlayerPrefsKeys.NEXT_DAILY_REWARD_TIME, TimeSpan.FromDays(1), soundPresenter),
             viewContainer.GetView<CooldownView>("DailyReward"));
         cooldownDailyRewardPresenter.Initialize();
 
@@ -100,11 +100,6 @@ public class MainMenuEntryPoint : MonoBehaviour
         bankPresenter?.Dispose();
         dailyRewardPresenter?.Dispose();
         cooldownDailyRewardPresenter?.Dispose();
-    }
-
-    private void OnDestroy()
-    {
-        Dispose();
     }
 
     #region Input actions

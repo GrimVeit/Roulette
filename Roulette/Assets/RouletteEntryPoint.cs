@@ -44,10 +44,10 @@ public class RouletteEntryPoint : MonoBehaviour
         bankPresenter = new BankPresenter(new BankModel(), viewContainer.GetView<BankView>());
         bankPresenter.Initialize();
 
-        pseudoChipPresenter = new PseudoChipPresenter(new PseudoChipModel(bankPresenter), viewContainer.GetView<PseudoChipView>());
+        pseudoChipPresenter = new PseudoChipPresenter(new PseudoChipModel(bankPresenter, soundPresenter), viewContainer.GetView<PseudoChipView>());
         pseudoChipPresenter.Initialize();
 
-        chipPresenter = new ChipPresenter(new ChipModel(), viewContainer.GetView<ChipView>());
+        chipPresenter = new ChipPresenter(new ChipModel(soundPresenter), viewContainer.GetView<ChipView>());
         chipPresenter.Initialize();
 
         rouletteBallPresenter = new RouletteBallPresenter(new RouletteBallModel(soundPresenter), viewContainer.GetView<RouletteBallView>());
@@ -144,11 +144,6 @@ public class RouletteEntryPoint : MonoBehaviour
         rouletteHistoryPresenter?.Dispose();
     }
 
-    private void OnDestroy()
-    {
-        Dispose();
-    }
-
     #region Input actions
 
     public event Action GoToMainMenu_Action;
@@ -156,6 +151,7 @@ public class RouletteEntryPoint : MonoBehaviour
 
     private void HandleGoToMainMenu()
     {
+        Dispose();
         GoToMainMenu_Action?.Invoke();
     }
 

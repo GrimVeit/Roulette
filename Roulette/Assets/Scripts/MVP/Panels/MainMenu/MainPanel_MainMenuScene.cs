@@ -40,7 +40,7 @@ public class MainPanel_MainMenuScene : MovePanel
 
     private void HandleGoToMiniGame_ButtonClick()
     {
-        soundProvider.PlayOneShot("ClickOpen");
+        soundProvider.PlayOneShot("Click");
         GoToMiniGame_Action?.Invoke();
     }
 }

@@ -65,12 +65,12 @@ public class CooldownModel
         if (isRewardAvailable)
         {
             OnClickToActivatedButton?.Invoke();
-            soundProvider.PlayOneShot("ClickOpen");
+            soundProvider.PlayOneShot("Click");
             return;
         }
 
         OnClickToDeactivatedButton?.Invoke();
-        soundProvider.PlayOneShot("Locked");
+        soundProvider.PlayOneShot("Lock");
     }
 
     public void ActivateCooldown()
@@ -115,9 +115,11 @@ public class CooldownModel
 
             OnCountdownTimer?.Invoke(string.Format("{0:D2}:{1:D2}:{2:D2}", timeRemaining.Hours, timeRemaining.Minutes, timeRemaining.Seconds));
 
+            soundProvider.Play("Timer");
+
             yield return new WaitForSeconds(1);
         }
-
+        soundProvider.Play("TimerDone");
         //soundProvider.PlayOneShot(ID);
         //effectReload.Play();
         OnSetAvailableButton?.Invoke();

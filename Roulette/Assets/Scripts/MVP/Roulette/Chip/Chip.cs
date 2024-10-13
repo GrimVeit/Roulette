@@ -36,7 +36,7 @@ public class Chip : MonoBehaviour
 
     public void NoneRetract()
     {
-        transform.DOLocalMove(Vector2.zero, 0.7f).OnComplete(() => OnRetracted?.Invoke(this));
+        transform.DOLocalMove(Vector2.zero, 0.7f).OnComplete(() => OnNoneRetracted?.Invoke(this));
     }
 
     public void Fall(Vector2 vector)

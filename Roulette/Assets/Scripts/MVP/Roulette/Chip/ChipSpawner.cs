@@ -4,7 +4,7 @@ using UnityEngine.EventSystems;
 
 public class ChipSpawner : MonoBehaviour, IBeginDragHandler, IDragHandler
 {
-    [SerializeField] private Canvas canvas;
+    [SerializeField] private Transform canvas;
     public event Action<Chip, PointerEventData> OnSpawnChip;
 
     [SerializeField] private Chip chipPrefab;
