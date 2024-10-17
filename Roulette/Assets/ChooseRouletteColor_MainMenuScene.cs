@@ -31,7 +31,7 @@ public class ChooseRouletteColor_MainMenuScene : MovePanel
 
     private void HandlerClickToBackButton()
     {
-        soundProvider.PlayOneShot("ClickClose");
+        soundProvider.PlayOneShot("Click");
         OnClickBackButton?.Invoke();
     }
 }

@@ -51,7 +51,7 @@ public class MainMenuEntryPoint : MonoBehaviour
         dailyRewardPresenter.Initialize();
 
         rouletteColorPresenter = new RouletteColorPresenter
-            (new RouletteColorModel(), 
+            (new RouletteColorModel(soundPresenter), 
             viewContainer.GetView<RouletteColorView>());
         rouletteColorPresenter.Initialize();
 

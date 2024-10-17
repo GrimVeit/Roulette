@@ -6,9 +6,13 @@ using UnityEngine.UI;
 public class RouletteColor
 {
     public bool IsActiveButton => isActiveButton;
+    public string NameDesign => nameDesign;
+
     public event Action<int> OnChooseColorIndex;
 
     [SerializeField] private Button buttonChoose;
+    [SerializeField] private GameObject textPurchased;
+    [SerializeField] private string nameDesign;
 
     private int currentIndex;
     private bool isActiveButton;
@@ -27,12 +31,14 @@ public class RouletteColor
 
     public void ActivateButton()
     {
+        textPurchased.SetActive(false);
         buttonChoose.gameObject.SetActive(true);
         isActiveButton = true;
     }
 
     public void DeactivateButton()
     {
+        textPurchased.SetActive(true);
         buttonChoose.gameObject.SetActive(false);
         isActiveButton = false;
     }

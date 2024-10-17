@@ -7,6 +7,13 @@ public class RouletteColorModel
 
     private int currentIndex;
 
+    private ISoundProvider soundProvider;
+
+    public RouletteColorModel(ISoundProvider soundProvider)
+    {
+        this.soundProvider = soundProvider;
+    }
+
     public void Initialize()
     {
         currentIndex = PlayerPrefs.GetInt(PlayerPrefsKeys.ROULETTE_COLOR_INDEX, 0);
@@ -21,6 +28,7 @@ public class RouletteColorModel
     public void ChooseColorIndex(int index)
     {
         currentIndex = index;
+        soundProvider.PlayOneShot("ChooseDesign");
         OnChooseColorIndex?.Invoke(currentIndex);
     }
 }

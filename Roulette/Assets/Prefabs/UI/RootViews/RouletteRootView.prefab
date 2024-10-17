@@ -10111,6 +10111,7 @@ GameObject:
   - component: {fileID: 6046637137761990877}
   - component: {fileID: 6199712213227371857}
   - component: {fileID: 7016263265304691092}
+  - component: {fileID: 8107360492050835268}
   m_Layer: 5
   m_Name: RouletteRootView
   m_TagString: Untagged
@@ -10502,6 +10503,40 @@ MonoBehaviour:
   scrollRect: {fileID: 6971687660582809008}
   canvas: {fileID: 7623819793175019083}
   content: {fileID: 6669020938139618268}
+--- !u!114 &8107360492050835268
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4478252255688133290}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f95d138e3e380cc4b8bf4f32d12801d2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rouletteDesignList:
+  - spriteTable: {fileID: 21300000, guid: f2b6cc8fb7513634ebe932ab51a663d6, type: 3}
+    spriteRoulette: {fileID: 21300000, guid: 18817a3a75cd98a40a2b08daa18a58ca, type: 3}
+    spriteRouletteSmall: {fileID: 21300000, guid: acb2c00e174c5a0478a3e97a7a218d4e, type: 3}
+  - spriteTable: {fileID: 21300000, guid: 6b6bca3003d73c94eb2d9d4ba759d950, type: 3}
+    spriteRoulette: {fileID: 21300000, guid: 979569a9d631e07499431d9d6fefe594, type: 3}
+    spriteRouletteSmall: {fileID: 21300000, guid: 50601d1220e412e4a8b6f2764d048fc2, type: 3}
+  - spriteTable: {fileID: 21300000, guid: 2334dad006441594a8b805385145144b, type: 3}
+    spriteRoulette: {fileID: 21300000, guid: a3ce0bcff05b15d43ac55070c0311b54, type: 3}
+    spriteRouletteSmall: {fileID: 21300000, guid: 6f24ab35d0cdfb147ad906bf4dfa97e1, type: 3}
+  - spriteTable: {fileID: 21300000, guid: 5b39c76554401bb4788fe0855067cebd, type: 3}
+    spriteRoulette: {fileID: 21300000, guid: 00806c7d7683f7849bf8e50d74a4813a, type: 3}
+    spriteRouletteSmall: {fileID: 21300000, guid: 969f5f2aacc6a2248991c85d7b42286d, type: 3}
+  - spriteTable: {fileID: 21300000, guid: 5c651fbb40a2df843bc70fa4d1785045, type: 3}
+    spriteRoulette: {fileID: 21300000, guid: 6d4b6f23d84c598458776399da55c9ca, type: 3}
+    spriteRouletteSmall: {fileID: 21300000, guid: b11ae88537f92244f9173f34ea701cb3, type: 3}
+  - spriteTable: {fileID: 21300000, guid: 1569ea915aedec649bf64ad2bc887fc9, type: 3}
+    spriteRoulette: {fileID: 21300000, guid: 35c9b0948f09a5d4b8f0fa7a18479e45, type: 3}
+    spriteRouletteSmall: {fileID: 21300000, guid: 240093885bab86c4d8007718a94a1939, type: 3}
+  imageTable: {fileID: 1330090998102963764}
+  imageRoulette: {fileID: 3873433581670374642}
+  imageRouletteSmall: {fileID: 8074093516889716386}
 --- !u!1 &4517457913477391998
 GameObject:
   m_ObjectHideFlags: 0
@@ -12006,8 +12041,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -60, y: 0}
-  m_SizeDelta: {x: 1789.9, y: 720}
+  m_AnchoredPosition: {x: -62.525024, y: 0}
+  m_SizeDelta: {x: 1795, y: 720}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1713975954651360718
 CanvasRenderer:

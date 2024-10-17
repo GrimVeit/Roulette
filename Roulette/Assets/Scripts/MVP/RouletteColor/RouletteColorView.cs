@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class RouletteColorView : View
@@ -7,6 +8,7 @@ public class RouletteColorView : View
     public event Action<int> OnChooseColorIndex;
 
     [SerializeField] private List<RouletteColor> rouletteColorList = new List<RouletteColor>();
+    [SerializeField] private TextMeshProUGUI textNameCurrentDesign;
 
     private int currentIndex;
 
@@ -36,6 +38,7 @@ public class RouletteColorView : View
         }
 
         currentIndex = index;
+        textNameCurrentDesign.text = rouletteColorList[index].NameDesign;
         rouletteColorList[currentIndex].DeactivateButton();
     }
 

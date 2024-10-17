@@ -22,6 +22,8 @@ public class RouletteEntryPoint : MonoBehaviour
     private RouletteResultPresenter rouletteResultPresenter;
     private RouletteHistoryPresenter rouletteHistoryPresenter;
 
+    private RouletteDesignPresenter rouletteDesignPresenter;
+
     public void Run(UIRootView uIRootView)
     {
         sceneRoot = Instantiate(sceneRootPrefab);
@@ -64,6 +66,9 @@ public class RouletteEntryPoint : MonoBehaviour
 
         rouletteHistoryPresenter = new RouletteHistoryPresenter(new RouletteHistoryModel(soundPresenter), viewContainer.GetView<RouletteHistoryView>());
         rouletteHistoryPresenter.Initialize();
+
+        rouletteDesignPresenter = new RouletteDesignPresenter(new RouletteDesignModel(), viewContainer.GetView<RouletteDesignView>());
+        rouletteDesignPresenter.Initialize();
 
         ActivateTransferEvents();
         ActivateEvents();
@@ -142,6 +147,8 @@ public class RouletteEntryPoint : MonoBehaviour
         rouletteBetPresenter?.Dispose();
         rouletteResultPresenter?.Dispose();
         rouletteHistoryPresenter?.Dispose();
+
+        rouletteDesignPresenter?.Dispose();
     }
 
     #region Input actions
