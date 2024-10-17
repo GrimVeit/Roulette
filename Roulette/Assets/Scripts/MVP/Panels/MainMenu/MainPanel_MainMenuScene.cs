@@ -10,8 +10,10 @@ public class MainPanel_MainMenuScene : MovePanel
     public event Action OnClosePanel;
 
     [SerializeField] private Button miniGame_Button;
+    [SerializeField] private Button chooseColor_Button;
 
     public event Action GoToMiniGame_Action;
+    public event Action GoToChooseColorPanel;
 
     private ISoundProvider soundProvider;
 
@@ -27,6 +29,7 @@ public class MainPanel_MainMenuScene : MovePanel
         base.ActivatePanel();
 
         miniGame_Button.onClick.AddListener(HandleGoToMiniGame_ButtonClick);
+        chooseColor_Button.onClick.AddListener(HandleChooseColor_ButtonClick);
     }
 
     public override void DeactivatePanel()
@@ -36,11 +39,18 @@ public class MainPanel_MainMenuScene : MovePanel
         base.DeactivatePanel();
 
         miniGame_Button.onClick.RemoveListener(HandleGoToMiniGame_ButtonClick);
+        chooseColor_Button.onClick.RemoveListener(HandleChooseColor_ButtonClick);
     }
 
     private void HandleGoToMiniGame_ButtonClick()
     {
         soundProvider.PlayOneShot("Click");
         GoToMiniGame_Action?.Invoke();
+    }
+
+    private void HandleChooseColor_ButtonClick()
+    {
+        soundProvider.PlayOneShot("Click");
+        GoToChooseColorPanel?.Invoke();
     }
 }

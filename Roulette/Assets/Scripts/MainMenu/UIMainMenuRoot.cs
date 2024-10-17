@@ -5,6 +5,7 @@ public class UIMainMenuRoot : MonoBehaviour
 {
     [SerializeField] private MainPanel_MainMenuScene mainPanel;
     [SerializeField] private DailyRewardPanel_MainMenuScene dailyRewardPanel;
+    [SerializeField] private ChooseRouletteColor_MainMenuScene chooseRouletteColorPanel;
 
     private bool isCooldownDailyRewardPanelActivated;
     private bool isCooldownDailyBonusPanelActivated;
@@ -18,9 +19,11 @@ public class UIMainMenuRoot : MonoBehaviour
     {
         mainPanel.SetSoundProvider(soundProvider);
         dailyRewardPanel.SetSoundProvider(soundProvider);
+        chooseRouletteColorPanel.SetSoundProvider(soundProvider);
 
         mainPanel.Initialize();
         dailyRewardPanel.Initialize();
+        chooseRouletteColorPanel.Initialize();
     }
 
     public void Activate()
@@ -53,6 +56,7 @@ public class UIMainMenuRoot : MonoBehaviour
     {
         mainPanel.Dispose();
         dailyRewardPanel.Dispose();
+        chooseRouletteColorPanel.Dispose();
     }
 
 
@@ -87,6 +91,11 @@ public class UIMainMenuRoot : MonoBehaviour
         OpenPanel(dailyRewardPanel);
     }
 
+    public void OpenChooseRouletteColorPanel()
+    {
+        OpenPanel(chooseRouletteColorPanel);
+    }
+
 
     private void HandlerGoToMiniGame()
     {
@@ -102,10 +111,23 @@ public class UIMainMenuRoot : MonoBehaviour
         add { mainPanel.OnOpenPanel += value; }
         remove { mainPanel.OnOpenPanel -= value; }
     }
+
     public event Action OnDeactivateMainMenuPanel
     {
         add { mainPanel.OnClosePanel += value; }
         remove { mainPanel.OnClosePanel -= value; }
+    }
+
+    public event Action OnClickToOpenChooseColorPanel
+    {
+        add { mainPanel.GoToChooseColorPanel += value; }
+        remove { mainPanel.GoToChooseColorPanel -= value; }
+    }
+
+    public event Action OnClickToCloseChooseColorPanel
+    {
+        add { chooseRouletteColorPanel.OnClickBackButton += value; }
+        remove { chooseRouletteColorPanel.OnClickBackButton -= value; }
     }
 
     public event Action GoToMiniGame_Action;

@@ -14,4 +14,5 @@ public static class PlayerPrefsKeys
 
     public const string HEALTH_COUNT = "COUNT_HEALTH";
     public const string GAME_RECORD = "GAME_RECORD";
+    public const string ROULETTE_COLOR_INDEX = "ROULETTE_COLOR_INDEX";
 }

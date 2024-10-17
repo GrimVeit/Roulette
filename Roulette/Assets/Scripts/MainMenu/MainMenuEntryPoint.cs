@@ -14,8 +14,9 @@ public class MainMenuEntryPoint : MonoBehaviour
     private BankPresenter bankPresenter;
 
     private DailyRewardPresenter dailyRewardPresenter;
-
     private CooldownPresenter cooldownDailyRewardPresenter;
+
+    private RouletteColorPresenter rouletteColorPresenter;
 
     public void Run(UIRootView uIRootView)
     {
@@ -49,6 +50,11 @@ public class MainMenuEntryPoint : MonoBehaviour
             viewContainer.GetView<DailyRewardView>());
         dailyRewardPresenter.Initialize();
 
+        rouletteColorPresenter = new RouletteColorPresenter
+            (new RouletteColorModel(), 
+            viewContainer.GetView<RouletteColorView>());
+        rouletteColorPresenter.Initialize();
+
         sceneRoot.SetSoundProvider(soundPresenter);
         sceneRoot.SetParticleEffectProvider(particleEffectPresenter);
         sceneRoot.Initialize();
@@ -64,11 +70,17 @@ public class MainMenuEntryPoint : MonoBehaviour
     private void ActivateTransitionsSceneEvents()
     {
         sceneRoot.GoToMiniGame_Action += HandleGoToMiniGame;
+
+        sceneRoot.OnClickToOpenChooseColorPanel += sceneRoot.OpenChooseRouletteColorPanel;
+        sceneRoot.OnClickToCloseChooseColorPanel += sceneRoot.OpenMainPanel;
     }
 
     private void DeactivateTransitionsSceneEvents()
     {
         sceneRoot.GoToMiniGame_Action -= HandleGoToMiniGame;
+
+        sceneRoot.OnClickToOpenChooseColorPanel -= sceneRoot.OpenChooseRouletteColorPanel;
+        sceneRoot.OnClickToCloseChooseColorPanel -= sceneRoot.OpenMainPanel;
     }
 
     private void ActivateEvents()
@@ -100,6 +112,12 @@ public class MainMenuEntryPoint : MonoBehaviour
         bankPresenter?.Dispose();
         dailyRewardPresenter?.Dispose();
         cooldownDailyRewardPresenter?.Dispose();
+        rouletteColorPresenter?.Dispose();
+    }
+
+    private void OnDestroy()
+    {
+        Dispose();
     }
 
     #region Input actions
@@ -109,7 +127,6 @@ public class MainMenuEntryPoint : MonoBehaviour
 
     private void HandleGoToMiniGame()
     {
-        Dispose();
         GoToMiniGame_Action?.Invoke();
     }
 
