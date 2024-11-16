@@ -1,7 +1,4 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
 
 public class SlotMachinePresenter
 {
@@ -19,14 +16,26 @@ public class SlotMachinePresenter
         slotMachineView.Initialize();
 
         ActivateInputEvents();
-        slotMachineModel.OnActivateMachine += slotMachineView.ActivateMachine;
+
+        slotMachineModel.OnStartSpin += slotMachineView.ActivateMachine;
+        slotMachineModel.OnStartSpin += slotMachineView.DeactivateSpinButton;
+        slotMachineModel.OnStopSpin += slotMachineView.ActivateSpinButton;
+        slotMachineModel.OnActivateMachine += slotMachineView.ActivateSpinButton;
+        slotMachineModel.OnDeactivateMachine += slotMachineView.DeactivateSpinButton;
+
         ActivateDisplayEvents();
     }
 
     public void Dispose()
     {
         DeactivateInputEvents();
-        slotMachineModel.OnActivateMachine -= slotMachineView.ActivateMachine;
+
+        slotMachineModel.OnStartSpin -= slotMachineView.ActivateMachine;
+        slotMachineModel.OnStartSpin -= slotMachineView.DeactivateSpinButton;
+        slotMachineModel.OnStopSpin -= slotMachineView.ActivateSpinButton;
+        slotMachineModel.OnActivateMachine -= slotMachineView.ActivateSpinButton;
+        slotMachineModel.OnDeactivateMachine -= slotMachineView.DeactivateSpinButton;
+
         DeactivateDisplayEvents();
     }
 
@@ -34,16 +43,12 @@ public class SlotMachinePresenter
     {
         slotMachineView.OnStopSpinSlot += slotMachineModel.StopSpinSlot;
         slotMachineView.OnClickSpin += slotMachineModel.ActivateMachine;
-        slotMachineView.OnClickIncreaseBet += slotMachineModel.IncreaseBet;
-        slotMachineView.OnClickDecreaseBet += slotMachineModel.DecreaseBet;
-        slotMachineView.OnClickMaxBet += slotMachineModel.MaxBet;
         slotMachineView.OnClickAutoSpin += slotMachineModel.Autospin;
         //slotMachineView.OnWheelSpeed += slotMachineModel.WheelSpeed;
     }
 
     private void ActivateDisplayEvents()
     {
-        slotMachineModel.OnChangedBet += slotMachineView.SendBetDisplay;
         slotMachineModel.OnWin += slotMachineView.WinMoney;
         slotMachineModel.OnFail += slotMachineView.FailMoney;
         slotMachineModel.OnActivateAutoSpin += slotMachineView.StartAutoSpin;
@@ -54,16 +59,12 @@ public class SlotMachinePresenter
     {
         slotMachineView.OnStopSpinSlot -= slotMachineModel.StopSpinSlot;
         slotMachineView.OnClickSpin -= slotMachineModel.ActivateMachine;
-        slotMachineView.OnClickIncreaseBet -= slotMachineModel.IncreaseBet;
-        slotMachineView.OnClickDecreaseBet -= slotMachineModel.DecreaseBet;
-        slotMachineView.OnClickMaxBet -= slotMachineModel.MaxBet;
         slotMachineView.OnClickAutoSpin -= slotMachineModel.Autospin;
         //slotMachineView.OnWheelSpeed -= slotMachineModel.WheelSpeed;
     }
 
     private void DeactivateDisplayEvents()
     {
-        slotMachineModel.OnChangedBet -= slotMachineView.SendBetDisplay;
         slotMachineModel.OnWin -= slotMachineView.WinMoney;
         slotMachineModel.OnFail -= slotMachineView.FailMoney;
         slotMachineModel.OnActivateAutoSpin -= slotMachineView.StartAutoSpin;
@@ -82,6 +83,23 @@ public class SlotMachinePresenter
     {
         add { slotMachineModel.OnFail += value; }
         remove { slotMachineModel.OnFail -= value; }
+    }
+
+    public event Action OnStartSpin
+    {
+        add { slotMachineModel.OnStartSpin += value; }
+        remove { slotMachineModel.OnStartSpin -= value; }
+    }
+
+    public event Action OnStopSpin
+    {
+        add { slotMachineModel.OnStopSpin += value; }
+        remove { slotMachineModel.OnStopSpin -= value; }
+    }
+
+    public void SetBet(int bet)
+    {
+        slotMachineModel.SetBet(bet);
     }
 
     #endregion

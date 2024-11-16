@@ -9,26 +9,21 @@ using UnityEngine.UI;
 public class SlotMachineView : View
 {
     public event Action OnClickSpin;
-    public event Action OnClickMaxBet;
-    public event Action OnClickIncreaseBet;
-    public event Action OnClickDecreaseBet;
     public event Action OnClickAutoSpin;
-
     public event Action OnStartSpinSlot;
     public event Action<int, float> OnWheelSpeed;
     public event Action<int[], int> OnStopSpinSlot;
 
     [SerializeField] private Button spinButton;
-    [SerializeField] private Button increaseBetButton;
-    [SerializeField] private Button decreaseBetButton;
-    [SerializeField] private Button maxBetButton;
-    [SerializeField] private Button autoSpinButton;
+    [SerializeField] private Image imageSpinButton;
+    [SerializeField] private Sprite spriteActiveSpinButton;
+    [SerializeField] private Sprite spriteDeactiveSpinButton;
+    //[SerializeField] private Button autoSpinButton;
 
-    [SerializeField] private TextMeshProUGUI betText;
-    [SerializeField] private TextMeshProUGUI winMoneyText;
-    [SerializeField] private Transform winMoneyDisplay;
+    //[SerializeField] private TextMeshProUGUI winMoneyText;
+    //[SerializeField] private Transform winMoneyDisplay;
 
-    private Vector3 defaultSizeWinMoneyDisplay;
+    //private Vector3 defaultSizeWinMoneyDisplay;
 
 
     [SerializeField] private Slot[] slots;
@@ -36,7 +31,7 @@ public class SlotMachineView : View
 
     public void Initialize()
     {
-        defaultSizeWinMoneyDisplay = winMoneyDisplay.transform.localScale;
+        //defaultSizeWinMoneyDisplay = winMoneyDisplay.transform.localScale;
 
         for (int i = 0; i < slots.Length; i++)
         {
@@ -47,10 +42,7 @@ public class SlotMachineView : View
         }
 
         spinButton.onClick.AddListener(HandlerSpinClick);
-        increaseBetButton.onClick.AddListener(HandlerIncreaseBetClick);
-        decreaseBetButton.onClick.AddListener(HandlerDecreaseBetClick);
-        maxBetButton.onClick.AddListener(HandlerMaxBetClick);
-        autoSpinButton.onClick.AddListener(HandlerAutoSpinClick);
+        //autoSpinButton.onClick.AddListener(HandlerAutoSpinClick);
 
     }
 
@@ -64,15 +56,7 @@ public class SlotMachineView : View
         }
 
         spinButton.onClick.RemoveListener(HandlerSpinClick);
-        increaseBetButton.onClick.RemoveListener(HandlerIncreaseBetClick);
-        decreaseBetButton.onClick.RemoveListener(HandlerDecreaseBetClick);
-        maxBetButton.onClick.RemoveListener(HandlerMaxBetClick);
-        autoSpinButton.onClick.RemoveListener(HandlerAutoSpinClick);
-    }
-
-    public void SendBetDisplay(int bet)
-    {
-        betText.text = bet.ToString();
+        //autoSpinButton.onClick.RemoveListener(HandlerAutoSpinClick);
     }
 
     public void ActivateMachine()
@@ -81,6 +65,16 @@ public class SlotMachineView : View
         {
             slots[i].StartSpin();
         }
+    }
+
+    public void ActivateSpinButton()
+    {
+        imageSpinButton.sprite = spriteActiveSpinButton;
+    }
+
+    public void DeactivateSpinButton()
+    {
+        imageSpinButton.sprite = spriteDeactiveSpinButton;
     }
 
 
@@ -97,13 +91,13 @@ public class SlotMachineView : View
 
     public void WinMoney(float money)
     {
-        winMoneyText.text = money.ToString();
-        winMoneyDisplay.DOScale(new Vector3(1.8f, 1.8f, 1.8f), 0.1f).OnComplete(() => winMoneyDisplay.DOScale(defaultSizeWinMoneyDisplay, 0.2f));
+        //winMoneyText.text = money.ToString();
+        //winMoneyDisplay.DOScale(new Vector3(1.8f, 1.8f, 1.8f), 0.1f).OnComplete(() => winMoneyDisplay.DOScale(defaultSizeWinMoneyDisplay, 0.2f));
     }
 
     public void FailMoney()
     {
-        winMoneyText.text = 0.ToString();
+        //winMoneyText.text = 0.ToString();
     }
 
     public void WheelSpeed(int index, float speed)
@@ -122,21 +116,6 @@ public class SlotMachineView : View
     }
 
     #region Input
-
-    private void HandlerMaxBetClick()
-    {
-        OnClickMaxBet?.Invoke();
-    }
-
-    private void HandlerIncreaseBetClick()
-    {
-        OnClickIncreaseBet?.Invoke();
-    }
-
-    private void HandlerDecreaseBetClick()
-    {
-        OnClickDecreaseBet?.Invoke();
-    }
 
     private void HandlerSpinClick()
     {

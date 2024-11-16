@@ -69,34 +69,35 @@ public class MainMenuEntryPoint : MonoBehaviour
 
     private void ActivateTransitionsSceneEvents()
     {
-        sceneRoot.GoToMiniGame_Action += HandleGoToMiniGame;
+        sceneRoot.OnGoToRouletteGame_Action += HandleGoToRouletteGame;
+        sceneRoot.OnGoToSlots1_Action += HandleGoToSlots1Game;
+        sceneRoot.OnGoToSlots2_Action += HandleGoToSlots2Game;
+        sceneRoot.OnGoToSlots3_Action += HandleGoToSlots3Game;
 
-        sceneRoot.OnClickToOpenChooseColorPanel += sceneRoot.OpenChooseRouletteColorPanel;
-        sceneRoot.OnClickToCloseChooseColorPanel += sceneRoot.OpenMainPanel;
+        dailyRewardPresenter.OnGetDailyReward += sceneRoot.OpenMainPanel;
+        cooldownDailyRewardPresenter.OnClickToActivatedButton += sceneRoot.OpenDailyRewardPanel;
     }
 
     private void DeactivateTransitionsSceneEvents()
     {
-        sceneRoot.GoToMiniGame_Action -= HandleGoToMiniGame;
+        sceneRoot.OnGoToRouletteGame_Action -= HandleGoToRouletteGame;
+        sceneRoot.OnGoToSlots1_Action -= HandleGoToSlots1Game;
+        sceneRoot.OnGoToSlots2_Action -= HandleGoToSlots2Game;
+        sceneRoot.OnGoToSlots3_Action -= HandleGoToSlots3Game;
 
-        sceneRoot.OnClickToOpenChooseColorPanel -= sceneRoot.OpenChooseRouletteColorPanel;
-        sceneRoot.OnClickToCloseChooseColorPanel -= sceneRoot.OpenMainPanel;
+        dailyRewardPresenter.OnGetDailyReward -= sceneRoot.OpenMainPanel;
+        cooldownDailyRewardPresenter.OnClickToActivatedButton -= sceneRoot.OpenDailyRewardPanel;
     }
 
     private void ActivateEvents()
     {
         dailyRewardPresenter.OnGetDailyReward += cooldownDailyRewardPresenter.ActivateCooldown;
-        dailyRewardPresenter.OnGetDailyReward += sceneRoot.OpenMainPanel;
-        cooldownDailyRewardPresenter.OnClickToActivatedButton += sceneRoot.OpenDailyRewardPanel;
-
         dailyRewardPresenter.OnGetDailyReward_Count += bankPresenter.SendMoney;
     }
 
     private void DeactivateEvents()
     {
         dailyRewardPresenter.OnGetDailyReward -= cooldownDailyRewardPresenter.ActivateCooldown;
-        cooldownDailyRewardPresenter.OnClickToActivatedButton -= sceneRoot.OpenDailyRewardPanel;
-
         dailyRewardPresenter.OnGetDailyReward_Count -= bankPresenter.SendMoney;
     }
 
@@ -104,7 +105,6 @@ public class MainMenuEntryPoint : MonoBehaviour
     {
         DeactivateTransitionsSceneEvents();
         DeactivateEvents();
-        sceneRoot.Deactivate();
 
         sceneRoot?.Dispose();
         particleEffectPresenter?.Dispose();
@@ -122,13 +122,39 @@ public class MainMenuEntryPoint : MonoBehaviour
 
     #region Input actions
 
-    public event Action GoToMiniGame_Action;
+    public event Action GoToRouletteGame_Action;
+    public event Action GoToSlots1_Action;
+    public event Action GoToSlots2_Action;
+    public event Action GoToSlots3_Action;
 
 
-    private void HandleGoToMiniGame()
+    private void HandleGoToRouletteGame()
     {
-        GoToMiniGame_Action?.Invoke();
+        sceneRoot.Deactivate();
+
+        GoToRouletteGame_Action?.Invoke();
     }
 
+    private void HandleGoToSlots1Game()
+    {
+        sceneRoot.Deactivate();
+
+        GoToSlots1_Action?.Invoke();
+    }
+
+    private void HandleGoToSlots2Game()
+    {
+        sceneRoot.Deactivate();
+
+        GoToSlots2_Action?.Invoke();
+    }
+
+    private void HandleGoToSlots3Game()
+    {
+        sceneRoot.Deactivate();
+
+        GoToSlots3_Action?.Invoke();
+    }
+    
     #endregion
 }

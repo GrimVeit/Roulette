@@ -32,14 +32,14 @@ public class RouletteColor
     public void ActivateButton()
     {
         textPurchased.SetActive(false);
-        buttonChoose.gameObject.SetActive(true);
+        //buttonChoose.gameObject.SetActive(true);
         isActiveButton = true;
     }
 
     public void DeactivateButton()
     {
         textPurchased.SetActive(true);
-        buttonChoose.gameObject.SetActive(false);
+        //buttonChoose.gameObject.SetActive(false);
         isActiveButton = false;
     }
 

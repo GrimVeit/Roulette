@@ -38,7 +38,7 @@ public class RouletteColorView : View
         }
 
         currentIndex = index;
-        textNameCurrentDesign.text = rouletteColorList[index].NameDesign;
+        //textNameCurrentDesign.text = rouletteColorList[index].NameDesign;
         rouletteColorList[currentIndex].DeactivateButton();
     }
 

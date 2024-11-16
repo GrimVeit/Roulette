@@ -1,19 +1,20 @@
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using UnityEngine;
 
 public class SlotMachineModel
 {
     public bool IsAuto { get; private set; } = false;
-    public bool IsActiveMachine { get; private set; }
+    public bool IsSpinMachine { get; private set; }
 
     public int Bet { get; private set; } = 0;
-    public event Action<int> OnChangedBet;
 
     public event Action OnActivateMachine;
-    public event Action OnStopSpinnedSlot;
     public event Action OnDeactivateMachine;
+
+    public event Action OnStartSpin;
+    public event Action OnStopSpinnedSlot;
+    public event Action OnStopSpin;
 
     public event Action<float> OnWin;
     public event Action OnFail;
@@ -21,11 +22,9 @@ public class SlotMachineModel
     public event Action OnActivateAutoSpin;
     public event Action OnDeactivateAutoSpin;
 
-    private int currentBetIndex = 0;
     private int spinnedSlotCount = 0;
 
     private Combination combinations;
-    private BetAmounts betAmounts;
 
     private IMoneyProvider moneyProvider;
     //private IParticleEffectProvider particleEffectProvider;
@@ -39,13 +38,12 @@ public class SlotMachineModel
 
     private Dictionary<WinType, Action> winTypeActions = new Dictionary<WinType, Action>();
 
-    public SlotMachineModel(int columnSlot, int rowSlot, Combination combinations, BetAmounts betAmounts, IMoneyProvider moneyProvider, ISoundProvider soundProvider, IParticleEffectProvider particleEffectProvider)
+    private bool isActive = false;
+
+    public SlotMachineModel(int columnSlot, int rowSlot, Combination combinations, IMoneyProvider moneyProvider, ISoundProvider soundProvider, IParticleEffectProvider particleEffectProvider)
     {
         this.combinations = combinations;
         this.moneyProvider = moneyProvider;
-        this.betAmounts = betAmounts;
-        //this.soundProvider = soundProvider;
-        //this.particleEffectProvider = particleEffectProvider;
 
         slotCount = columnSlot;
 
@@ -104,65 +102,29 @@ public class SlotMachineModel
 
     #endregion
 
-    public void IncreaseBet()
+    public void SetBet(int bet)
     {
-        if (IsActiveMachine)
+        Bet = bet;
+
+        if (Bet <= 0)
         {
-            //soundProvider.PlayOneShot("Error");
-            return;
+            isActive = false;
+            OnDeactivateMachine?.Invoke();
         }
-
-        if(currentBetIndex < betAmounts.betValues.Count - 1)
+        else
         {
-            currentBetIndex += 1;
-
-            Bet = betAmounts.betValues[currentBetIndex];
-            OnChangedBet?.Invoke(Bet);
+            isActive = true;
+            OnActivateMachine?.Invoke();
         }
-    }
-
-    public void DecreaseBet()
-    {
-        if (IsActiveMachine)
-        {
-            //soundProvider.PlayOneShot("Error");
-            return;
-        }
-
-        if (currentBetIndex > 0)
-        {
-            currentBetIndex -= 1;
-
-            Bet = betAmounts.betValues[currentBetIndex];
-            OnChangedBet?.Invoke(Bet);
-        }
-    }
-
-    private void MinBet()
-    {
-        currentBetIndex = 0;
-        Bet = betAmounts.betValues[currentBetIndex];
-        OnChangedBet?.Invoke(Bet);
-    }
-
-    public void MaxBet()
-    {
-        if (IsActiveMachine)
-        {
-            //soundProvider.PlayOneShot("Error");
-            return;
-        }
-
-        currentBetIndex = betAmounts.betValues.Count - 1;
-        Bet = betAmounts.betValues[currentBetIndex];
-        OnChangedBet?.Invoke(Bet);
     }
 
     public void ActivateMachine()
     {
-        if (Bet == 0) MinBet();
+        if (!isActive) return;
 
-        if (IsActiveMachine)
+        //if (Bet == 0) MinBet();
+
+        if (IsSpinMachine)
         {
             //soundProvider.PlayOneShot("Error");
             return;
@@ -177,11 +139,11 @@ public class SlotMachineModel
             return;
         }
 
-        IsActiveMachine = true;
+        IsSpinMachine = true;
         //PlayWheelSounds();
         moneyProvider.SendMoney(-Bet);
         spinnedSlotCount = slotCount;
-        OnActivateMachine?.Invoke();
+        OnStartSpin?.Invoke();
     }
 
     public void Autospin()
@@ -215,9 +177,9 @@ public class SlotMachineModel
 
     public void DeactivateMachine()
     {
-        OnDeactivateMachine?.Invoke();
+        OnStopSpin?.Invoke();
         CheckResults();
-        IsActiveMachine = false;
+        IsSpinMachine = false;
 
         //StopWheelSounds();
 

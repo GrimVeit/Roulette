@@ -5,7 +5,6 @@ public class UIMainMenuRoot : MonoBehaviour
 {
     [SerializeField] private MainPanel_MainMenuScene mainPanel;
     [SerializeField] private DailyRewardPanel_MainMenuScene dailyRewardPanel;
-    [SerializeField] private ChooseRouletteColor_MainMenuScene chooseRouletteColorPanel;
 
     private bool isCooldownDailyRewardPanelActivated;
     private bool isCooldownDailyBonusPanelActivated;
@@ -19,16 +18,14 @@ public class UIMainMenuRoot : MonoBehaviour
     {
         mainPanel.SetSoundProvider(soundProvider);
         dailyRewardPanel.SetSoundProvider(soundProvider);
-        chooseRouletteColorPanel.SetSoundProvider(soundProvider);
 
         mainPanel.Initialize();
         dailyRewardPanel.Initialize();
-        chooseRouletteColorPanel.Initialize();
     }
 
     public void Activate()
     {
-        mainPanel.GoToMiniGame_Action += HandlerGoToMiniGame;
+        //mainPanel.GoToRouletteGame_Action += HandlerGoToRouletteGame;
 
         dailyRewardPanel.OnClickBackButton += OpenMainPanel;
 
@@ -37,7 +34,7 @@ public class UIMainMenuRoot : MonoBehaviour
 
     public void Deactivate()
     {
-        mainPanel.GoToMiniGame_Action -= HandlerGoToMiniGame;
+        //mainPanel.GoToRouletteGame_Action -= HandlerGoToRouletteGame;
 
         dailyRewardPanel.OnClickBackButton -= OpenMainPanel;
     }
@@ -56,7 +53,6 @@ public class UIMainMenuRoot : MonoBehaviour
     {
         mainPanel.Dispose();
         dailyRewardPanel.Dispose();
-        chooseRouletteColorPanel.Dispose();
     }
 
 
@@ -91,19 +87,6 @@ public class UIMainMenuRoot : MonoBehaviour
         OpenPanel(dailyRewardPanel);
     }
 
-    public void OpenChooseRouletteColorPanel()
-    {
-        OpenPanel(chooseRouletteColorPanel);
-    }
-
-
-    private void HandlerGoToMiniGame()
-    {
-        currentPanel.DeactivatePanel();
-
-        GoToMiniGame_Action?.Invoke();
-    }
-
     #region Input Actions
 
     public event Action OnActivateMainMenuPanel
@@ -118,19 +101,35 @@ public class UIMainMenuRoot : MonoBehaviour
         remove { mainPanel.OnClosePanel -= value; }
     }
 
-    public event Action OnClickToOpenChooseColorPanel
+    public event Action OnClickBackButtonFromDailyPanel
     {
-        add { mainPanel.GoToChooseColorPanel += value; }
-        remove { mainPanel.GoToChooseColorPanel -= value; }
+        add { dailyRewardPanel.OnClickBackButton += value; }
+        remove { dailyRewardPanel.OnClickBackButton -= value; }
     }
 
-    public event Action OnClickToCloseChooseColorPanel
+    public event Action OnGoToRouletteGame_Action
     {
-        add { chooseRouletteColorPanel.OnClickBackButton += value; }
-        remove { chooseRouletteColorPanel.OnClickBackButton -= value; }
+        add { mainPanel.GoToRouletteGame_Action += value; }
+        remove { mainPanel.GoToRouletteGame_Action -= value; }
     }
 
-    public event Action GoToMiniGame_Action;
+    public event Action OnGoToSlots1_Action
+    {
+        add { mainPanel.GoToSlot1_Action += value; }
+        remove { mainPanel.GoToSlot1_Action -= value; }
+    }
+
+    public event Action OnGoToSlots2_Action
+    {
+        add { mainPanel.GoToSlot2_Action += value; }
+        remove { mainPanel.GoToSlot2_Action -= value; }
+    }
+
+    public event Action OnGoToSlots3_Action
+    {
+        add { mainPanel.GoToSlot3_Action += value; }
+        remove { mainPanel.GoToSlot3_Action -= value; }
+    }
 
     #endregion
 }
