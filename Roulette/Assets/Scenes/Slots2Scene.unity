@@ -282,7 +282,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1706215609}
   - component: {fileID: 1706215610}
-  - component: {fileID: 1706215611}
   m_Layer: 0
   m_Name: SceneEntryPoint
   m_TagString: Untagged
@@ -317,24 +316,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b9ae4247ef3b599499b154e5ef401f14, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sounds: {fileID: 0}
-  combination: {fileID: 0}
-  menuRootPrefab: {fileID: 0}
---- !u!114 &1706215611
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1706215608}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fdd1a4954d2ca92498043b69e93f99c8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  sounds: {fileID: 0}
-  combination: {fileID: 0}
-  menuRootPrefab: {fileID: 0}
+  sounds: {fileID: 987114150}
+  combination: {fileID: 11400000, guid: b68beca4704ff044f8e2a6c119b0f33a, type: 2}
+  menuRootPrefab: {fileID: 8531091336519254482, guid: c5128dd177ec0bb41a50612f855d6f0b, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

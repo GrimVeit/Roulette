@@ -16,6 +16,8 @@ public class SlotMachineModel
     public event Action OnStopSpinnedSlot;
     public event Action OnStopSpin;
 
+    public event Action OnSmallWin;
+    public event Action OnBigWin;
     public event Action<float> OnWin;
     public event Action OnFail;
 
@@ -254,6 +256,7 @@ public class SlotMachineModel
     private void HandleSmallWin()
     {
         moneyProvider.SendMoney(winMoney);
+        OnSmallWin?.Invoke();
         OnWin?.Invoke(winMoney);
 
         //soundProvider.PlayOneShot("SmallWin");
@@ -264,6 +267,7 @@ public class SlotMachineModel
     private void HandleBigWin()
     {
         moneyProvider.SendMoney(winMoney);
+        OnBigWin?.Invoke();
         OnWin?.Invoke(winMoney);
 
         //soundProvider.PlayOneShot("BigWin");

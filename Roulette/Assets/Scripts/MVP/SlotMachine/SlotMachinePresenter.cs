@@ -73,6 +73,19 @@ public class SlotMachinePresenter
 
     #region PublicEvents
 
+    public event Action OnSmallWin
+    {
+        add { slotMachineModel.OnSmallWin += value; }
+        remove { slotMachineModel.OnSmallWin -= value; }
+    }
+
+    public event Action OnBigWin
+    {
+        add { slotMachineModel.OnBigWin += value; }
+        remove { slotMachineModel.OnBigWin -= value; }
+    }
+
+
     public event Action<float> OnWin
     {
         add { slotMachineModel.OnWin += value; }

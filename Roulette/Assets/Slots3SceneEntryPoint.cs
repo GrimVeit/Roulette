@@ -3,13 +3,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Slots2SceneEntryPoint : MonoBehaviour
+public class Slots3SceneEntryPoint : MonoBehaviour
 {
     [SerializeField] private Sounds sounds;
     [SerializeField] private Combination combination;
-    [SerializeField] private UISlots2SceneRoot menuRootPrefab;
+    [SerializeField] private UISlots3SceneRoot menuRootPrefab;
 
-    private UISlots2SceneRoot sceneRoot;
+    private UISlots3SceneRoot sceneRoot;
     private ViewContainer viewContainer;
 
     private ParticleEffectPresenter particleEffectPresenter;
