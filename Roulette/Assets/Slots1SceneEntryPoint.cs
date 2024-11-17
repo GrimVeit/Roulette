@@ -16,6 +16,7 @@ public class Slots1SceneEntryPoint : MonoBehaviour
 
     private SlotMachinePresenter slotMachinePresenter;
     private SlotBetPresenter slotBetPresenter;
+    private SlotEffectPresenter slotEffectPresenter;
 
     public void Run(UIRootView uIRootView)
     {
@@ -49,6 +50,11 @@ public class Slots1SceneEntryPoint : MonoBehaviour
             viewContainer.GetView<SlotBetView>());
         slotBetPresenter.Initialize();
 
+        slotEffectPresenter = new SlotEffectPresenter
+            (new SlotEffectModel(), 
+            viewContainer.GetView<SlotEffectView>());
+        slotEffectPresenter.Initialize();
+
         sceneRoot.SetSoundProvider(soundPresenter);
         sceneRoot.SetParticleEffectProvider(particleEffectPresenter);
         sceneRoot.Initialize();
@@ -80,6 +86,8 @@ public class Slots1SceneEntryPoint : MonoBehaviour
 
         slotMachinePresenter.OnStartSpin += slotBetPresenter.Deactivate;
         slotMachinePresenter.OnStopSpin += slotBetPresenter.Activate;
+
+        slotMachinePresenter.OnWinCombination += slotEffectPresenter.SetSlotGrid;
     }
 
     private void DeactivateEvents()
@@ -88,6 +96,8 @@ public class Slots1SceneEntryPoint : MonoBehaviour
 
         slotMachinePresenter.OnStartSpin -= slotBetPresenter.Deactivate;
         slotMachinePresenter.OnStopSpin -= slotBetPresenter.Activate;
+
+        slotMachinePresenter.OnWinCombination -= slotEffectPresenter.SetSlotGrid;
     }
 
     private void Dispose()
@@ -101,6 +111,7 @@ public class Slots1SceneEntryPoint : MonoBehaviour
         bankPresenter?.Dispose();
         slotMachinePresenter?.Dispose();
         slotBetPresenter?.Dispose();
+        slotEffectPresenter?.Dispose();
     }
 
     private void OnDestroy()

@@ -20,4 +20,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Slots2Scene.unity
     guid: 5b0baa4bccdea864eb321cec9fd710c2
+  - enabled: 1
+    path: Assets/Scenes/Slots3Scene.unity
+    guid: 2ca94678714110442942452331dd9b05
   m_configObjects: {}

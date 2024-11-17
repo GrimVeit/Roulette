@@ -9,15 +9,19 @@ public class SlotEffectView : View
 
     public void VisualSlotGrid(SlotGrid slotGrid, List<SlotValue> slotValues)
     {
-        Debug.Log($"Slot values length - {slotValues.Count}");
+        Debug.Log($"Combination");
+
+        for (int i = 0; i < slotValues.Count; i++)
+        {
+            Debug.Log(slotValues[i]);
+        }
 
         for (int i = 0; i < slotGrid.slotPositions.Count; i++)
         {
-
             int column = slotGrid.slotPositions[i].Col;
             int row = slotValues[column].Index + slotGrid.slotPositions[i].Row;
 
-            Debug.Log($"{column} // {row} //slot values length - {slotValues.Count}");
+            Debug.Log($"{column} // {slotGrid.slotPositions[i].Row} //slot values length - {slotValues.Count}");
 
             Transform element = contents[column].GetChild(row);
 
