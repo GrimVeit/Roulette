@@ -88,6 +88,12 @@ public class SlotMachinePresenter
         remove { slotMachineModel.OnBigWin -= value; }
     }
 
+    public event Action OnVisibleWin
+    {
+        add { slotMachineModel.OnVisibleWin += value; }
+        remove { slotMachineModel.OnVisibleWin -= value; }
+    }
+
 
     public event Action<SlotGrid, List<SlotValue>> OnWinCombination
     {

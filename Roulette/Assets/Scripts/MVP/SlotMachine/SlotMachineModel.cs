@@ -10,6 +10,7 @@ public class SlotMachineModel
 
     public int Bet { get; private set; } = 0;
 
+    public event Action OnVisibleWin;
     public event Action<SlotGrid, List<SlotValue>> OnWinCombination;
 
     public event Action OnActivateMachine;
@@ -207,6 +208,8 @@ public class SlotMachineModel
         WinType winType = WinType.NoWin;
 
         winMoney = 0;
+        int countWinningCombination = 0;
+        bool isHaveBigWin = false;
 
         foreach (var grid in combinations.SlotGrids)
         {
@@ -238,10 +241,15 @@ public class SlotMachineModel
             {
                 OnWinCombination?.Invoke(grid, closestSlotValues);
 
+                countWinningCombination += 1;
+
                 winMoney += Bet * grid.BetMultyply;
 
                 if(grid.WinType == WinType.Big)
-                   winType = grid.WinType;
+                {
+                    winType = grid.WinType;
+                    isHaveBigWin = true;
+                }
 
                 if (winType != WinType.Big)
                    winType = grid.WinType;
@@ -255,21 +263,10 @@ public class SlotMachineModel
         IsSpinMachine = false;
         OnStopSpin?.Invoke();
 
-
-        //int rows = combination.GetLength(0);
-        //int columns = combination.GetLength(1);
-
-        //for (int i = 0; i < rows; i++)
-        //{
-        //    string rowString = "Строка " + (i + 1) + ": ";
-
-        //    for (int j = 0; j < columns; j++)
-        //    {
-        //        rowString += combination[i, j] + " ";
-        //    }
-
-        //    Debug.Log(rowString.TrimEnd());
-        //}
+        if(countWinningCombination >= 2 || isHaveBigWin)
+        {
+            OnVisibleWin?.Invoke();
+        }
     }
 
     private void HandleSmallWin()

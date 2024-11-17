@@ -18,6 +18,7 @@ public class Slots2SceneEntryPoint : MonoBehaviour
 
     private SlotMachinePresenter slotMachinePresenter;
     private SlotBetPresenter slotBetPresenter;
+    private SlotEffectPresenter slotEffectPresenter;
 
     public void Run(UIRootView uIRootView)
     {
@@ -51,6 +52,11 @@ public class Slots2SceneEntryPoint : MonoBehaviour
             viewContainer.GetView<SlotBetView>());
         slotBetPresenter.Initialize();
 
+        slotEffectPresenter = new SlotEffectPresenter
+            (new SlotEffectModel(), 
+            viewContainer.GetView<SlotEffectView>());
+        slotEffectPresenter.Initialize();
+
         sceneRoot.SetSoundProvider(soundPresenter);
         sceneRoot.SetParticleEffectProvider(particleEffectPresenter);
         sceneRoot.Initialize();
@@ -67,6 +73,9 @@ public class Slots2SceneEntryPoint : MonoBehaviour
         sceneRoot.OnGoToMainMenu += HandleGoToMainMenu;
         slotBetPresenter.OnClickToBet += sceneRoot.OpenBetPanel;
         slotBetPresenter.OnChooseBet += sceneRoot.CloseBetPanel;
+
+        slotMachinePresenter.OnVisibleWin += sceneRoot.OpenWinPanel;
+        sceneRoot.OnCloseWinPanel += sceneRoot.CloseWinPanel;
     }
 
     private void DeactivateTransitionsSceneEvents()
@@ -74,6 +83,9 @@ public class Slots2SceneEntryPoint : MonoBehaviour
         sceneRoot.OnGoToMainMenu -= HandleGoToMainMenu;
         slotBetPresenter.OnClickToBet -= sceneRoot.OpenBetPanel;
         slotBetPresenter.OnChooseBet -= sceneRoot.CloseBetPanel;
+
+        slotMachinePresenter.OnVisibleWin -= sceneRoot.OpenWinPanel;
+        sceneRoot.OnCloseWinPanel -= sceneRoot.CloseWinPanel;
     }
 
     private void ActivateEvents()
@@ -82,6 +94,8 @@ public class Slots2SceneEntryPoint : MonoBehaviour
 
         slotMachinePresenter.OnStartSpin += slotBetPresenter.Deactivate;
         slotMachinePresenter.OnStopSpin += slotBetPresenter.Activate;
+
+        slotMachinePresenter.OnWinCombination += slotEffectPresenter.SetSlotGrid;
     }
 
     private void DeactivateEvents()
@@ -90,6 +104,8 @@ public class Slots2SceneEntryPoint : MonoBehaviour
 
         slotMachinePresenter.OnStartSpin -= slotBetPresenter.Deactivate;
         slotMachinePresenter.OnStopSpin -= slotBetPresenter.Activate;
+
+        slotMachinePresenter.OnWinCombination += slotEffectPresenter.SetSlotGrid;
     }
 
     private void Dispose()
@@ -103,6 +119,7 @@ public class Slots2SceneEntryPoint : MonoBehaviour
         bankPresenter?.Dispose();
         slotMachinePresenter?.Dispose();
         slotBetPresenter?.Dispose();
+        slotEffectPresenter?.Dispose();
     }
 
     private void OnDestroy()

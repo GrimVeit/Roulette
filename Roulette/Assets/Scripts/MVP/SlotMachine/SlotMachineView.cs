@@ -21,10 +21,10 @@ public class SlotMachineView : View
     [SerializeField] private Sprite spriteDeactiveSpinButton;
     //[SerializeField] private Button autoSpinButton;
 
-    //[SerializeField] private TextMeshProUGUI winMoneyText;
-    //[SerializeField] private Transform winMoneyDisplay;
+    [SerializeField] private TextMeshProUGUI winMoneyText;
+    [SerializeField] private Transform winMoneyDisplay;
 
-    //private Vector3 defaultSizeWinMoneyDisplay;
+    private Vector3 defaultSizeWinMoneyDisplay;
 
 
     [SerializeField] private Slot[] slots;
@@ -32,7 +32,7 @@ public class SlotMachineView : View
 
     public void Initialize()
     {
-        //defaultSizeWinMoneyDisplay = winMoneyDisplay.transform.localScale;
+        defaultSizeWinMoneyDisplay = winMoneyDisplay.transform.localScale;
 
         for (int i = 0; i < slots.Length; i++)
         {
@@ -94,8 +94,8 @@ public class SlotMachineView : View
 
     public void WinMoney(float money)
     {
-        //winMoneyText.text = money.ToString();
-        //winMoneyDisplay.DOScale(new Vector3(1.8f, 1.8f, 1.8f), 0.1f).OnComplete(() => winMoneyDisplay.DOScale(defaultSizeWinMoneyDisplay, 0.2f));
+        winMoneyText.text = money.ToString();
+        winMoneyDisplay.DOScale(new Vector3(1.8f, 1.8f, 1.8f), 0.1f).OnComplete(() => winMoneyDisplay.DOScale(defaultSizeWinMoneyDisplay, 0.2f));
     }
 
     public void FailMoney()

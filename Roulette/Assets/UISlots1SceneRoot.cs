@@ -5,6 +5,7 @@ public class UISlots1SceneRoot : MonoBehaviour
 {
     [SerializeField] private MainPanel_Slots1Scene mainPanel;
     [SerializeField] private BetPanel_Slots1Scene betPanel;
+    [SerializeField] private WinPanel winPanel;
 
     private ISoundProvider soundProvider;
 
@@ -14,6 +15,7 @@ public class UISlots1SceneRoot : MonoBehaviour
     {
         mainPanel.Initialize();
         betPanel.Initialize();
+        winPanel.Initialize();
     }
 
     public void Activate()
@@ -40,6 +42,7 @@ public class UISlots1SceneRoot : MonoBehaviour
     {
         mainPanel.Dispose();
         betPanel.Dispose();
+        winPanel.Dispose();
     }
 
 
@@ -79,12 +82,28 @@ public class UISlots1SceneRoot : MonoBehaviour
         CloseOtherPanel(betPanel);
     }
 
+    public void OpenWinPanel()
+    {
+        OpenOtherPanel(winPanel);
+    }
+
+    public void CloseWinPanel()
+    {
+        CloseOtherPanel(winPanel);
+    }
+
     #region Input Actions
 
     public event Action OnGoToMainMenu
     {
         add { mainPanel.GoToMainMenu_Action += value; }
         remove { mainPanel.GoToMainMenu_Action -= value; }
+    }
+
+    public event Action OnCloseWinPanel
+    {
+        add { winPanel.OnCloseWinPanel += value; }
+        remove { winPanel.OnCloseWinPanel -= value; }
     }
 
     #endregion

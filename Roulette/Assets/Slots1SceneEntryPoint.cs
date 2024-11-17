@@ -71,6 +71,9 @@ public class Slots1SceneEntryPoint : MonoBehaviour
         sceneRoot.OnGoToMainMenu += HandleGoToMainMenu;
         slotBetPresenter.OnClickToBet += sceneRoot.OpenBetPanel;
         slotBetPresenter.OnChooseBet += sceneRoot.CloseBetPanel;
+
+        slotMachinePresenter.OnVisibleWin += sceneRoot.OpenWinPanel;
+        sceneRoot.OnCloseWinPanel += sceneRoot.CloseWinPanel;
     }
 
     private void DeactivateTransitionsSceneEvents()
@@ -78,6 +81,9 @@ public class Slots1SceneEntryPoint : MonoBehaviour
         sceneRoot.OnGoToMainMenu -= HandleGoToMainMenu;
         slotBetPresenter.OnClickToBet -= sceneRoot.OpenBetPanel;
         slotBetPresenter.OnChooseBet -= sceneRoot.CloseBetPanel;
+
+        slotMachinePresenter.OnVisibleWin -= sceneRoot.OpenWinPanel;
+        sceneRoot.OnCloseWinPanel -= sceneRoot.CloseWinPanel;
     }
 
     private void ActivateEvents()
