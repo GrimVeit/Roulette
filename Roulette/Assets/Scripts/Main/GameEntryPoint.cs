@@ -58,6 +58,7 @@ public class GameEntryPoint
         sceneEntryPoint.GoToRouletteGame_Action += () => coroutines.StartCoroutine(LoadAndStartRouletteScene());
         sceneEntryPoint.GoToSlots1_Action += () => coroutines.StartCoroutine(LoadAndStartSlots1Scene());
         sceneEntryPoint.GoToSlots2_Action += () => coroutines.StartCoroutine(LoadAndStartSlots2Scene());
+        sceneEntryPoint.GoToSlots3_Action += () => coroutines.StartCoroutine(LoadAndStartSlots3Scene());
 
         yield return rootView.HideLoadingScreen();
     }
@@ -109,6 +110,24 @@ public class GameEntryPoint
         yield return null;
 
         var sceneEntryPoint = Object.FindObjectOfType<Slots2SceneEntryPoint>();
+        sceneEntryPoint.Run(rootView);
+
+        sceneEntryPoint.GoToMainMenu_Action += () => coroutines.StartCoroutine(LoadAndStartMainMenu());
+
+        yield return rootView.HideLoadingScreen();
+    }
+
+    private IEnumerator LoadAndStartSlots3Scene()
+    {
+        rootView.SetLoadScreen(1);
+        yield return rootView.ShowLoadingScreen();
+
+        yield return new WaitForSeconds(0.4f);
+        yield return LoadScene(Scenes.BOOT);
+        yield return LoadScene(Scenes.SLOTS3);
+        yield return null;
+
+        var sceneEntryPoint = Object.FindObjectOfType<Slots3SceneEntryPoint>();
         sceneEntryPoint.Run(rootView);
 
         sceneEntryPoint.GoToMainMenu_Action += () => coroutines.StartCoroutine(LoadAndStartMainMenu());

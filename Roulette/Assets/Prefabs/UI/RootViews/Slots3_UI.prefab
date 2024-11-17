@@ -2944,6 +2944,7 @@ GameObject:
   - component: {fileID: 5966032691426918596}
   - component: {fileID: 6729748144457526013}
   - component: {fileID: 1450539263985132326}
+  - component: {fileID: 6923083134342145399}
   m_Layer: 5
   m_Name: Woman
   m_TagString: Untagged
@@ -3008,6 +3009,21 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &6923083134342145399
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1673660002005952761}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 064f199f3f6f21a47a3c93f15494817e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  imageJoker: {fileID: 1450539263985132326}
+  spriteFirstFrame: {fileID: 21300000, guid: ebefcd3118254a14797c3ae2351944ec, type: 3}
+  spriteSecondFrame: {fileID: 21300000, guid: 62ca4720b14b3f14585f93bf5ae1827f, type: 3}
 --- !u!1 &1726357994995241038
 GameObject:
   m_ObjectHideFlags: 0
@@ -3559,7 +3575,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: -1.5999756, y: 212.65002}
-  m_SizeDelta: {x: 100, y: 100}
+  m_SizeDelta: {x: 1, y: 1}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &2182173358602583747
 GameObject:
@@ -3866,6 +3882,8 @@ GameObject:
   - component: {fileID: 1575748651500902223}
   - component: {fileID: 1105564575105221361}
   - component: {fileID: 2453303531785485257}
+  - component: {fileID: 4946507477242787676}
+  - component: {fileID: 1595106162596746578}
   m_Layer: 5
   m_Name: Slots3_UI
   m_TagString: Untagged
@@ -4031,6 +4049,43 @@ MonoBehaviour:
   imageButtonBet: {fileID: 5503142086340238157}
   spriteActivateBet: {fileID: 21300000, guid: b6f8b20b4241fbc4f89dfe95e8efcf8c, type: 3}
   spriteDeactivateBet: {fileID: 21300000, guid: f0f436eb76df49348b5a79c51a384c21, type: 3}
+--- !u!114 &4946507477242787676
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2616087934759001199}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 65e013036e181974fae70cda0c744a93, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  jokers:
+  - {fileID: 6091553356673425946}
+  - {fileID: 6923083134342145399}
+  durationForSmallAnimation: 1.5
+  speedChangeForSmallAnimation: 0.5
+  durationForBigAnimation: 2.4
+  speedChangeForBigAnimation: 0.3
+--- !u!114 &1595106162596746578
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2616087934759001199}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e981003c318dcde49b5a797e5873078e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  contents:
+  - {fileID: 2937988037537901238}
+  - {fileID: 476495680173751625}
+  - {fileID: 1905415410479420489}
+  - {fileID: 5172152061196100497}
+  - {fileID: 2907641682113899728}
 --- !u!1 &2685196307283804064
 GameObject:
   m_ObjectHideFlags: 0
@@ -5027,7 +5082,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: -1.5999756, y: 212.65002}
-  m_SizeDelta: {x: 100, y: 100}
+  m_SizeDelta: {x: 1, y: 1}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &3216402559349949384
 GameObject:
@@ -8298,7 +8353,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: -1.5999756, y: 212.65002}
-  m_SizeDelta: {x: 100, y: 100}
+  m_SizeDelta: {x: 1, y: 1}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &5338906857861767018
 GameObject:
@@ -10839,6 +10894,7 @@ GameObject:
   - component: {fileID: 3566653327019937040}
   - component: {fileID: 5645096932620131465}
   - component: {fileID: 301297037792670743}
+  - component: {fileID: 6091553356673425946}
   m_Layer: 5
   m_Name: Man
   m_TagString: Untagged
@@ -10903,6 +10959,21 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &6091553356673425946
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6658690404776057489}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 064f199f3f6f21a47a3c93f15494817e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  imageJoker: {fileID: 301297037792670743}
+  spriteFirstFrame: {fileID: 21300000, guid: 8e60283f6c7ca0a4abcc2830c7e12c43, type: 3}
+  spriteSecondFrame: {fileID: 21300000, guid: 37012d3ed3bb4cb439191760c00d85b2, type: 3}
 --- !u!1 &6659802874395153123
 GameObject:
   m_ObjectHideFlags: 0
@@ -12991,7 +13062,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: -1.5999756, y: 212.65002}
-  m_SizeDelta: {x: 100, y: 100}
+  m_SizeDelta: {x: 1, y: 1}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &8948370325748026176
 GameObject:
@@ -13372,7 +13443,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: -1.5999756, y: 212.65002}
-  m_SizeDelta: {x: 100, y: 100}
+  m_SizeDelta: {x: 1, y: 1}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &9062638459704659219
 GameObject:

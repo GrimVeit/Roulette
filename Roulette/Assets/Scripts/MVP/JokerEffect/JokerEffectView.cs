@@ -2,17 +2,28 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class JokerEffectView : MonoBehaviour
+public class JokerEffectView : View
 {
-    // Start is called before the first frame update
-    void Start()
+    [SerializeField] private List<Joker> jokers = new List<Joker>();
+
+    [SerializeField] private float durationForSmallAnimation;
+    [SerializeField] private float speedChangeForSmallAnimation;
+    [SerializeField] private float durationForBigAnimation;
+    [SerializeField] private float speedChangeForBigAnimation;
+
+    public void ActivateSmallAnimation()
     {
-        
+        for (int i = 0; i < jokers.Count; i++)
+        {
+            jokers[i].ActivateAnimation(durationForSmallAnimation, speedChangeForSmallAnimation);
+        }
     }
 
-    // Update is called once per frame
-    void Update()
+    public void ActivateBigAnimation()
     {
-        
+        for (int i = 0; i < jokers.Count; i++)
+        {
+            jokers[i].ActivateAnimation(durationForBigAnimation, speedChangeForBigAnimation);
+        }
     }
 }

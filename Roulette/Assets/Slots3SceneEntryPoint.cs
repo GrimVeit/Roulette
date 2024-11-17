@@ -18,6 +18,8 @@ public class Slots3SceneEntryPoint : MonoBehaviour
 
     private SlotMachinePresenter slotMachinePresenter;
     private SlotBetPresenter slotBetPresenter;
+    private JokerEffectPresenter jokerEffectPresenter;
+    private SlotEffectPresenter slotEffectPresenter;
 
     public void Run(UIRootView uIRootView)
     {
@@ -51,6 +53,16 @@ public class Slots3SceneEntryPoint : MonoBehaviour
             viewContainer.GetView<SlotBetView>());
         slotBetPresenter.Initialize();
 
+        jokerEffectPresenter = new JokerEffectPresenter
+            (new JokerEffectModel(), 
+            viewContainer.GetView<JokerEffectView>());
+        jokerEffectPresenter.Initialize();
+
+        slotEffectPresenter = new SlotEffectPresenter
+            (new SlotEffectModel(), 
+            viewContainer.GetView<SlotEffectView>());
+        slotEffectPresenter.Initialize();
+
         sceneRoot.SetSoundProvider(soundPresenter);
         sceneRoot.SetParticleEffectProvider(particleEffectPresenter);
         sceneRoot.Initialize();
@@ -82,6 +94,11 @@ public class Slots3SceneEntryPoint : MonoBehaviour
 
         slotMachinePresenter.OnStartSpin += slotBetPresenter.Deactivate;
         slotMachinePresenter.OnStopSpin += slotBetPresenter.Activate;
+
+        slotMachinePresenter.OnSmallWin += jokerEffectPresenter.ActivateSmallAnimaion;
+        slotMachinePresenter.OnBigWin += jokerEffectPresenter.ActivateBigAnimation;
+
+        slotMachinePresenter.OnWinCombination += slotEffectPresenter.SetSlotGrid;
     }
 
     private void DeactivateEvents()
@@ -90,6 +107,11 @@ public class Slots3SceneEntryPoint : MonoBehaviour
 
         slotMachinePresenter.OnStartSpin -= slotBetPresenter.Deactivate;
         slotMachinePresenter.OnStopSpin -= slotBetPresenter.Activate;
+
+        slotMachinePresenter.OnSmallWin -= jokerEffectPresenter.ActivateSmallAnimaion;
+        slotMachinePresenter.OnBigWin -= jokerEffectPresenter.ActivateBigAnimation;
+
+        slotMachinePresenter.OnWinCombination -= slotEffectPresenter.SetSlotGrid;
     }
 
     private void Dispose()
@@ -103,6 +125,8 @@ public class Slots3SceneEntryPoint : MonoBehaviour
         bankPresenter?.Dispose();
         slotMachinePresenter?.Dispose();
         slotBetPresenter?.Dispose();
+        jokerEffectPresenter?.Dispose();
+        slotEffectPresenter?.Dispose();
     }
 
     private void OnDestroy()

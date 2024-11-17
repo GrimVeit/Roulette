@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -8,6 +9,8 @@ public class SlotMachineModel
     public bool IsSpinMachine { get; private set; }
 
     public int Bet { get; private set; } = 0;
+
+    public event Action<SlotGrid, List<SlotValue>> OnWinCombination;
 
     public event Action OnActivateMachine;
     public event Action OnDeactivateMachine;
@@ -34,6 +37,7 @@ public class SlotMachineModel
     //private ISound[] slotWheelsSound;
 
     private int[,] combination;
+    private List<SlotValue> closestSlotValues = new List<SlotValue>() { null, null, null, null, null};
 
     private int slotCount;
     private float winMoney;
@@ -103,6 +107,11 @@ public class SlotMachineModel
     //}
 
     #endregion
+
+    public void GetClosestSlotValue(int index, SlotValue slotValue)
+    {
+        closestSlotValues[index] = slotValue;
+    }
 
     public void SetBet(int bet)
     {
@@ -179,9 +188,7 @@ public class SlotMachineModel
 
     public void DeactivateMachine()
     {
-        OnStopSpin?.Invoke();
         CheckResults();
-        IsSpinMachine = false;
 
         //StopWheelSounds();
 
@@ -191,6 +198,11 @@ public class SlotMachineModel
     }
 
     private void CheckResults()
+    {
+        Coroutines.Start(CheckResults_Coroutine());
+    }
+
+    private IEnumerator CheckResults_Coroutine()
     {
         WinType winType = WinType.NoWin;
 
@@ -224,6 +236,8 @@ public class SlotMachineModel
 
             if (isWinningCombination)
             {
+                OnWinCombination?.Invoke(grid, closestSlotValues);
+
                 winMoney += Bet * grid.BetMultyply;
 
                 if(grid.WinType == WinType.Big)
@@ -231,10 +245,15 @@ public class SlotMachineModel
 
                 if (winType != WinType.Big)
                    winType = grid.WinType;
+
+                yield return new WaitForSeconds(0.5f);
             }
         }
 
         winTypeActions[winType].Invoke();
+
+        IsSpinMachine = false;
+        OnStopSpin?.Invoke();
 
 
         //int rows = combination.GetLength(0);

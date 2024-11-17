@@ -9,6 +9,7 @@ public class Slot : MonoBehaviour
     public event Action OnStartSpin;
     public event Action<int, float> OnWheelSpeed;
     public event Action<int[], int> OnStopSpin;
+    public event Action<int, SlotValue> OnGetClosestSlotValue;
 
     public ScrollRect scrollRect;
     public float minScrollSpeed = 0.5f;
@@ -62,7 +63,7 @@ public class Slot : MonoBehaviour
 
 
         SlotValue closestSlotValue = GetClosestSlotValue();
-
+        OnGetClosestSlotValue?.Invoke(_idSlotMach, closestSlotValue);
 
 
         yield return StartCoroutine(SmoothScrollToItem(closestSlotValue.TransformSlotValue));

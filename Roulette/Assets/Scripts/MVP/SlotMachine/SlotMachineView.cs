@@ -13,6 +13,7 @@ public class SlotMachineView : View
     public event Action OnStartSpinSlot;
     public event Action<int, float> OnWheelSpeed;
     public event Action<int[], int> OnStopSpinSlot;
+    public event Action<int, SlotValue> OnGetClosestSlotValue;
 
     [SerializeField] private Button spinButton;
     [SerializeField] private Image imageSpinButton;
@@ -36,6 +37,7 @@ public class SlotMachineView : View
         for (int i = 0; i < slots.Length; i++)
         {
             slots[i].Initialize(i, rowCounts);
+            slots[i].OnGetClosestSlotValue += GetClosestSlotValue;
             slots[i].OnStopSpin += EndSpinSlot;
             slots[i].OnStartSpin += StartSpinSlot;
             slots[i].OnWheelSpeed += WheelSpeed;
@@ -50,6 +52,7 @@ public class SlotMachineView : View
     {
         for (int i = 0; i < slots.Length; i++)
         {
+            slots[i].OnGetClosestSlotValue -= GetClosestSlotValue;
             slots[i].OnStartSpin -= StartSpinSlot;
             slots[i].OnStopSpin -= EndSpinSlot;
             slots[i].OnWheelSpeed -= WheelSpeed;
@@ -103,6 +106,11 @@ public class SlotMachineView : View
     public void WheelSpeed(int index, float speed)
     {
         OnWheelSpeed?.Invoke(index, speed);
+    }
+
+    public void GetClosestSlotValue(int index, SlotValue slotValue)
+    {
+        OnGetClosestSlotValue?.Invoke(index, slotValue);
     }
 
     public void StartAutoSpin()

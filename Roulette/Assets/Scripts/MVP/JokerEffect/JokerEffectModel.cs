@@ -1,18 +1,18 @@
-using System.Collections;
-using System.Collections.Generic;
+using System;
 using UnityEngine;
 
-public class JokerEffectModel : MonoBehaviour
+public class JokerEffectModel
 {
-    // Start is called before the first frame update
-    void Start()
+    public event Action OnActivateSmallAnaimation;
+    public event Action OnActivateBigAnimation;
+
+    public void ActivateSmallAnimation()
     {
-        
+        OnActivateSmallAnaimation?.Invoke();
     }
 
-    // Update is called once per frame
-    void Update()
+    public void ActivateBigAnimation()
     {
-        
+        OnActivateBigAnimation?.Invoke();
     }
 }

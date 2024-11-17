@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 
 public class SlotMachinePresenter
 {
@@ -44,6 +45,7 @@ public class SlotMachinePresenter
         slotMachineView.OnStopSpinSlot += slotMachineModel.StopSpinSlot;
         slotMachineView.OnClickSpin += slotMachineModel.ActivateMachine;
         slotMachineView.OnClickAutoSpin += slotMachineModel.Autospin;
+        slotMachineView.OnGetClosestSlotValue += slotMachineModel.GetClosestSlotValue;
         //slotMachineView.OnWheelSpeed += slotMachineModel.WheelSpeed;
     }
 
@@ -60,6 +62,7 @@ public class SlotMachinePresenter
         slotMachineView.OnStopSpinSlot -= slotMachineModel.StopSpinSlot;
         slotMachineView.OnClickSpin -= slotMachineModel.ActivateMachine;
         slotMachineView.OnClickAutoSpin -= slotMachineModel.Autospin;
+        slotMachineView.OnGetClosestSlotValue -= slotMachineModel.GetClosestSlotValue;
         //slotMachineView.OnWheelSpeed -= slotMachineModel.WheelSpeed;
     }
 
@@ -85,6 +88,12 @@ public class SlotMachinePresenter
         remove { slotMachineModel.OnBigWin -= value; }
     }
 
+
+    public event Action<SlotGrid, List<SlotValue>> OnWinCombination
+    {
+        add { slotMachineModel.OnWinCombination += value; }
+        remove { slotMachineModel.OnWinCombination -= value; }
+    }
 
     public event Action<float> OnWin
     {
