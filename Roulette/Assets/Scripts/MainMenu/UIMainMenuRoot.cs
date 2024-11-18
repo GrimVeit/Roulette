@@ -6,6 +6,10 @@ public class UIMainMenuRoot : MonoBehaviour
     [SerializeField] private MainPanel_MainMenuScene mainPanel;
     [SerializeField] private DailyRewardPanel_MainMenuScene dailyRewardPanel;
 
+    [SerializeField] private ChooseRouletteGamePanel chooseRouletteGamePanel;
+    [SerializeField] private ChooseSlotGamePanel chooseSlotGamePanel;
+    [SerializeField] private ChooseGamePanel chooseGamePanel;
+
     private bool isCooldownDailyRewardPanelActivated;
     private bool isCooldownDailyBonusPanelActivated;
 
@@ -18,9 +22,15 @@ public class UIMainMenuRoot : MonoBehaviour
     {
         mainPanel.SetSoundProvider(soundProvider);
         dailyRewardPanel.SetSoundProvider(soundProvider);
+        chooseRouletteGamePanel.SetSoundProvider(soundProvider);
+        chooseSlotGamePanel.SetSoundProvider(soundProvider);
+        chooseGamePanel.SetSoundProvider(soundProvider);
 
         mainPanel.Initialize();
         dailyRewardPanel.Initialize();
+        chooseRouletteGamePanel.Initialize();
+        chooseSlotGamePanel.Initialize();
+        chooseGamePanel.Initialize();
     }
 
     public void Activate()
@@ -28,6 +38,15 @@ public class UIMainMenuRoot : MonoBehaviour
         //mainPanel.GoToRouletteGame_Action += HandlerGoToRouletteGame;
 
         dailyRewardPanel.OnClickBackButton += OpenMainPanel;
+
+        mainPanel.OnOpenChooseRoulettePanel += OpenChooseRouletteGamePanel;
+        mainPanel.OnCloseChooseRoulettePanel += CloseChooseRouletteGamePanel;
+        mainPanel.OnOpenChooseSlotPanel += OpenChooseSlotGamePanel;
+        mainPanel.OnCloseChooseSlotPanel += CloseChooseSlotGamePanel;
+
+        chooseRouletteGamePanel.OnOpenChooseGamePanel_Action += OpenChooseGamePanel;
+        chooseSlotGamePanel.OnOpenChooseGamePanel_Action += OpenChooseGamePanel;
+        chooseGamePanel.OnClickBackButton += CloseChooseGamePanel;
 
         OpenMainPanel();
     }
@@ -37,6 +56,15 @@ public class UIMainMenuRoot : MonoBehaviour
         //mainPanel.GoToRouletteGame_Action -= HandlerGoToRouletteGame;
 
         dailyRewardPanel.OnClickBackButton -= OpenMainPanel;
+
+        mainPanel.OnOpenChooseRoulettePanel -= OpenChooseRouletteGamePanel;
+        mainPanel.OnCloseChooseRoulettePanel -= CloseChooseRouletteGamePanel;
+        mainPanel.OnOpenChooseSlotPanel -= OpenChooseSlotGamePanel;
+        mainPanel.OnCloseChooseSlotPanel -= CloseChooseSlotGamePanel;
+
+        chooseRouletteGamePanel.OnOpenChooseGamePanel_Action -= OpenChooseGamePanel;
+        chooseSlotGamePanel.OnOpenChooseGamePanel_Action -= OpenChooseGamePanel;
+        chooseGamePanel.OnClickBackButton -= CloseChooseGamePanel;
     }
 
     public void SetSoundProvider(ISoundProvider soundProvider)
@@ -53,6 +81,9 @@ public class UIMainMenuRoot : MonoBehaviour
     {
         mainPanel.Dispose();
         dailyRewardPanel.Dispose();
+        chooseRouletteGamePanel.Dispose();
+        chooseSlotGamePanel.Dispose();
+        chooseGamePanel.Dispose();
     }
 
 
@@ -87,6 +118,36 @@ public class UIMainMenuRoot : MonoBehaviour
         OpenPanel(dailyRewardPanel);
     }
 
+    public void OpenChooseRouletteGamePanel()
+    {
+        OpenOtherPanel(chooseRouletteGamePanel);
+    }
+
+    public void CloseChooseRouletteGamePanel()
+    {
+        CloseOtherPanel(chooseRouletteGamePanel);
+    }
+
+    public void OpenChooseSlotGamePanel()
+    {
+        OpenOtherPanel(chooseSlotGamePanel);
+    }
+
+    public void CloseChooseSlotGamePanel()
+    {
+        CloseOtherPanel(chooseSlotGamePanel);
+    }
+
+    public void OpenChooseGamePanel()
+    {
+        OpenOtherPanel(chooseGamePanel);
+    }
+
+    public void CloseChooseGamePanel()
+    {
+        CloseOtherPanel(chooseGamePanel);
+    }
+
     #region Input Actions
 
     public event Action OnActivateMainMenuPanel
@@ -107,29 +168,69 @@ public class UIMainMenuRoot : MonoBehaviour
         remove { dailyRewardPanel.OnClickBackButton -= value; }
     }
 
-    public event Action OnGoToRouletteGame_Action
+    public event Action OnOpenChooseRouletteGamePanel_Action
     {
-        add { mainPanel.GoToRouletteGame_Action += value; }
-        remove { mainPanel.GoToRouletteGame_Action -= value; }
+        add { mainPanel.OnOpenChooseRoulettePanel += value; }
+        remove { mainPanel.OnOpenChooseRoulettePanel -= value; }
     }
 
-    public event Action OnGoToSlots1_Action
+    public event Action OnCloseChooseRouletteGamePanel_Action
     {
-        add { mainPanel.GoToSlot1_Action += value; }
-        remove { mainPanel.GoToSlot1_Action -= value; }
+        add { mainPanel.OnCloseChooseRoulettePanel += value; }
+        remove { mainPanel.OnCloseChooseRoulettePanel -= value; }
     }
 
-    public event Action OnGoToSlots2_Action
+    public event Action OnOpenChooseSlotGamePanel_Action
     {
-        add { mainPanel.GoToSlot2_Action += value; }
-        remove { mainPanel.GoToSlot2_Action -= value; }
+        add { mainPanel.OnOpenChooseSlotPanel += value; }
+        remove { mainPanel.OnOpenChooseSlotPanel -= value; }
     }
 
-    public event Action OnGoToSlots3_Action
+    public event Action OnCloseChooseSlotGamePanel_Action
     {
-        add { mainPanel.GoToSlot3_Action += value; }
-        remove { mainPanel.GoToSlot3_Action -= value; }
+        add { mainPanel.OnCloseChooseSlotPanel += value; }
+        remove { mainPanel.OnCloseChooseSlotPanel -= value; }
     }
+
+    public event Action OnOpenChooseGamePanelFromRoulette
+    {
+        add { chooseRouletteGamePanel.OnOpenChooseGamePanel_Action += value; }
+        remove { chooseRouletteGamePanel.OnOpenChooseGamePanel_Action -= value; }
+    }
+
+    public event Action OnOpenChooseGamePanelFromSlots
+    {
+        add { chooseSlotGamePanel.OnOpenChooseGamePanel_Action += value; }
+        remove { chooseSlotGamePanel.OnOpenChooseGamePanel_Action -= value; }
+    }
+
+    public event Action OnCloseChooseGamePanel
+    {
+        add { chooseGamePanel.OnClickBackButton += value; }
+        remove { chooseGamePanel.OnClickBackButton -= value; }
+    }
+
+    //public event Action OnGoToSlots1_Action
+    //{
+    //    add { mainPanel.GoToSlot1_Action += value; }
+    //    remove { mainPanel.GoToSlot1_Action -= value; }
+    //}
+
+    //public event Action OnGoToSlots2_Action
+    //{
+    //    add { mainPanel.GoToSlot2_Action += value; }
+    //    remove { mainPanel.GoToSlot2_Action -= value; }
+    //}
+
+    //public event Action OnGoToSlots3_Action
+    //{
+    //    add { mainPanel.GoToSlot3_Action += value; }
+    //    remove { mainPanel.GoToSlot3_Action -= value; }
+    //}
+
+    public event Action OnGoToSlots1_Action;
+    public event Action OnGoToSlots2_Action;
+    public event Action OnGoToSlots3_Action;
 
     #endregion
 }

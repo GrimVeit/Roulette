@@ -18,6 +18,9 @@ public class MainMenuEntryPoint : MonoBehaviour
 
     private RouletteColorPresenter rouletteColorPresenter;
 
+    private GameProgressPresenter gameProgressPresenter;
+    private GameTrackerPresenter gameTrackerPresenter;
+
     public void Run(UIRootView uIRootView)
     {
         sceneRoot = Instantiate(menuRootPrefab);
@@ -55,13 +58,24 @@ public class MainMenuEntryPoint : MonoBehaviour
             viewContainer.GetView<RouletteColorView>());
         rouletteColorPresenter.Initialize();
 
-        sceneRoot.SetSoundProvider(soundPresenter);
-        sceneRoot.SetParticleEffectProvider(particleEffectPresenter);
-        sceneRoot.Initialize();
+        gameProgressPresenter = new GameProgressPresenter
+            (new GameProgressModel(), 
+            viewContainer.GetView<GameProgressView>());
+        gameProgressPresenter.Initialize();
 
+        gameTrackerPresenter = new GameTrackerPresenter
+            (new GameTrackerModel(), 
+            viewContainer.GetView<GameTrackerView>());
+        gameTrackerPresenter.Initialize();
 
         ActivateTransitionsSceneEvents();
         ActivateEvents();
+
+        gameProgressPresenter.Initialize();
+
+        sceneRoot.SetSoundProvider(soundPresenter);
+        sceneRoot.SetParticleEffectProvider(particleEffectPresenter);
+        sceneRoot.Initialize();
 
         sceneRoot.Activate();
         cooldownDailyRewardPresenter.Activate();
@@ -69,7 +83,7 @@ public class MainMenuEntryPoint : MonoBehaviour
 
     private void ActivateTransitionsSceneEvents()
     {
-        sceneRoot.OnGoToRouletteGame_Action += HandleGoToRouletteGame;
+        //sceneRoot.OnGoToRouletteGame_Action += HandleGoToRouletteGame;
         sceneRoot.OnGoToSlots1_Action += HandleGoToSlots1Game;
         sceneRoot.OnGoToSlots2_Action += HandleGoToSlots2Game;
         sceneRoot.OnGoToSlots3_Action += HandleGoToSlots3Game;
@@ -80,7 +94,7 @@ public class MainMenuEntryPoint : MonoBehaviour
 
     private void DeactivateTransitionsSceneEvents()
     {
-        sceneRoot.OnGoToRouletteGame_Action -= HandleGoToRouletteGame;
+        //sceneRoot.OnGoToRouletteGame_Action -= HandleGoToRouletteGame;
         sceneRoot.OnGoToSlots1_Action -= HandleGoToSlots1Game;
         sceneRoot.OnGoToSlots2_Action -= HandleGoToSlots2Game;
         sceneRoot.OnGoToSlots3_Action -= HandleGoToSlots3Game;
@@ -93,12 +107,16 @@ public class MainMenuEntryPoint : MonoBehaviour
     {
         dailyRewardPresenter.OnGetDailyReward += cooldownDailyRewardPresenter.ActivateCooldown;
         dailyRewardPresenter.OnGetDailyReward_Count += bankPresenter.SendMoney;
+
+        gameProgressPresenter.OnGetData += gameTrackerPresenter.SetData;
     }
 
     private void DeactivateEvents()
     {
         dailyRewardPresenter.OnGetDailyReward -= cooldownDailyRewardPresenter.ActivateCooldown;
         dailyRewardPresenter.OnGetDailyReward_Count -= bankPresenter.SendMoney;
+
+        gameProgressPresenter.OnGetData -= gameTrackerPresenter.SetData;
     }
 
     private void Dispose()
@@ -113,6 +131,8 @@ public class MainMenuEntryPoint : MonoBehaviour
         dailyRewardPresenter?.Dispose();
         cooldownDailyRewardPresenter?.Dispose();
         rouletteColorPresenter?.Dispose();
+        gameProgressPresenter?.Dispose();
+        gameTrackerPresenter?.Dispose();
     }
 
     private void OnDestroy()
