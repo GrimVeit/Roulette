@@ -49,6 +49,12 @@ public class BankPresenter : IMoneyProvider
 
     public float GetMoney() => bankModel.Money;
 
+    public event Action<float> OnAddMoneyCount
+    {
+        add { bankModel.OnAddMoneyCount += value; }
+        remove { bankModel.OnAddMoneyCount -= value; }
+    }
+
     public event Action<float> OnChangeMoney
     {
         add { bankModel.OnChangeMoney += value; }

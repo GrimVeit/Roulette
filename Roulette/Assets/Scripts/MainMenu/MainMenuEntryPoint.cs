@@ -61,26 +61,24 @@ public class MainMenuEntryPoint : MonoBehaviour
             viewContainer.GetView<RouletteColorView>());
         rouletteColorPresenter.Initialize();
 
-        gameProgressPresenter = new GameProgressPresenter
-            (new GameProgressModel(), 
-            viewContainer.GetView<GameProgressView>());
-        gameProgressPresenter.Initialize();
-
         gameTrackerPresenter = new GameTrackerPresenter
             (new GameTrackerModel(), 
             viewContainer.GetView<GameTrackerView>());
         gameTrackerPresenter.Initialize();
 
+        gameProgressPresenter = new GameProgressPresenter
+            (new GameProgressModel());
+
         timeRealtimePresenter = new TimeRealtimePresenter(new TimeRealtimeModel(gameProgressPresenter));
-        timeRealtimePresenter.Initialize();
 
         timeGameSessionPresenter = new TimeGameSessionPresenter(new TimeGameSessionModel(gameProgressPresenter));
-        timeGameSessionPresenter.Initialize();
 
         ActivateTransitionsSceneEvents();
         ActivateEvents();
 
         gameProgressPresenter.Initialize();
+        timeGameSessionPresenter.Initialize();
+        timeRealtimePresenter.Initialize();
 
         sceneRoot.SetSoundProvider(soundPresenter);
         sceneRoot.SetParticleEffectProvider(particleEffectPresenter);

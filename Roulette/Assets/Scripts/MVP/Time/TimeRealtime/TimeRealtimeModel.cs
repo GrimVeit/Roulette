@@ -33,7 +33,7 @@ public class TimeRealtimeModel
 
         elapsedTime = DateTime.UtcNow - firstLaunchData;
 
-        if (elapsedTime.TotalSeconds >= 40)
+        if (elapsedTime.TotalSeconds >= 20)
         {
             gameUnlocker.UnlockGame(GameType.Roulette, 4);
         }
@@ -55,7 +55,7 @@ public class TimeRealtimeModel
 
     private IEnumerator TimerCoroutine()
     {
-        while (elapsedTime.TotalSeconds < 40)
+        while (elapsedTime.TotalSeconds < 20)
         {
             elapsedTime = elapsedTime.Add(TimeSpan.FromSeconds(1));
 

@@ -16,6 +16,7 @@ public class SlotMachineModel
     public event Action OnActivateMachine;
     public event Action OnDeactivateMachine;
 
+    public event Action<int> OnStartSpin_Count;
     public event Action OnStartSpin;
     public event Action OnStopSpinnedSlot;
     public event Action OnStopSpin;
@@ -46,6 +47,8 @@ public class SlotMachineModel
     private Dictionary<WinType, Action> winTypeActions = new Dictionary<WinType, Action>();
 
     private bool isActive = false;
+
+    private int countRoll = 0;
 
     public SlotMachineModel(int columnSlot, int rowSlot, Combination combinations, IMoneyProvider moneyProvider, ISoundProvider soundProvider, IParticleEffectProvider particleEffectProvider)
     {
@@ -150,6 +153,8 @@ public class SlotMachineModel
                 Autospin();
             return;
         }
+        countRoll += 1;
+        OnStartSpin_Count?.Invoke(countRoll);
 
         IsSpinMachine = true;
         //PlayWheelSounds();

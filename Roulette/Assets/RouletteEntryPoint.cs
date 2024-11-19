@@ -24,6 +24,10 @@ public class RouletteEntryPoint : MonoBehaviour
 
     private RouletteDesignPresenter rouletteDesignPresenter;
 
+    private GameProgressPresenter gameProgressPresenter;
+    private TimeGameSessionPresenter timeGameSessionPresenter;
+
+
     public void Run(UIRootView uIRootView)
     {
         sceneRoot = Instantiate(sceneRootPrefab);
@@ -70,6 +74,12 @@ public class RouletteEntryPoint : MonoBehaviour
         rouletteDesignPresenter = new RouletteDesignPresenter(new RouletteDesignModel(), viewContainer.GetView<RouletteDesignView>());
         rouletteDesignPresenter.Initialize();
 
+        gameProgressPresenter = new GameProgressPresenter(new GameProgressModel());
+        gameProgressPresenter.Initialize();
+
+        timeGameSessionPresenter = new TimeGameSessionPresenter(new TimeGameSessionModel(gameProgressPresenter));
+        timeGameSessionPresenter.Initialize();
+
         ActivateTransferEvents();
         ActivateEvents();
 
@@ -81,6 +91,8 @@ public class RouletteEntryPoint : MonoBehaviour
 
     private void ActivateEvents()
     {
+        bankPresenter.OnAddMoneyCount += UnlockGameFrom1000000Coins;
+
         rouletteBetPresenter.OnNoneRetractedChip += chipPresenter.NoneRetractChip;
         rouletteBetPresenter.OnDestroyedChip += chipPresenter.FallChip;
 
@@ -90,6 +102,7 @@ public class RouletteEntryPoint : MonoBehaviour
         roulettePresenter.OnGetRouletteSlotValue += rouletteResultPresenter.ShowResult;
 
         rouletteResultPresenter.OnStartShowResult += rouletteBetPresenter.SearchWin;
+        rouletteResultPresenter.OnFinishShowResult += UnlockGameFromFirstGame;
         rouletteResultPresenter.OnFinishShowResult += rouletteBetPresenter.ShowResult;
         rouletteResultPresenter.OnStartHideResult += rouletteHistoryPresenter.AddRouletteNumber;
 
@@ -106,12 +119,15 @@ public class RouletteEntryPoint : MonoBehaviour
 
     private void DeactivateEvents()
     {
+        bankPresenter.OnAddMoneyCount -= UnlockGameFrom1000000Coins;
+
         pseudoChipPresenter.OnSpawnChip -= chipPresenter.SpawnChip;
         rouletteBallPresenter.OnBallStopped -= roulettePresenter.RollBallToSlot;
         roulettePresenter.OnGetRouletteSlotValue -= rouletteResultPresenter.ShowResult;
         roulettePresenter.OnGetRouletteSlotValue -= rouletteBetPresenter.GetRouletteSlotValue;
 
         rouletteResultPresenter.OnFinishShowResult -= rouletteBetPresenter.SearchWin;
+        rouletteResultPresenter.OnFinishShowResult -= UnlockGameFromFirstGame;
         rouletteResultPresenter.OnFinishShowResult -= rouletteBetPresenter.ShowResult;
         rouletteResultPresenter.OnStartHideResult -= rouletteHistoryPresenter.AddRouletteNumber;
 
@@ -149,6 +165,23 @@ public class RouletteEntryPoint : MonoBehaviour
         rouletteHistoryPresenter?.Dispose();
 
         rouletteDesignPresenter?.Dispose();
+
+        gameProgressPresenter?.Dispose();
+        timeGameSessionPresenter?.Dispose();
+    }
+
+    
+    private void UnlockGameFromFirstGame()
+    {
+        gameProgressPresenter.UnlockGame(GameType.Roulette, 2);
+    }
+
+    private void UnlockGameFrom1000000Coins(float coins)
+    {
+        if(coins >= 50)
+        {
+            gameProgressPresenter.UnlockGame(GameType.Roulette, 5);
+        }
     }
 
     #region Input actions

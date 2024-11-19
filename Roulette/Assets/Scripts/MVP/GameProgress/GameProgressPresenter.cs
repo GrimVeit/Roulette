@@ -6,36 +6,20 @@ using UnityEngine;
 public class GameProgressPresenter : IGameUnlocker
 {
     private GameProgressModel gameProgressModel;
-    private GameProgressView gameProgressView;
 
-    public GameProgressPresenter(GameProgressModel gameProgressModel, GameProgressView gameProgressView)
+    public GameProgressPresenter(GameProgressModel gameProgressModel)
     {
         this.gameProgressModel = gameProgressModel;
-        this.gameProgressView = gameProgressView;
     }
 
     public void Initialize()
     {
-        ActivateEvents();
-
         gameProgressModel.Initialize();
     }
 
     public void Dispose()
     {
-        DeactivateEvents();
-
         gameProgressModel.Dispose();
-    }
-
-    private void ActivateEvents()
-    {
-
-    }
-
-    private void DeactivateEvents()
-    {
-
     }
 
     #region Input

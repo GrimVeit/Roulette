@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Reflection;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -29,6 +30,18 @@ public class GameTrackerView : View
         for (int i = 0; i < gameData.Count; i++)
         {
             Debug.Log($"Type game - {gameData[i].Type}, NumberGame - {gameData[i].Number}, Unlocked - {gameData[i].IsOpen}");
+        }
+
+        for (int i = 0; i < gameData.Count; i++)
+        {
+            if (gameData[i].IsOpen)
+            {
+                gameVisibleData[i].Visible();
+            }
+            else
+            {
+                gameVisibleData[i].Hide();
+            }
         }
     }
 
@@ -134,10 +147,15 @@ public class GameVisibleData
     [SerializeField] private Button buttonChoose;
     [SerializeField] private string nameGame;
     [SerializeField] private Sprite spriteGame;
+    [SerializeField] private Image imageInMenu;
+    [SerializeField] private Sprite spriteZeroInMenu;
+    [SerializeField] private Sprite spriteGameInMenu;
     [SerializeField] private string description;
 
     public event Action<GameType, int> OnClickToButton;
 
+    public GameType Type => gameType;
+    public int Number => number;
     public Button ButtonChoose => buttonChoose;
     public string NameGame => nameGame;
     public Sprite SpriteGame => spriteGame;
@@ -151,6 +169,16 @@ public class GameVisibleData
     public void Dispose()
     {
         buttonChoose.onClick.RemoveListener(HandleClickToButton);
+    }
+
+    public void Visible()
+    {
+        imageInMenu.sprite = spriteGameInMenu;
+    }
+
+    public void Hide()
+    {
+        imageInMenu.sprite = spriteZeroInMenu;
     }
 
     private void HandleClickToButton()

@@ -119,6 +119,12 @@ public class SlotMachinePresenter
         remove { slotMachineModel.OnStartSpin -= value; }
     }
 
+    public event Action<int> OnStartSpin_Count
+    {
+        add { slotMachineModel.OnStartSpin_Count += value; }
+        remove { slotMachineModel.OnStartSpin_Count -= value; }
+    }
+
     public event Action OnStopSpin
     {
         add { slotMachineModel.OnStopSpin += value; }

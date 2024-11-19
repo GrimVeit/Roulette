@@ -3,6 +3,8 @@ using UnityEngine;
 
 public class BankModel
 {
+    public event Action<float> OnAddMoneyCount;
+
     public float Money { get; private set; }
     public event Action OnAddMoney;
     public event Action OnRemoveMoney;
@@ -22,6 +24,8 @@ public class BankModel
 
     public void SendMoney(float money)
     {
+        OnAddMoneyCount?.Invoke(money);
+
         if(money >= 0)
         {
             OnAddMoney?.Invoke();

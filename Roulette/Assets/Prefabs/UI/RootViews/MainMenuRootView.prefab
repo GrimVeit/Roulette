@@ -843,54 +843,81 @@ MonoBehaviour:
     buttonChoose: {fileID: 6363369061179825431}
     nameGame: The Red Queen
     spriteGame: {fileID: 21300000, guid: 146d65d063fb25e4686511654acb67bf, type: 3}
+    imageInMenu: {fileID: 5861618863327584097}
+    spriteZeroInMenu: {fileID: 21300000, guid: bbc50a0382cbc3442817c6cdc3ff6128, type: 3}
+    spriteGameInMenu: {fileID: 21300000, guid: 0d0149d49bce60e44afd87e288b0973f, type: 3}
     description: 
   - gameType: 0
     number: 1
     buttonChoose: {fileID: 5340839942622551359}
     nameGame: Purple night
     spriteGame: {fileID: 21300000, guid: 3360ec067fe05a0438b6d59531d6385d, type: 3}
+    imageInMenu: {fileID: 8113022520675432249}
+    spriteZeroInMenu: {fileID: 21300000, guid: bbc50a0382cbc3442817c6cdc3ff6128, type: 3}
+    spriteGameInMenu: {fileID: 21300000, guid: 06cbdd79e1a1a35468b2a989851b84c9, type: 3}
     description: 
   - gameType: 0
     number: 2
     buttonChoose: {fileID: 6845792628995434482}
     nameGame: Royal blue
     spriteGame: {fileID: 21300000, guid: 76d06af312bd15b4dbde158a06b75a6c, type: 3}
+    imageInMenu: {fileID: 8688363267232976866}
+    spriteZeroInMenu: {fileID: 21300000, guid: bbc50a0382cbc3442817c6cdc3ff6128, type: 3}
+    spriteGameInMenu: {fileID: 21300000, guid: b4c327e17f3c0474496020a96d9f65a3, type: 3}
     description: Unlock after playing any game once
   - gameType: 0
     number: 3
     buttonChoose: {fileID: 1740642398547157717}
     nameGame: Gold on Burgundy
     spriteGame: {fileID: 21300000, guid: d8b9f928b1c714c4e8840b76afc94eeb, type: 3}
+    imageInMenu: {fileID: 6054282654832150320}
+    spriteZeroInMenu: {fileID: 21300000, guid: bbc50a0382cbc3442817c6cdc3ff6128, type: 3}
+    spriteGameInMenu: {fileID: 21300000, guid: 322f81ad56e800a49ac68d296d70bbe7, type: 3}
     description: Unlock after 15 minutes of playtime
   - gameType: 0
     number: 4
     buttonChoose: {fileID: 5806589204399683274}
     nameGame: A bright flash
     spriteGame: {fileID: 21300000, guid: 3908ddbec4ba1aa40ae00664baaafbf1, type: 3}
+    imageInMenu: {fileID: 5710023041893974489}
+    spriteZeroInMenu: {fileID: 21300000, guid: bbc50a0382cbc3442817c6cdc3ff6128, type: 3}
+    spriteGameInMenu: {fileID: 21300000, guid: a828758168747954d95eedcb179b4cbd, type: 3}
     description: Unlock after 24 hours
   - gameType: 0
     number: 5
     buttonChoose: {fileID: 4333618471793255377}
     nameGame: The Emerald of Fairies
     spriteGame: {fileID: 21300000, guid: ef06a508919d9734a9157566946d03f0, type: 3}
+    imageInMenu: {fileID: 1009042052351684249}
+    spriteZeroInMenu: {fileID: 21300000, guid: bbc50a0382cbc3442817c6cdc3ff6128, type: 3}
+    spriteGameInMenu: {fileID: 21300000, guid: 209001e75c3cbf540b85a6be0ae54ee4, type: 3}
     description: Unlock after winning 1000000
   - gameType: 1
     number: 0
     buttonChoose: {fileID: 5493561260980053663}
     nameGame: Slot 1
     spriteGame: {fileID: 21300000, guid: b1d7b66d91ffb024f9e2e95e5262f6bc, type: 3}
+    imageInMenu: {fileID: 8891025332211147009}
+    spriteZeroInMenu: {fileID: 21300000, guid: ea92c696d5e092749af4ace54daf311f, type: 3}
+    spriteGameInMenu: {fileID: 21300000, guid: b1d7b66d91ffb024f9e2e95e5262f6bc, type: 3}
     description: 
   - gameType: 1
     number: 1
     buttonChoose: {fileID: 7170074668730619108}
     nameGame: Slot 2
     spriteGame: {fileID: 21300000, guid: 4000f29e430a349439b6ac208c4eb9b2, type: 3}
+    imageInMenu: {fileID: 4810150653040352326}
+    spriteZeroInMenu: {fileID: 21300000, guid: ea92c696d5e092749af4ace54daf311f, type: 3}
+    spriteGameInMenu: {fileID: 21300000, guid: 4000f29e430a349439b6ac208c4eb9b2, type: 3}
     description: Unlock after 15 spins of Slots 1
   - gameType: 1
     number: 2
     buttonChoose: {fileID: 8138072459783111416}
     nameGame: Slot 3
     spriteGame: {fileID: 21300000, guid: 2498f912db46d7441b1333f542f5e1a2, type: 3}
+    imageInMenu: {fileID: 529382653752441479}
+    spriteZeroInMenu: {fileID: 21300000, guid: ea92c696d5e092749af4ace54daf311f, type: 3}
+    spriteGameInMenu: {fileID: 21300000, guid: 2498f912db46d7441b1333f542f5e1a2, type: 3}
     description: Unlock after 30 spins of Slots 2
   gameTrackerDisplay: {fileID: 9208130166672312079}
 --- !u!114 &9208130166672312079
@@ -1715,7 +1742,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: -300, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &7072381670056201930
@@ -1746,7 +1773,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 17fed0b5b1f0c4c4eb053c85b0574400, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 43d18b814bd9b0340bbcb2daead9cbc9, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -8185,10 +8212,10 @@ RectTransform:
   - {fileID: 1391235084443819281}
   m_Father: {fileID: 4792236665243424213}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 1920, y: 1080}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3901395806200064654
 CanvasRenderer:
@@ -8576,7 +8603,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &3321428414202741500
 RectTransform:
   m_ObjectHideFlags: 0
@@ -8597,7 +8624,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: -300, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5954787292788495727
@@ -8646,7 +8673,7 @@ CanvasGroup:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8869208751415325076}
   m_Enabled: 1
-  m_Alpha: 1
+  m_Alpha: 0
   m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0

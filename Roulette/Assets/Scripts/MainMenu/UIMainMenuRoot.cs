@@ -118,6 +118,16 @@ public class UIMainMenuRoot : MonoBehaviour
 
     public void OpenDailyRewardPanel()
     {
+        if (chooseRouletteGamePanel.IsOpenPanel)
+        {
+            CloseChooseRouletteGamePanel();
+        }
+
+        if (chooseSlotGamePanel.IsOpenPanel)
+        {
+            CloseChooseSlotGamePanel();
+        }
+
         OpenPanel(dailyRewardPanel);
     }
 

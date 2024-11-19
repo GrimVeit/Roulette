@@ -5,6 +5,9 @@ using UnityEngine.UI;
 
 public class ChooseRouletteGamePanel : MovePanel
 {
+    public bool IsOpenPanel => isOpenPanel;
+    private bool isOpenPanel;
+
     [SerializeField] private List<Button> rouletteGame_Buttons;
 
     private ISoundProvider soundProvider;
@@ -27,6 +30,20 @@ public class ChooseRouletteGamePanel : MovePanel
         {
             rouletteGame_Buttons[i].onClick.RemoveListener(HandleGoToRouletteGame_ButtonClick);
         }
+    }
+
+    public override void ActivatePanel()
+    {
+        base.ActivatePanel();
+
+        isOpenPanel = true;
+    }
+
+    public override void DeactivatePanel()
+    {
+        base.DeactivatePanel();
+
+        isOpenPanel = false;
     }
 
     public void SetSoundProvider(ISoundProvider soundProvider)

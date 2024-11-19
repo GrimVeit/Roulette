@@ -25,7 +25,7 @@ public class UISlots1SceneRoot : MonoBehaviour
 
     public void Deactivate()
     {
-
+        currentPanel.DeactivatePanel();
     }
 
     public void SetSoundProvider(ISoundProvider soundProvider)

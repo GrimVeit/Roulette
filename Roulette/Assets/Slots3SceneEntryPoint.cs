@@ -21,6 +21,9 @@ public class Slots3SceneEntryPoint : MonoBehaviour
     private JokerEffectPresenter jokerEffectPresenter;
     private SlotEffectPresenter slotEffectPresenter;
 
+    private GameProgressPresenter gameProgressPresenter;
+    private TimeGameSessionPresenter timeGameSessionPresenter;
+
     public void Run(UIRootView uIRootView)
     {
         sceneRoot = Instantiate(menuRootPrefab);
@@ -63,6 +66,12 @@ public class Slots3SceneEntryPoint : MonoBehaviour
             viewContainer.GetView<SlotEffectView>());
         slotEffectPresenter.Initialize();
 
+        gameProgressPresenter = new GameProgressPresenter(new GameProgressModel());
+        gameProgressPresenter.Initialize();
+
+        timeGameSessionPresenter = new TimeGameSessionPresenter(new TimeGameSessionModel(gameProgressPresenter));
+        timeGameSessionPresenter.Initialize();
+
         sceneRoot.SetSoundProvider(soundPresenter);
         sceneRoot.SetParticleEffectProvider(particleEffectPresenter);
         sceneRoot.Initialize();
@@ -96,6 +105,8 @@ public class Slots3SceneEntryPoint : MonoBehaviour
 
     private void ActivateEvents()
     {
+        bankPresenter.OnAddMoneyCount += UnlockGameFrom1000000Coins;
+
         slotBetPresenter.OnChooseBet_Count += slotMachinePresenter.SetBet;
 
         slotMachinePresenter.OnStartSpin += slotBetPresenter.Deactivate;
@@ -109,6 +120,8 @@ public class Slots3SceneEntryPoint : MonoBehaviour
 
     private void DeactivateEvents()
     {
+        bankPresenter.OnAddMoneyCount -= UnlockGameFrom1000000Coins;
+
         slotBetPresenter.OnChooseBet_Count -= slotMachinePresenter.SetBet;
 
         slotMachinePresenter.OnStartSpin -= slotBetPresenter.Deactivate;
@@ -133,11 +146,22 @@ public class Slots3SceneEntryPoint : MonoBehaviour
         slotBetPresenter?.Dispose();
         jokerEffectPresenter?.Dispose();
         slotEffectPresenter?.Dispose();
+
+        gameProgressPresenter?.Dispose();
+        timeGameSessionPresenter?.Dispose();
     }
 
     private void OnDestroy()
     {
         Dispose();
+    }
+
+    private void UnlockGameFrom1000000Coins(float coins)
+    {
+        if (coins >= 50)
+        {
+            gameProgressPresenter.UnlockGame(GameType.Roulette, 5);
+        }
     }
 
     #region Input actions

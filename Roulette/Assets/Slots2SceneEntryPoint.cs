@@ -20,6 +20,9 @@ public class Slots2SceneEntryPoint : MonoBehaviour
     private SlotBetPresenter slotBetPresenter;
     private SlotEffectPresenter slotEffectPresenter;
 
+    private GameProgressPresenter gameProgressPresenter;
+    private TimeGameSessionModel timeGameSessionModel;
+
     public void Run(UIRootView uIRootView)
     {
         sceneRoot = Instantiate(menuRootPrefab);
@@ -57,6 +60,12 @@ public class Slots2SceneEntryPoint : MonoBehaviour
             viewContainer.GetView<SlotEffectView>());
         slotEffectPresenter.Initialize();
 
+        gameProgressPresenter = new GameProgressPresenter(new GameProgressModel());
+        gameProgressPresenter.Initialize();
+
+        timeGameSessionModel = new TimeGameSessionModel(gameProgressPresenter);
+        timeGameSessionModel.Initialize();
+
         sceneRoot.SetSoundProvider(soundPresenter);
         sceneRoot.SetParticleEffectProvider(particleEffectPresenter);
         sceneRoot.Initialize();
@@ -90,8 +99,11 @@ public class Slots2SceneEntryPoint : MonoBehaviour
 
     private void ActivateEvents()
     {
+        bankPresenter.OnAddMoneyCount += UnlockGameFrom1000000Coins;
+
         slotBetPresenter.OnChooseBet_Count += slotMachinePresenter.SetBet;
 
+        slotMachinePresenter.OnStartSpin_Count += UnlockGameFrom30Spin;
         slotMachinePresenter.OnStartSpin += slotBetPresenter.Deactivate;
         slotMachinePresenter.OnStopSpin += slotBetPresenter.Activate;
 
@@ -100,8 +112,11 @@ public class Slots2SceneEntryPoint : MonoBehaviour
 
     private void DeactivateEvents()
     {
+        bankPresenter.OnAddMoneyCount -= UnlockGameFrom1000000Coins;
+
         slotBetPresenter.OnChooseBet_Count -= slotMachinePresenter.SetBet;
 
+        slotMachinePresenter.OnStartSpin_Count -= UnlockGameFrom30Spin;
         slotMachinePresenter.OnStartSpin -= slotBetPresenter.Deactivate;
         slotMachinePresenter.OnStopSpin -= slotBetPresenter.Activate;
 
@@ -120,11 +135,30 @@ public class Slots2SceneEntryPoint : MonoBehaviour
         slotMachinePresenter?.Dispose();
         slotBetPresenter?.Dispose();
         slotEffectPresenter?.Dispose();
+
+        gameProgressPresenter?.Dispose();
+        timeGameSessionModel?.Dispose();
     }
 
     private void OnDestroy()
     {
         Dispose();
+    }
+
+    private void UnlockGameFrom30Spin(int count)
+    {
+        if (count == 5)
+        {
+            gameProgressPresenter.UnlockGame(GameType.Slot, 2);
+        }
+    }
+
+    private void UnlockGameFrom1000000Coins(float coins)
+    {
+        if (coins >= 50)
+        {
+            gameProgressPresenter.UnlockGame(GameType.Roulette, 5);
+        }
     }
 
     #region Input actions
