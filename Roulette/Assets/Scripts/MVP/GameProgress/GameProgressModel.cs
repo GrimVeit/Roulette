@@ -51,6 +51,18 @@ public class GameProgressModel
         string json = JsonUtility.ToJson(new GameDatas(Datas.ToArray()));
         File.WriteAllText(FilePath, json);
     }
+
+    public void UnlockGame(GameType type, int number)
+    {
+        var gameData = Datas.FirstOrDefault(gd => gd.Type == type && gd.Number == number);
+
+        if(gameData != null && !gameData.IsOpen)
+        {
+            gameData.IsOpen = true;
+            OnGetData?.Invoke(Datas);
+            return;
+        }
+    }
 }
 
 public enum GameType

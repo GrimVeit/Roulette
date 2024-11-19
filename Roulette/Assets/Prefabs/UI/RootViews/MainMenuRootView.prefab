@@ -869,7 +869,7 @@ MonoBehaviour:
     spriteGame: {fileID: 21300000, guid: 3908ddbec4ba1aa40ae00664baaafbf1, type: 3}
     description: Unlock after 24 hours
   - gameType: 0
-    number: 4
+    number: 5
     buttonChoose: {fileID: 4333618471793255377}
     nameGame: The Emerald of Fairies
     spriteGame: {fileID: 21300000, guid: ef06a508919d9734a9157566946d03f0, type: 3}
@@ -1733,13 +1733,13 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1514192829630698269}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -3191,7 +3191,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   panel: {fileID: 2575602543102237665}
-  from: {x: 300, y: 0, z: 0}
+  from: {x: 0, y: 0, z: 0}
   to: {x: 0, y: 0, z: 0}
   time: 0.2
   canvasGroup: {fileID: 7415593372698947606}
@@ -8223,7 +8223,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   panel: {fileID: 8542292128601133210}
-  from: {x: -300, y: 0, z: 0}
+  from: {x: 0, y: 0, z: 0}
   to: {x: 0, y: 0, z: 0}
   time: 0.2
   canvasGroup: {fileID: 2097675450594708051}

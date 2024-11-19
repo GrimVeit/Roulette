@@ -1,6 +1,4 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -33,7 +31,7 @@ public class ChooseGamePanel : MovePanel
 
     private void HandlerClickToBackButton()
     {
-        soundProvider.PlayOneShot("ClickClose");
+        //soundProvider.PlayOneShot("ClickClose");
         OnClickBackButton?.Invoke();
     }
 }

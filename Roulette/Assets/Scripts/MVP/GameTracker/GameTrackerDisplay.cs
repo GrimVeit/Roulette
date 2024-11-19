@@ -36,13 +36,15 @@ public class GameTrackerDisplay : MonoBehaviour
         objectButtonPlay.SetActive(false);
     }
 
-    public void VisibleUnlock(string gameName, Sprite spriteGame)
+    public void VisibleUnlock(string gameName, Sprite spriteGame, Action actionToPlay)
     {
         textNameGame.text = gameName;
         imageGame.sprite = spriteGame;
         objectQuestionInImage.SetActive(false);
         objectDescription.SetActive(false);
         objectButtonPlay.SetActive(true);
+
+        OnClickToButton = actionToPlay;
     }
 
     #region Input

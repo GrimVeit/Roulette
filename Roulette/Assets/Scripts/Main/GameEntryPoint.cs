@@ -83,7 +83,7 @@ public class GameEntryPoint
 
     private IEnumerator LoadAndStartSlots1Scene()
     {
-        rootView.SetLoadScreen(1);
+        rootView.SetLoadScreen(2);
         yield return rootView.ShowLoadingScreen();
 
         yield return new WaitForSeconds(0.4f);
@@ -101,7 +101,7 @@ public class GameEntryPoint
 
     private IEnumerator LoadAndStartSlots2Scene()
     {
-        rootView.SetLoadScreen(1);
+        rootView.SetLoadScreen(3);
         yield return rootView.ShowLoadingScreen();
 
         yield return new WaitForSeconds(0.4f);
@@ -119,7 +119,7 @@ public class GameEntryPoint
 
     private IEnumerator LoadAndStartSlots3Scene()
     {
-        rootView.SetLoadScreen(1);
+        rootView.SetLoadScreen(4);
         yield return rootView.ShowLoadingScreen();
 
         yield return new WaitForSeconds(0.4f);

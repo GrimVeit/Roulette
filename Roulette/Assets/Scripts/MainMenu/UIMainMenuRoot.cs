@@ -65,6 +65,9 @@ public class UIMainMenuRoot : MonoBehaviour
         chooseRouletteGamePanel.OnOpenChooseGamePanel_Action -= OpenChooseGamePanel;
         chooseSlotGamePanel.OnOpenChooseGamePanel_Action -= OpenChooseGamePanel;
         chooseGamePanel.OnClickBackButton -= CloseChooseGamePanel;
+
+        currentPanel.DeactivatePanel();
+        chooseGamePanel.DeactivatePanel();
     }
 
     public void SetSoundProvider(ISoundProvider soundProvider)
@@ -209,28 +212,6 @@ public class UIMainMenuRoot : MonoBehaviour
         add { chooseGamePanel.OnClickBackButton += value; }
         remove { chooseGamePanel.OnClickBackButton -= value; }
     }
-
-    //public event Action OnGoToSlots1_Action
-    //{
-    //    add { mainPanel.GoToSlot1_Action += value; }
-    //    remove { mainPanel.GoToSlot1_Action -= value; }
-    //}
-
-    //public event Action OnGoToSlots2_Action
-    //{
-    //    add { mainPanel.GoToSlot2_Action += value; }
-    //    remove { mainPanel.GoToSlot2_Action -= value; }
-    //}
-
-    //public event Action OnGoToSlots3_Action
-    //{
-    //    add { mainPanel.GoToSlot3_Action += value; }
-    //    remove { mainPanel.GoToSlot3_Action -= value; }
-    //}
-
-    public event Action OnGoToSlots1_Action;
-    public event Action OnGoToSlots2_Action;
-    public event Action OnGoToSlots3_Action;
 
     #endregion
 }

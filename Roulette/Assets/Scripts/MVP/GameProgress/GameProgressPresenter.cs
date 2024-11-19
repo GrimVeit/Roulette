@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GameProgressPresenter
+public class GameProgressPresenter : IGameUnlocker
 {
     private GameProgressModel gameProgressModel;
     private GameProgressView gameProgressView;
@@ -40,6 +40,11 @@ public class GameProgressPresenter
 
     #region Input
 
+    public void UnlockGame(GameType type, int number)
+    {
+        gameProgressModel.UnlockGame(type, number);
+    }
+
     public event Action<List<GameData>> OnGetData
     {
         add { gameProgressModel.OnGetData += value; }
@@ -47,4 +52,9 @@ public class GameProgressPresenter
     }
 
     #endregion
+}
+
+public interface IGameUnlocker
+{
+    public void UnlockGame(GameType type, int number);
 }
