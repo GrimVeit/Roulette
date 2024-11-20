@@ -25,7 +25,7 @@ public class TimeGameSessionModel
         float savedTimesInSeconds = PlayerPrefs.GetFloat(launchKey, 0);
         totalGameTime = TimeSpan.FromSeconds(savedTimesInSeconds);
 
-        if(totalGameTime.TotalSeconds >= 20)
+        if(totalGameTime.TotalMinutes >= 15)
         {
             gameUnlocker.UnlockGame(GameType.Roulette, 3);
         }
@@ -49,7 +49,7 @@ public class TimeGameSessionModel
 
     private IEnumerator TimerCoroutine()
     {
-        while (totalGameTime.TotalSeconds < 20)
+        while (totalGameTime.TotalMinutes < 15)
         {
             totalGameTime = totalGameTime.Add(TimeSpan.FromSeconds(1));
 

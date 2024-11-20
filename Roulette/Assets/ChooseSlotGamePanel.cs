@@ -6,6 +6,8 @@ using UnityEngine.UI;
 
 public class ChooseSlotGamePanel : MovePanel
 {
+    public event Action OnOpenPanel;
+    public event Action OnClosePanel;
     public bool IsOpenPanel => isOpenPanel;
     private bool isOpenPanel;
 
@@ -38,6 +40,7 @@ public class ChooseSlotGamePanel : MovePanel
         base.ActivatePanel();
 
         isOpenPanel = true;
+        OnOpenPanel?.Invoke();
     }
 
     public override void DeactivatePanel()
@@ -45,6 +48,7 @@ public class ChooseSlotGamePanel : MovePanel
         base.DeactivatePanel();
 
         isOpenPanel = false;
+        OnClosePanel?.Invoke();
     }
 
     public void SetSoundProvider(ISoundProvider soundProvider)

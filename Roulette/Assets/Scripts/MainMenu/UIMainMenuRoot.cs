@@ -39,10 +39,13 @@ public class UIMainMenuRoot : MonoBehaviour
 
         dailyRewardPanel.OnClickBackButton += OpenMainPanel;
 
-        mainPanel.OnOpenChooseRoulettePanel += OpenChooseRouletteGamePanel;
-        mainPanel.OnCloseChooseRoulettePanel += CloseChooseRouletteGamePanel;
-        mainPanel.OnOpenChooseSlotPanel += OpenChooseSlotGamePanel;
-        mainPanel.OnCloseChooseSlotPanel += CloseChooseSlotGamePanel;
+        chooseRouletteGamePanel.OnOpenPanel += mainPanel.DeactivateRouletteButton;
+        chooseRouletteGamePanel.OnClosePanel += mainPanel.ActivateRouletteButton;
+        chooseSlotGamePanel.OnOpenPanel += mainPanel.DeactivateSlotMachineButton;
+        chooseSlotGamePanel.OnClosePanel += mainPanel.ActivateSlotMachineButton;
+
+        mainPanel.OnChooseRoulettePanel += CheckChooseRouletteGame;
+        mainPanel.OnChooseSlotPanel += CheckChooseSlotGame;
 
         chooseRouletteGamePanel.OnOpenChooseGamePanel_Action += OpenChooseGamePanel;
         chooseSlotGamePanel.OnOpenChooseGamePanel_Action += OpenChooseGamePanel;
@@ -57,10 +60,13 @@ public class UIMainMenuRoot : MonoBehaviour
 
         dailyRewardPanel.OnClickBackButton -= OpenMainPanel;
 
-        mainPanel.OnOpenChooseRoulettePanel -= OpenChooseRouletteGamePanel;
-        mainPanel.OnCloseChooseRoulettePanel -= CloseChooseRouletteGamePanel;
-        mainPanel.OnOpenChooseSlotPanel -= OpenChooseSlotGamePanel;
-        mainPanel.OnCloseChooseSlotPanel -= CloseChooseSlotGamePanel;
+        chooseRouletteGamePanel.OnOpenPanel -= mainPanel.DeactivateRouletteButton;
+        chooseRouletteGamePanel.OnClosePanel -= mainPanel.ActivateRouletteButton;
+        chooseSlotGamePanel.OnOpenPanel -= mainPanel.DeactivateSlotMachineButton;
+        chooseSlotGamePanel.OnClosePanel -= mainPanel.ActivateSlotMachineButton;
+
+        mainPanel.OnChooseRoulettePanel -= CheckChooseRouletteGame;
+        mainPanel.OnChooseSlotPanel -= CheckChooseSlotGame;
 
         chooseRouletteGamePanel.OnOpenChooseGamePanel_Action -= OpenChooseGamePanel;
         chooseSlotGamePanel.OnOpenChooseGamePanel_Action -= OpenChooseGamePanel;
@@ -78,6 +84,30 @@ public class UIMainMenuRoot : MonoBehaviour
     public void SetParticleEffectProvider(IParticleEffectProvider particleEffectProvider)
     {
         //this.particleEffectProvider = particleEffectProvider;
+    }
+
+    private void CheckChooseRouletteGame()
+    {
+        if (chooseRouletteGamePanel.IsOpenPanel)
+        {
+            CloseChooseRouletteGamePanel();
+        }
+        else
+        {
+            OpenChooseRouletteGamePanel();
+        }
+    }
+
+    private void CheckChooseSlotGame()
+    {
+        if (chooseSlotGamePanel.IsOpenPanel)
+        {
+            CloseChooseSlotGamePanel();
+        }
+        else
+        {
+            OpenChooseSlotGamePanel();
+        }
     }
 
     public void Dispose()
@@ -179,30 +209,6 @@ public class UIMainMenuRoot : MonoBehaviour
     {
         add { dailyRewardPanel.OnClickBackButton += value; }
         remove { dailyRewardPanel.OnClickBackButton -= value; }
-    }
-
-    public event Action OnOpenChooseRouletteGamePanel_Action
-    {
-        add { mainPanel.OnOpenChooseRoulettePanel += value; }
-        remove { mainPanel.OnOpenChooseRoulettePanel -= value; }
-    }
-
-    public event Action OnCloseChooseRouletteGamePanel_Action
-    {
-        add { mainPanel.OnCloseChooseRoulettePanel += value; }
-        remove { mainPanel.OnCloseChooseRoulettePanel -= value; }
-    }
-
-    public event Action OnOpenChooseSlotGamePanel_Action
-    {
-        add { mainPanel.OnOpenChooseSlotPanel += value; }
-        remove { mainPanel.OnOpenChooseSlotPanel -= value; }
-    }
-
-    public event Action OnCloseChooseSlotGamePanel_Action
-    {
-        add { mainPanel.OnCloseChooseSlotPanel += value; }
-        remove { mainPanel.OnCloseChooseSlotPanel -= value; }
     }
 
     public event Action OnOpenChooseGamePanelFromRoulette

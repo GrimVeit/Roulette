@@ -34,7 +34,8 @@ public class GameProgressModel
                 new GameData(GameType.Roulette, 5, false),
                 new GameData(GameType.Slot, 0, true),
                 new GameData(GameType.Slot, 1, false),
-                new GameData(GameType.Slot, 2, false)
+                new GameData(GameType.Slot, 2, false),
+                new GameData(GameType.Slot, 3, false)
             };
         }
 

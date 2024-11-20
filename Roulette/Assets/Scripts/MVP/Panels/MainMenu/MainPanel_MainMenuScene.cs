@@ -10,16 +10,17 @@ public class MainPanel_MainMenuScene : MovePanel
 
     [SerializeField] private Button chooseRouletteGame_Button;
     [SerializeField] private Button chooseSlotGame_Button;
+    [SerializeField] private Image imageRouletteButton;
+    [SerializeField] private Image imageSlotMachineButton;
+    [SerializeField] private Sprite spriteRouletteActive;
+    [SerializeField] private Sprite spriteSlotMachineActive;
+    [SerializeField] private Sprite spriteRouletteDeactive;
+    [SerializeField] private Sprite spriteSlotMachineDeactive;
 
-    public event Action OnOpenChooseRoulettePanel;
-    public event Action OnCloseChooseRoulettePanel;
-    public event Action OnOpenChooseSlotPanel;
-    public event Action OnCloseChooseSlotPanel;
+    public event Action OnChooseRoulettePanel;
+    public event Action OnChooseSlotPanel;
 
     private ISoundProvider soundProvider;
-
-    private bool isRoulettePanelOpen = false;
-    private bool isSlotPanelOpen = false;
 
     public override void Initialize()
     {
@@ -56,35 +57,39 @@ public class MainPanel_MainMenuScene : MovePanel
         base.DeactivatePanel();
     }
 
+
+
+    public void ActivateRouletteButton()
+    {
+        imageRouletteButton.sprite = spriteRouletteActive;
+    }
+
+    public void DeactivateRouletteButton()
+    {
+        imageRouletteButton.sprite = spriteRouletteDeactive;
+    }
+
+    public void ActivateSlotMachineButton()
+    {
+        imageSlotMachineButton.sprite = spriteSlotMachineActive;
+    }
+
+    public void DeactivateSlotMachineButton()
+    {
+        imageSlotMachineButton.sprite = spriteSlotMachineDeactive;
+    }
+
     #region Input
 
 
     private void HandlerClickToChooseRouletteGameButton()
     {
-        if (isRoulettePanelOpen)
-        {
-            isRoulettePanelOpen = false;
-            OnCloseChooseRoulettePanel?.Invoke();
-        }
-        else
-        {
-            isRoulettePanelOpen = true;
-            OnOpenChooseRoulettePanel?.Invoke();
-        }
+        OnChooseRoulettePanel?.Invoke();
     }
 
     private void HandlerClickToChooseSlotGameButton()
     {
-        if (isSlotPanelOpen)
-        {
-            isSlotPanelOpen = false;
-            OnCloseChooseSlotPanel?.Invoke();
-        }
-        else
-        {
-            isSlotPanelOpen = true;
-            OnOpenChooseSlotPanel?.Invoke();
-        }
+        OnChooseSlotPanel?.Invoke();
     }
 
     #endregion

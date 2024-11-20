@@ -147,7 +147,7 @@ public class Slots1SceneEntryPoint : MonoBehaviour
 
     private void UnlockGameFrom15Spin(int count)
     {
-        if(count == 5)
+        if(count == 15)
         {
             gameProgressPresenter.UnlockGame(GameType.Slot, 1);
         }
@@ -160,7 +160,7 @@ public class Slots1SceneEntryPoint : MonoBehaviour
 
     private void UnlockGameFrom1000000Coins(float coins)
     {
-        if (coins >= 50)
+        if (coins >= 1000000)
         {
             gameProgressPresenter.UnlockGame(GameType.Roulette, 5);
         }

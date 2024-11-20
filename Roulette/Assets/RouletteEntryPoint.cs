@@ -178,7 +178,7 @@ public class RouletteEntryPoint : MonoBehaviour
 
     private void UnlockGameFrom1000000Coins(float coins)
     {
-        if(coins >= 50)
+        if(coins >= 1000000)
         {
             gameProgressPresenter.UnlockGame(GameType.Roulette, 5);
         }

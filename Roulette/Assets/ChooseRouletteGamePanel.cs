@@ -5,6 +5,9 @@ using UnityEngine.UI;
 
 public class ChooseRouletteGamePanel : MovePanel
 {
+    public event Action OnOpenPanel;
+    public event Action OnClosePanel;
+
     public bool IsOpenPanel => isOpenPanel;
     private bool isOpenPanel;
 
@@ -37,11 +40,13 @@ public class ChooseRouletteGamePanel : MovePanel
         base.ActivatePanel();
 
         isOpenPanel = true;
+        OnOpenPanel?.Invoke();
     }
 
     public override void DeactivatePanel()
     {
         base.DeactivatePanel();
+        OnClosePanel?.Invoke();
 
         isOpenPanel = false;
     }
