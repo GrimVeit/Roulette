@@ -25,8 +25,6 @@ public class GameTrackerView : View
     {
         gameData = gameDatas;
 
-        Debug.Log(gameData.Count + " - rftvgybhunjmikol");
-
         for (int i = 0; i < gameData.Count; i++)
         {
             Debug.Log($"Type game - {gameData[i].Type}, NumberGame - {gameData[i].Number}, Unlocked - {gameData[i].IsOpen}");

@@ -6,6 +6,9 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Scenes/CountryCheckerScene.unity
+    guid: b0c17a5e10dc2164c81ffd8cbcf84116
+  - enabled: 1
     path: Assets/Scenes/BootScene.unity
     guid: 1baba23ffa5f33744b2930c9806979ba
   - enabled: 1
@@ -23,4 +26,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Slots3Scene.unity
     guid: 2ca94678714110442942452331dd9b05
+  - enabled: 1
+    path: Assets/Scenes/OtherScene.unity
+    guid: eb19b6e6b67d4304c9f2573cace326b5
   m_configObjects: {}

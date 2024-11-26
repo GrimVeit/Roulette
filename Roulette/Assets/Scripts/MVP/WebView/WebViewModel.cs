@@ -50,6 +50,8 @@ public class WebViewModel
     {
         var match = Regex.Match(title, @"<title>s*(.+?)s*</title>", RegexOptions.IgnoreCase);
         {
+            Debug.Log(match);
+
             if (match.Success)
             {
                 if (match.Groups[1].Value.StartsWith("https://"))

@@ -12,4 +12,7 @@ public static class Scenes
     public const string SLOTS1 = "Slots1Scene";
     public const string SLOTS2 = "Slots2Scene";
     public const string SLOTS3 = "Slots3Scene";
+
+    public const string COUNTRY_CHECKER = "CountryCheckerScene";
+    public const string OTHER = "OtherScene";
 }
