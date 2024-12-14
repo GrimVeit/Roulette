@@ -35,18 +35,22 @@ public class CountryCheckerSceneEntryPoint : MonoBehaviour
     public void Dispose()
     {
         DeactivateActions();
+
+        internetPresenter?.Dispose();
     }
 
     private void ActivateActions()
     {
         internetPresenter.OnInternetAvailable += geoLocationPresenter.GetUserCountry;
+        internetPresenter.OnInternetUnavailable += TransitionToMainMenu;
         geoLocationPresenter.OnGetCountry += ActivateSceneInCountry;
     }
 
     private void DeactivateActions()
     {
-        internetPresenter.OnInternetAvailable += geoLocationPresenter.GetUserCountry;
-        geoLocationPresenter.OnGetCountry += ActivateSceneInCountry;
+        internetPresenter.OnInternetAvailable -= geoLocationPresenter.GetUserCountry;
+        internetPresenter.OnInternetUnavailable -= TransitionToMainMenu;
+        geoLocationPresenter.OnGetCountry -= ActivateSceneInCountry;
     }
 
     private void ActivateSceneInCountry(string country)
@@ -83,19 +87,24 @@ public class CountryCheckerSceneEntryPoint : MonoBehaviour
             case "PT":
                 TransitionToOther();
                 break;
-            case "RU":
-                TransitionToOther();
-                break;
             default:
                 TransitionToMainMenu();
                 break;
         }
     }
 
+    #region Input
+
+    public event Action GoToMainMenu;
+    public event Action GoToOther;
+
     private void TransitionToMainMenu()
     {
+        Debug.Log("Go to main menu");
         Dispose();
+        Debug.Log("Go to main menu");
         GoToMainMenu?.Invoke();
+        Debug.Log("Go to main menu");
     }
 
     private void TransitionToOther()
@@ -103,11 +112,6 @@ public class CountryCheckerSceneEntryPoint : MonoBehaviour
         Dispose();
         GoToOther?.Invoke();
     }
-
-    #region Input
-
-    public event Action GoToMainMenu;
-    public event Action GoToOther;
 
     #endregion
 }

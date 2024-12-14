@@ -52,10 +52,9 @@ public class GameEntryPoint
         yield return new WaitForSeconds(0.2f);
 
         var sceneEntryPoint = Object.FindObjectOfType<CountryCheckerSceneEntryPoint>();
-        sceneEntryPoint.Run(rootView);
-
         sceneEntryPoint.GoToMainMenu += () => coroutines.StartCoroutine(LoadAndStartMainMenu());
         sceneEntryPoint.GoToOther += () => coroutines.StartCoroutine(LoadAndStartOther());
+        sceneEntryPoint.Run(rootView);
 
         //yield return rootView.HideLoadingScreen();
     }

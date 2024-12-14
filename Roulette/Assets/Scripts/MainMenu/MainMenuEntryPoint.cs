@@ -24,6 +24,8 @@ public class MainMenuEntryPoint : MonoBehaviour
     private TimeRealtimePresenter timeRealtimePresenter;
     private TimeGameSessionPresenter timeGameSessionPresenter;
 
+    private OrientationPresenter orientationPresenter;
+
     public void Run(UIRootView uIRootView)
     {
         sceneRoot = Instantiate(menuRootPrefab);
@@ -66,6 +68,9 @@ public class MainMenuEntryPoint : MonoBehaviour
             viewContainer.GetView<GameTrackerView>());
         gameTrackerPresenter.Initialize();
 
+        orientationPresenter = new OrientationPresenter(new OrientationModel());
+        orientationPresenter.Initialize();
+
         gameProgressPresenter = new GameProgressPresenter
             (new GameProgressModel());
 
@@ -76,6 +81,7 @@ public class MainMenuEntryPoint : MonoBehaviour
         ActivateTransitionsSceneEvents();
         ActivateEvents();
 
+        orientationPresenter.LandscapeLeftOrientation();
         gameProgressPresenter.Initialize();
         timeGameSessionPresenter.Initialize();
         timeRealtimePresenter.Initialize();

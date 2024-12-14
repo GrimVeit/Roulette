@@ -39,8 +39,6 @@ public class OtherSceneEntryPoint : MonoBehaviour
 
     private void GetUrl(string URL)
     {
-        URL = "https://youtube.com";
-
         if(URL == null)
         {
             GoToMainMenu?.Invoke();

@@ -1,7 +1,4 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
 
 public class InternetPresenter
 {
@@ -19,24 +16,30 @@ public class InternetPresenter
         ActivateEvents();
     }
 
-    private void ActivateEvents()
-    {
-        internetModel.OnGetStatusDescription += internetView.OnGetStatusDescription;
-    }
-
-    private void DeactivateEvents()
-    {
-        internetModel.OnGetStatusDescription -= internetView.OnGetStatusDescription;
-    }
-
     public void Dispose()
     {
         DeactivateEvents();
     }
 
+    private void ActivateEvents()
+    {
+
+    }
+
+    private void DeactivateEvents()
+    {
+
+    }
+
     public void StartCkeckInternet()
     {
         internetModel.StartCheckInternet();
+    }
+
+    public event Action OnInternetUnavailable
+    {
+        add { internetModel.OnInternetUnvailable += value; }
+        remove { internetModel.OnInternetUnvailable -= value; }
     }
 
     public event Action OnInternetAvailable

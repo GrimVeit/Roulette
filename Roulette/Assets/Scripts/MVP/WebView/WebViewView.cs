@@ -27,6 +27,9 @@ public class WebViewView : View, IIdentify
     public void Initialize()
     {
         ActivateEvents();
+
+        uniWebView.SetShowToolbarNavigationButtons(false);
+        uniWebView.SetShowToolbar(false);
     }
 
     private void ActivateEvents()
@@ -54,7 +57,7 @@ public class WebViewView : View, IIdentify
         if(uniWebView == null)
         {
             uniWebView = gameObject.AddComponent<UniWebView>();
-            uniWebView.SetShowToolbar(true);
+            uniWebView.SetShowToolbar(false);
             SetFullScreen();
 
             ActivateEvents();
@@ -88,6 +91,7 @@ public class WebViewView : View, IIdentify
     {
         uniWebView.Show();
         uniWebView.SetShowToolbarNavigationButtons(false);
+        uniWebView.SetShowToolbar(false);
 
         checkRotationCoroutine = CheckRotationDevice_Coroutine();
         StartCoroutine(checkRotationCoroutine);
